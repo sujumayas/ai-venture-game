@@ -2,6 +2,9 @@
 
 Welcome to the GitHub repository of *Eucalypto: El árbol de los trol*, a point-and-click adventure game inspired by classics like "Day of the Tentacle." 
 
+![Eucalypto Menu Screen](assets/images/eucalypto.jpg)
+![Eucalypto Game Screenshot](assets/images/full-interface-reference.jpg)
+
 ## Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
