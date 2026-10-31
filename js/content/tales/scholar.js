@@ -154,7 +154,7 @@ const studyHot = [
         await g.say('player', t('Centuries old. Someone ate breakfast out of this before Crawford had a name.', 'Siglos de antigüedad. Alguien desayunó en esto antes de que Crawford tuviera nombre.'));
       },
     } },
-  { id: 'candles', name: t('Candlesticks', 'Candelabros'), rect: [1440, 120, 150, 280], walkTo: [1420, 700], face: 'right',
+  { id: 'candles', name: t('Candlesticks', 'Candelabros'), rect: [1495, 125, 110, 100], walkTo: [1420, 700], face: 'right',
     on: { look: async (g) => {
       await g.say('player', t('My grandmother\'s Sabbath candlesticks. I don\'t light them. I don\'t give them away, either.', 'Los candelabros de sabbat de mi abuela. No los enciendo. Tampoco los regalo.'));
       if (ph(g) >= 7) await g.say('player', t('Sarai lit them, once, the week Rachel came home. She didn\'t say why. I didn\'t ask.', 'Sarai los encendió una vez, la semana en que Rachel volvió a casa. No dijo por qué. No se lo pregunté.'));

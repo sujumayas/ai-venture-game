@@ -156,7 +156,7 @@ async function credits(g) {
     ['h', t('This adaptation', 'Esta adaptación')],
     ['p', t('An unofficial, non-commercial fan project and playable proof of concept.', 'Un proyecto de fans no oficial y sin ánimo de lucro, y una prueba de concepto jugable.')],
     ['p', t('Illustrations generated with Higgsfield image models, under art direction inspired by classic European science-fiction comics and dark-fantasy paperback art.', 'Ilustraciones generadas con modelos de imagen de Higgsfield, con dirección de arte inspirada en el cómic europeo clásico de ciencia ficción y las portadas de fantasía oscura.')],
-    ['p', t('Music and sound synthesized live in your browser. The Consul\'s piano: Rachmaninoff, Prelude in C-sharp minor, Op. 3 No. 2 (public domain).', 'Música y sonido sintetizados en directo en tu navegador. El piano del Cónsul: Rachmaninov, Preludio en do sostenido menor, op. 3 n.º 2 (dominio público).')],
+    ['p', t('Original soundtrack generated with Runway music models; ambience and sound synthesized live in your browser. The Consul\'s piano: Rachmaninoff, Prelude in C-sharp minor, Op. 3 No. 2 (public domain).', 'Banda sonora original generada con modelos musicales de Runway; ambientes y sonido sintetizados en directo en tu navegador. El piano del Cónsul: Rachmaninov, Preludio en do sostenido menor, op. 3 n.º 2 (dominio público).')],
     ['p', t('Fonts: Patrick Hand, Cinzel, Bangers (SIL Open Font License).', 'Tipografías: Patrick Hand, Cinzel, Bangers (SIL Open Font License).')],
     ['h', t('Thank you for travelling with us.', 'Gracias por viajar con nosotros.')],
   ];

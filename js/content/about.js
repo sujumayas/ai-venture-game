@@ -13,7 +13,7 @@ export const ABOUT = t(
   These are present but implied rather than shown explicitly.</p>
   <p><b>Credits.</b> Design, writing, code: fan project. Illustrations generated with Higgsfield models under art direction
   inspired by classic European science-fiction comics and dark-fantasy paperback art. Fonts: Patrick Hand, Cinzel, Bangers
-  (SIL Open Font License). Music & sound synthesized in the browser; the Consul's piano plays the opening of
+  (SIL Open Font License). Original soundtrack of fourteen cues generated with Runway music models from our own briefs; ambience and sound effects synthesized in the browser; the Consul's piano plays the opening of
   Rachmaninoff's Prelude in C-sharp minor, Op. 3 No. 2 (public domain).</p>`,
   `<p><b>HYPERION — Una peregrinación en siete relatos</b> es una adaptación no oficial y sin ánimo de lucro de
   <i>Hyperion</i> (1989), la novela ganadora del premio Hugo de <b>Dan Simmons</b>. Fue creada como prueba de concepto
@@ -27,6 +27,6 @@ export const ABOUT = t(
   Están presentes, pero sugeridos, no mostrados de forma explícita.</p>
   <p><b>Créditos.</b> Diseño, guion y código: proyecto de fans. Ilustraciones generadas con modelos de Higgsfield, con dirección
   de arte inspirada en el cómic europeo clásico de ciencia ficción y las portadas de fantasía oscura. Tipografías: Patrick Hand,
-  Cinzel, Bangers (SIL Open Font License). Música y sonido sintetizados en el navegador; el piano del Cónsul toca el inicio del
+  Cinzel, Bangers (SIL Open Font License). Banda sonora original de catorce piezas generada con modelos musicales de Runway a partir de nuestras propias indicaciones; ambientes y efectos sintetizados en el navegador; el piano del Cónsul toca el inicio del
   Preludio en do sostenido menor, op. 3 n.º 2 de Rachmaninov (dominio público).</p>`
 );

@@ -6,8 +6,18 @@ import { audio } from './engine/audio.js';
 import { CONFIG } from './content/index.js';
 
 const game = new Game();
+if (game.fast) audio.noMusic = true;
 game.init();
 const menu = new Menu(game, CONFIG);
+
+// Soundtrack: which track plays in which scene (by scene id prefix). Scenes may override with `music:`.
+const MUSIC = [
+  ['p_', 'prologue'], ['c1_hoytpod', 'priest'], ['c1_', 'treeship'], ['priest_', 'priest'],
+  ['c2_benares', 'journey'], ['c2_', 'keats'], ['soldier_', 'soldier'], ['c3_', 'journey'], ['poet_', 'poet'],
+  ['c4_', 'journey'], ['scholar_', 'scholar'], ['c5_', 'journey'], ['detective_', 'detective'],
+  ['c6_', 'keep'], ['consul_', 'consul'], ['e_', 'finale'],
+];
+game.musicFor = (id) => { const m = MUSIC.find(([p]) => id.startsWith(p)); return m ? m[1] : null; };
 
 async function boot() {
   const fill = document.getElementById('loading-fill');

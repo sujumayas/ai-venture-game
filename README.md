@@ -28,7 +28,9 @@ tales, and you play **the protagonist of each tale** inside it.
   tale's design notes list those additions (`docs/design/*.md`). All dialogue and narration is an original retelling:
   no prose from the novel is reproduced.
 - Mature themes (violence, grief, body horror, adult relationships) are present but implied, never explicit.
-- Music and sound are synthesized live with WebAudio (no audio files). The Consul's piano plays the opening of
+- An original 14-cue soundtrack (main theme, one cue per tale, journey, Keats, Chronos Keep, finale, Shrike sting),
+  generated with Runway music models and streamed per chapter, over ambience and effects synthesized live with WebAudio.
+  The Consul's piano plays the opening of
   Rachmaninoff's Prelude in C-sharp minor (public domain).
 - Save/load (5 slots and autosave), chapter select (unlocks as you play; Options → *reviewer mode* unlocks everything).
 - Runs in any modern desktop browser, also on tablets. No build step, no server code.

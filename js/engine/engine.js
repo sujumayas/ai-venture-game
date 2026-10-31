@@ -43,6 +43,7 @@ export class Game {
     this.scene = null; this.lastTime = 0; this.errors = [];
     this.imgCache = new Map();
     audio.enabled = this.settings.sound;
+    audio.musicOn = this.settings.music !== false;
   }
 
   // ------------------------------------------------------------------ setup
@@ -163,6 +164,7 @@ export class Game {
       $('actors').innerHTML = '';
       this.refresh();
       audio.ambience(def.ambience || 'none');
+      if (!this.fast) audio.music(def.music !== undefined ? def.music : (this.musicFor ? this.musicFor(id) : null));
       if (this.debug) this.drawDebug();
       if (!opts.noFade) await this.fade(false);
       if (def.enter) await this.run(def.enter, { loaded: !!opts.loaded });

@@ -54,7 +54,7 @@ defineScene({
     { id: 'hoyt', x: 1000, y: 690, dir: 'right', on: { look: t('Hoyt, holding his hands out to the flames. He is always cold.', 'Hoyt, con las manos tendidas hacia las llamas. Siempre tiene frío.'), talk: t('"The grass is too sharp to walk through, they say. And there are serpents."', '«Dicen que la hierba es demasiado afilada para atravesarla. Y que hay serpientes.»') } },
     { id: 'lamia', x: 1300, y: 640, dir: 'left', on: { look: t('Lamia, cleaning a weapon.', 'Lamia, limpiando un arma.'), talk: t('"If you\'re going to talk, Consul, talk to the fire."', '«Si va a hablar, cónsul, háblele al fuego.»') } },
     { id: 'masteen', x: 1420, y: 590, dir: 'left', on: { look: t('Masteen stands beside his strange heavy cube, hood forward.', 'Masteen está de pie junto a su extraño y pesado cubo, con la capucha calada.'), talk: t('"The Tree is far above us now, Consul. I feel its distance."', '«El Árbol está muy por encima de nosotros, cónsul. Siento su distancia.»') } },
-    { id: 'kassad', x: 1150, y: 615, dir: 'left', on: { look: t('Kassad, watching the grass.', 'Kassad, vigilando la hierba.'), talk: t('"Fire first. Then we wait."', '«Primero el fuego. Luego esperamos.»') } },
+    { id: 'kassad', x: 1150, y: 615, dir: 'left', on: { look: t('Kassad, watching the grass.', 'Kassad, vigilando la hierba.'), talk: async (g) => { await g.say('kassad', g.f('c4_arrived') ? t('"The wagon\'s out there on the grass, just past the firelight. Everyone aboard."', '«El carro está ahí fuera, en la hierba, justo pasado el resplandor del fuego. Todos a bordo.»') : g.f('c4_bigfire') ? t('"Now we wait. Sit with the others. Silenus has been itching to talk all evening."', '«Ahora esperamos. Siéntese con los demás. Silenus lleva toda la tarde con ganas de hablar.»') : t('"Fire first. Then we wait."', '«Primero el fuego. Luego esperamos.»')); } } },
   ],
   hotspots: [
     { id: 'fire', name: t('Bonfire', 'Hoguera'), rect: [930, 380, 330, 250], walkTo: [930, 650], face: 'right',
@@ -88,6 +88,7 @@ defineScene({
     { id: 'dock', name: t('River dock', 'Muelle del río'), rect: [60, 430, 360, 200], walk: false,
       on: { look: async (g) => { await g.say('player', g.f('c4_bettik_gone') ? t('The dock is empty. The Benares is gone.', 'El muelle está vacío. La Benares se ha ido.') : t('The Benares, moored at the little dock for the last time.', 'La Benares, amarrada al pequeño muelle por última vez.')); } } },
     { id: 'wagon', name: t('Windwagon', 'Carro de viento'), rect: [1500, 380, 419, 300], exitDir: 'r', walkTo: [1450, 600], when: (g) => g.f('c4_arrived'),
+      on: { look: t('The windwagon waits just beyond the firelight, out on the grass: lanterns swinging, sails furled, gangway down. Nobody aboard.', 'El carro de viento espera justo más allá del resplandor del fuego, sobre la hierba: faroles meciéndose, velas recogidas, la pasarela bajada. Nadie a bordo.') },
       exit: async (g) => { await g.goto('c4_galley', { x: 1600, y: 760, dir: 'left' }); } },
   ],
   enter: async (g) => {
@@ -103,11 +104,12 @@ async function luggage(g) {
   await g.say('silenus', t('I brought my poem. The colonel brought enough weapons to start a war. The Consul brought...', 'Yo traje mi poema. El coronel trajo armas como para empezar una guerra. El Cónsul trajo...'));
   await g.say('silenus', t('...a spaceship, sitting in Keats, that I\'d wager answers when he whistles.', '...una nave espacial, esperando en Keats, que apuesto a que acude cuando él silba.'));
   g.talkingTo = 'silenus';
-  await g.choose([
+  const ans = await g.choose([
     { id: 'a', text: t('(Say nothing.)', '(No decir nada.)') },
     { id: 'b', text: t('"My ship is impounded by FORCE, Silenus."', '«Mi nave está retenida por la FUERZA, Silenus.»') },
   ]);
-  await g.say('player', t('I let the remark lie on the fire with the rest of the planks.', 'Dejo que el comentario arda en el fuego con el resto de las tablas.'), { style: 'think' });
+  if (ans === 'b') await g.say('player', t('My ship is impounded by FORCE, Silenus. It answers no one\'s whistle.', 'Mi nave está retenida por la FUERZA, Silenus. No acude al silbido de nadie.'));
+  else await g.say('player', t('I let the remark lie on the fire with the rest of the planks.', 'Dejo que el comentario arda en el fuego con el resto de las tablas.'), { style: 'think' });
   await g.say('silenus', t('And you, Captain? What\'s in the box?', '¿Y usted, capitán? ¿Qué hay en la caja?'));
   await g.say('masteen', t('Something that may be our salvation, at the Tombs. I will say no more.', 'Algo que puede ser nuestra salvación, en las Tumbas. No diré más.'));
   await g.say('sol', t('Captain, if we come through this... I\'d like us to exchange addresses. I\'d like to write to you.', 'Capitán, si salimos de esta... me gustaría que intercambiáramos direcciones. Me gustaría escribirle.'));
@@ -164,10 +166,11 @@ defineScene({
         } } },
     { id: 'table', name: t('Mess table', 'Mesa del comedor'), poly: [[650, 420], [1350, 400], [1460, 470], [1200, 720], [650, 720]], walk: false,
       on: { look: t('A long table, worn smooth by the elbows of crews who are not here.', 'Una mesa larga, pulida por los codos de tripulaciones que no están.') } },
-    { id: 'ladder', name: t('Ladder to the deck', 'Escalera a cubierta'), rect: [1300, 20, 180, 440], walk: false,
-      on: { look: t('Up to the deck, and the watches.', 'Arriba, a cubierta, y a las guardias.') } },
     { id: 'cabins', name: t('Cabin doors', 'Puertas de los camarotes'), rect: [1200, 160, 470, 300], walk: false,
       on: { look: t('Eight cabins. Masteen has taken the one at the end, and closed the door.', 'Ocho camarotes. Masteen ha tomado el del fondo y ha cerrado la puerta.') } },
+    // ladder listed after the cabins so it wins where the two rectangles overlap
+    { id: 'ladder', name: t('Ladder to the deck', 'Escalera a cubierta'), rect: [1300, 20, 180, 440], walk: false,
+      on: { look: t('Up to the deck, and the watches.', 'Arriba, a cubierta, y a las guardias.') } },
   ],
   enter: async (g) => {
     if (g.f('c4_galley_intro')) return;

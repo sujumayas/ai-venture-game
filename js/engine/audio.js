@@ -25,8 +25,46 @@ class AudioEngine {
   constructor() {
     this.ctx = null; this.master = null; this.enabled = true; this.current = null; this.currentName = 'none';
     this.volume = 0.8;
+    this.musicOn = true; this.musicVolume = 0.55; this.track = null; this.trackName = null; this.unlocked = false;
+  }
+
+  /** Streamed soundtrack with crossfade. name -> assets/music/<name>.mp3 ; null stops. */
+  music(name) {
+    if (name === this.trackName) return;
+    this.trackName = name;
+    const old = this.track;
+    if (old) this._fadeEl(old, 0, 1800, true);
+    this.track = null;
+    if (!name || !this.musicOn) return;
+    const el = new Audio(`assets/music/${name}.mp3`);
+    el.loop = name !== 'shrike_sting'; el.volume = 0; el.preload = 'auto';
+    this.track = el;
+    const play = () => el.play().then(() => this._fadeEl(el, this.enabled ? this.musicVolume : 0, 2200)).catch(() => { this.pendingPlay = el; });
+    play();
+  }
+  /** One-shot stinger over the current track. */
+  sting(name) {
+    if (!this.musicOn || !this.enabled || this.noMusic) return;
+    const el = new Audio(`assets/music/${name}.mp3`); el.volume = Math.min(1, this.musicVolume + 0.25);
+    el.play().catch(() => {});
+    if (this.track) { const t = this.track; this._fadeEl(t, this.musicVolume * 0.25, 300); setTimeout(() => { if (this.track === t) this._fadeEl(t, this.musicVolume, 2500); }, 7000); }
+  }
+  _fadeEl(el, to, ms, stopAfter) {
+    clearInterval(el._fade);
+    const from = el.volume, t0 = performance.now();
+    el._fade = setInterval(() => {
+      const k = Math.min(1, (performance.now() - t0) / ms);
+      el.volume = Math.max(0, Math.min(1, from + (to - from) * k));
+      if (k >= 1) { clearInterval(el._fade); if (stopAfter) { el.pause(); el.src = ''; } }
+    }, 50);
+  }
+  setMusic(on) {
+    this.musicOn = on;
+    if (!on) { const n = this.trackName; if (this.track) this._fadeEl(this.track, 0, 600, true); this.track = null; this.trackName = null; this._wanted = n; }
+    else if (this._wanted) { const n = this._wanted; this._wanted = null; this.music(n); }
   }
   ensure() {
+    if (this.pendingPlay) { const el = this.pendingPlay; this.pendingPlay = null; if (el === this.track) el.play().then(() => this._fadeEl(el, this.enabled ? this.musicVolume : 0, 2000)).catch(() => {}); }
     if (this.ctx) { if (this.ctx.state === 'suspended') this.ctx.resume(); return true; }
     const AC = window.AudioContext || window.webkitAudioContext;
     if (!AC) return false;
@@ -45,7 +83,10 @@ class AudioEngine {
     if (this.pending) { const p = this.pending; this.pending = null; this.ambience(p); }
     return true;
   }
-  setEnabled(on) { this.enabled = on; if (this.master) this.master.gain.setTargetAtTime(on ? this.volume : 0, this.ctx.currentTime, 0.1); }
+  setEnabled(on) {
+    this.enabled = on; if (this.master) this.master.gain.setTargetAtTime(on ? this.volume : 0, this.ctx.currentTime, 0.1);
+    if (this.track) this._fadeEl(this.track, on ? this.musicVolume : 0, 400);
+  }
   _noise(type) {
     const ctx = this.ctx, len = ctx.sampleRate * 4, buf = ctx.createBuffer(1, len, ctx.sampleRate), d = buf.getChannelData(0);
     let b0 = 0, b1 = 0, b2 = 0, b3 = 0, b4 = 0, b5 = 0, b6 = 0, last = 0;
@@ -80,7 +121,7 @@ class AudioEngine {
 
   _build(p) {
     const ctx = this.ctx, out = ctx.createGain(), nodes = [], timers = [];
-    out.gain.value = 0; out.connect(this.master); out.gain.setTargetAtTime(1, ctx.currentTime, 1.2);
+    out.gain.value = 0; out.connect(this.master); out.gain.setTargetAtTime(this.musicOn ? 0.45 : 1, ctx.currentTime, 1.2);
     const send = ctx.createGain(); send.gain.value = 0.6; send.connect(this.reverb); out.connect(send);
     const lfoNode = (rate, depth, target) => {
       const o = ctx.createOscillator(), g = ctx.createGain(); o.frequency.value = rate; g.gain.value = depth; o.connect(g); g.connect(target); o.start(); nodes.push(o); return o;
@@ -205,7 +246,7 @@ class AudioEngine {
       case 'door': noise('brown', 300, 1, 0.02, 0.5, 0.4, 'lowpass'); tone(80, 'sine', 0.01, 0.3, 0.2); break;
       case 'whoosh': noise('pink', 300, 2, 0.15, 0.6, 0.25, 'bandpass', 2500); break;
       case 'fatline': [0, 0.18, 0.36].forEach((w, i) => setTimeout(() => this.ctx && tone(1320 + i * 220, 'sine', 0.005, 0.12, 0.08), w * 1000)); break;
-      case 'shrike': tone(55, 'sawtooth', 0.05, 2.2, 0.2, 52); tone(58.3, 'sawtooth', 0.05, 2.2, 0.16, 61); noise('white', 4000, 8, 0.01, 0.9, 0.12, 'bandpass', 900); break;
+      case 'shrike': this.sting('shrike_sting'); tone(55, 'sawtooth', 0.05, 2.2, 0.2, 52); tone(58.3, 'sawtooth', 0.05, 2.2, 0.16, 61); noise('white', 4000, 8, 0.01, 0.9, 0.12, 'bandpass', 900); break;
       case 'shot': noise('white', 1200, 0.7, 0.002, 0.25, 0.5, 'lowpass', 200); tone(140, 'square', 0.002, 0.12, 0.2, 40); break;
       case 'laser': tone(2200, 'sawtooth', 0.003, 0.35, 0.08, 300); break;
       case 'thunder': noise('brown', 200, 0.5, 0.05, 2.5, 0.6, 'lowpass', 60); break;

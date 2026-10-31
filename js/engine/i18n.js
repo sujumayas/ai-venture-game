@@ -46,6 +46,7 @@ export const UI = {
   textSpeed: t('Text speed', 'Velocidad del texto'),
   slow: t('Slow', 'Lenta'), normal: t('Normal', 'Normal'), fast: t('Fast', 'Rápida'),
   volume: t('Sound', 'Sonido'),
+  musicLabel: t('Music', 'Música'),
   on_: t('On', 'Sí'), off_: t('Off', 'No'),
   reviewer: t('Unlock all chapters (reviewer mode)', 'Desbloquear todos los capítulos (modo revisión)'),
   hotspots: t('Show hotspots (hold Tab)', 'Mostrar zonas activas (mantén Tab)'),

@@ -30,7 +30,7 @@ Consul's own confession.
 - 8 chapters (Prologue, I–VI, Epilogue) + 6 tales: 66 playable scenes, about 120 comic panels, about 70 characters,
   40+ inventory items and about 3,700 bilingual lines of dialogue and narration.
 - Estimated play time: 3–4 hours for a first playthrough.
-- Save/load, chapter and tale select (Options → reviewer mode unlocks everything), procedural music and sound.
+- Save/load, chapter and tale select (Options → reviewer mode unlocks everything), an original 14-cue soundtrack plus procedural ambience and sound effects.
 
 ## What a licensed version could add
 - Hand-finished art by a comics artist using these layouts as storyboards, plus animated walk cycles.

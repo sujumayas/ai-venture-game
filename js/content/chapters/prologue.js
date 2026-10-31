@@ -69,7 +69,7 @@ defineScene({
       on: { look: t('Worn velvet. It remembers the shape of me.', 'Terciopelo gastado. Recuerda mi forma.'), use: async (g) => g.act('use', 'piano') } },
     { id: 'lamp', name: t('Brass lamp', 'Lámpara de latón'), rect: [80, 180, 170, 380],
       on: { look: t('The only warm light for a thousand kilometres.', 'La única luz cálida en mil kilómetros a la redonda.'), use: t('I like it on. The dark here is very large.', 'Me gusta encendida. Aquí la oscuridad es muy grande.') } },
-    { id: 'decanter', name: t('Decanter of scotch', 'Licorera de whisky'), rect: [640, 360, 120, 190], walkTo: [700, 640], face: 'left',
+    { id: 'decanter', name: t('Decanter of scotch', 'Licorera de whisky'), rect: [765, 450, 150, 90], walkTo: [760, 650], face: 'right',
       on: {
         look: t('Scotch, the real thing, distilled on a world that still remembers barley.', 'Whisky de verdad, destilado en un mundo que aún recuerda la cebada.'),
         take: async (g) => {
