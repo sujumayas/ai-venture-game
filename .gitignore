@@ -3,3 +3,4 @@ node_modules/
 /tmp/
 *.log
 tests/out/
+assets/manifest.json.lock

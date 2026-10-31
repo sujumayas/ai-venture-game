@@ -1,0 +1,11 @@
+[["start","ch4"],
+ ["act","talk","bettik"],
+ ["act","look","fire"],["act","take","houses"],["use","c4_planks","fire"],
+ ["act","talk","silenus"],["choose","a"],
+ ["act","walk","wagon"],["expect",{"scene":"c4_galley"}],
+ ["act","take","shelves"],["use","c4_provisions","stove"],
+ ["act","talk","sol"],
+ ["endtale"],
+ ["expect",{"scene":"c4_deck","player":"consul"}],
+ ["act","look","sky"],["act","talk","kassad"],
+ ["expect",{"chapter":"ch5","scene":"c5_cabin"}]]

@@ -25,7 +25,7 @@ button { font-family: inherit; }
 .hidden { display: none !important; }
 
 /* ---------- Scene ---------- */
-#scene { position: absolute; left: 0; top: 0; width: 1920px; height: 820px; overflow: hidden; cursor: crosshair; background: #000; }
+#scene { position: absolute; left: 0; top: 0; width: 1920px; height: 820px; overflow: hidden; cursor: crosshair; background: #000; isolation: isolate; }
 #scene.busy { cursor: progress; }
 #scene.hot { cursor: pointer; }
 #scene.exit-l { cursor: w-resize; } #scene.exit-r { cursor: e-resize; } #scene.exit-u { cursor: n-resize; } #scene.exit-d { cursor: s-resize; }

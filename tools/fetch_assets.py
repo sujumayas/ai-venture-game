@@ -6,7 +6,7 @@ Each line of list.txt:  <kind> <out_path_relative_to_repo> <url> [job_id]
 kind: bg | panel | char | item | card
 Records provenance in assets/manifest.json.
 """
-import sys, os, json, io, urllib.request
+import sys, os, json, io, urllib.request, fcntl
 from PIL import Image
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -92,7 +92,12 @@ def main():
             print('ok', out, im.size, os.path.getsize(dest) // 1024, 'KB')
         except Exception as e:
             print('FAIL', out, e)
-    json.dump(man, open(MANIFEST, 'w'), indent=1, sort_keys=True)
+    # merge under an exclusive lock: other processes may be writing concurrently
+    with open(MANIFEST + '.lock', 'w') as lk:
+        fcntl.flock(lk, fcntl.LOCK_EX)
+        cur = json.load(open(MANIFEST)) if os.path.exists(MANIFEST) else {}
+        cur.update({k: v for k, v in man.items() if k not in cur or cur[k] != v})
+        json.dump(cur, open(MANIFEST, 'w'), indent=1, sort_keys=True)
 
 
 if __name__ == '__main__':
