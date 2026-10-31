@@ -32,6 +32,7 @@ button { font-family: inherit; }
 #bg { position: absolute; inset: 0; background-size: cover; background-position: center; }
 #bg.pan { transition: background-position 6s ease-in-out; }
 #actors, #fg, #balloons, #captions, #debug-layer { position: absolute; inset: 0; pointer-events: none; }
+#actors { isolation: isolate; }
 #fg img, .fg-item { position: absolute; }
 
 .actor { position: absolute; transform-origin: 50% 100%; will-change: transform, left, top; }
@@ -195,3 +196,10 @@ button { font-family: inherit; }
 .caption.voice .who { color: #b9adff; }
 .caption.holo { background: rgba(170, 230, 255, 0.92); color: #06222e; border-color: #0a5b78; }
 .caption.holo .who { color: #075a78; }
+
+/* Layering inside the (isolated) scene: actors use z = feet y (0..~900); text always above them. */
+#actors { z-index: 1; }
+#fg { z-index: 2; }
+#debug-layer { z-index: 3; }
+#balloons { z-index: 4; }
+#captions { z-index: 5; }

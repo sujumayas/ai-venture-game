@@ -35,9 +35,9 @@ defineScene({
   hotspots: [
     { id: 'bunk', name: t('Bunk', 'Litera'), rect: [100, 330, 520, 300], walkTo: [500, 700],
       on: { look: async (g) => { g.set('c5_clue_bunk'); await g.say('player', t('The blankets are torn and tangled, as if he were dragged out of them. Or fought his way out.', 'Las mantas están rasgadas y enredadas, como si lo hubieran arrastrado fuera. O como si hubiera luchado para salir.')); } } },
-    { id: 'stains', name: t('Dark stains', 'Manchas oscuras'), rect: [640, 120, 600, 380], walk: false,
+    { id: 'stains', name: t('Dark stains', 'Manchas oscuras'), rect: [920, 60, 520, 440], walk: false,
       on: { look: async (g) => { g.set('c5_clue_stains'); await g.say('player', t('Blood, sprayed across the boards and the bulkhead. A great deal of it. And no body anywhere on the wagon.', 'Sangre, salpicada por las tablas y el mamparo. Mucha. Y ningún cuerpo en todo el carro.')); } } },
-    { id: 'cube', name: t('Möbius cube', 'Cubo de Möbius'), rect: [860, 520, 300, 220], walkTo: [1000, 760],
+    { id: 'cube', name: t('Möbius cube', 'Cubo de Möbius'), rect: [880, 500, 250, 230], walkTo: [1000, 790],
       on: {
         look: async (g) => {
           g.set('c5_clue_cube');
@@ -47,11 +47,11 @@ defineScene({
         take: t('Hoyt has offered to carry Masteen\'s luggage. I\'ll leave it for him.', 'Hoyt se ha ofrecido a cargar con el equipaje de Masteen. Se lo dejo a él.'),
         open: t('Nobody opens a Möbius cube who wants to keep their hands.', 'Nadie que quiera conservar las manos abre un cubo de Möbius.'),
       } },
-    { id: 'porthole', name: t('Porthole', 'Ojo de buey'), rect: [690, 220, 130, 140], walk: false,
+    { id: 'porthole', name: t('Porthole', 'Ojo de buey'), rect: [700, 130, 200, 210], walk: false,
       on: { look: async (g) => { g.set('c5_clue_porthole'); await g.say('player', t('Latched from the inside. Nothing bigger than a hand could get through it anyway.', 'Cerrado por dentro. Nada más grande que una mano podría pasar por él, de todos modos.')); } } },
-    { id: 'stool', name: t('Overturned stool', 'Taburete volcado'), rect: [1150, 560, 200, 160], walk: false,
+    { id: 'stool', name: t('Overturned stool', 'Taburete volcado'), rect: [590, 450, 200, 130], walk: false,
       on: { look: t('Knocked over. That is the only thing in this room that looks like an ordinary accident.', 'Volcado. Es lo único en esta habitación que parece un accidente corriente.') } },
-    { id: 'door', name: t('Corridor', 'Pasillo'), rect: [1500, 100, 419, 520], exitDir: 'r', walkTo: [1650, 760],
+    { id: 'door', name: t('Corridor', 'Pasillo'), rect: [1440, 60, 380, 540], exitDir: 'r', walkTo: [1650, 760],
       exit: async (g) => { await g.say('player', t('Not until we\'ve understood what we can of this.', 'No hasta que entendamos lo que podamos de esto.')); } },
   ],
   enter: async (g) => {

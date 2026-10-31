@@ -11,6 +11,10 @@
   "job": "a2c922ef-7f8b-4ae9-a31b-1fa8b24b99b7",
   "kind": "bg"
  },
+ "assets/bg/c5_cabin.webp": {
+  "job": "469193fe-6ba8-42dc-bd1f-8ca54f0383df",
+  "kind": "bg"
+ },
  "assets/bg/c5_rest.webp": {
   "job": "a6814acd-e203-4c2d-b1d4-145d3062f0c9",
   "kind": "bg"
@@ -21,6 +25,38 @@
  },
  "assets/bg/c6_hall.webp": {
   "job": "49f0399d-11e6-49de-8e81-175aed2c3593",
+  "kind": "bg"
+ },
+ "assets/bg/consul_base.webp": {
+  "job": "14e4ec24-03b1-4ee1-b12a-ee5b75f89aa9",
+  "kind": "bg"
+ },
+ "assets/bg/consul_festival.webp": {
+  "job": "c7c84734-b227-4400-b480-a86819fb380b",
+  "kind": "bg"
+ },
+ "assets/bg/consul_hill.webp": {
+  "job": "97d60920-d057-4664-bda0-727631efeaf4",
+  "kind": "bg"
+ },
+ "assets/bg/consul_house.webp": {
+  "job": "6e711ea2-35f7-4c56-be8f-8d52a22d1c74",
+  "kind": "bg"
+ },
+ "assets/bg/consul_lagoon.webp": {
+  "job": "c37c6bbe-6f7a-464f-8fba-e8bad43e22b9",
+  "kind": "bg"
+ },
+ "assets/bg/consul_ouster.webp": {
+  "job": "3b2c8737-4d42-4bd6-90d5-e4090c036317",
+  "kind": "bg"
+ },
+ "assets/bg/consul_tomb.webp": {
+  "job": "95ef24e4-27ed-419a-b87f-35a3cb24991f",
+  "kind": "bg"
+ },
+ "assets/bg/consul_valley.webp": {
+  "job": "692f562e-1cb3-42ec-b043-7d805e5c7643",
   "kind": "bg"
  },
  "assets/bg/detective_bar.webp": {
@@ -60,7 +96,7 @@
   "kind": "bg"
  },
  "assets/bg/e_valley.webp": {
-  "job": "62910dc8-3319-4fe8-b577-107137053f75",
+  "job": "d3f03433-5fe2-495f-9b75-35ac15a57e24",
   "kind": "bg"
  },
  "assets/bg/p_balcony.webp": {
@@ -205,6 +241,34 @@
  },
  "assets/chars/consul.webp": {
   "job": "06c6e93c-2421-4f0c-9873-3df666dd4659",
+  "kind": "char"
+ },
+ "assets/chars/consul_donel.webp": {
+  "job": "01bf1e99-986d-478c-9669-096c3ecd7169",
+  "kind": "char"
+ },
+ "assets/chars/consul_merin.webp": {
+  "job": "8f71b448-11b4-4116-ae2b-1aaccc40311e",
+  "kind": "char"
+ },
+ "assets/chars/consul_mike.webp": {
+  "job": "7b28397b-e69e-405d-a781-dc841108222e",
+  "kind": "char"
+ },
+ "assets/chars/consul_ouster.webp": {
+  "job": "8e576046-aa48-4007-b19b-0d63ff7112a7",
+  "kind": "char"
+ },
+ "assets/chars/consul_siri.webp": {
+  "job": "f7fed7c2-f29c-45ea-8f81-7d5a69432618",
+  "kind": "char"
+ },
+ "assets/chars/consul_siri_old.webp": {
+  "job": "489e7c3c-bcee-4f9d-9e7f-677cba826ed2",
+  "kind": "char"
+ },
+ "assets/chars/consul_tech.webp": {
+  "job": "5c80cd3a-6f48-4219-905a-bbf784ee72cd",
   "kind": "char"
  },
  "assets/chars/detective_barkeep.webp": {
@@ -379,6 +443,22 @@
   "job": "595fa0c8-3286-48ec-8657-e9cbf9691a2b",
   "kind": "item"
  },
+ "assets/items/consul_comlog.webp": {
+  "job": "f56de10e-28b7-4831-a217-5a6cf4a41c2e",
+  "kind": "item"
+ },
+ "assets/items/consul_disc.webp": {
+  "job": "a5b71f4c-cb64-4373-afc5-7021767bb5fd",
+  "kind": "item"
+ },
+ "assets/items/consul_mat.webp": {
+  "job": "027e39a2-6365-4d60-9562-963a3c5bd0d7",
+  "kind": "item"
+ },
+ "assets/items/consul_pistol.webp": {
+  "job": "0634d11f-6a80-4241-b6d3-e665c24db58d",
+  "kind": "item"
+ },
  "assets/items/detective_comlog.webp": {
   "job": "7eb8ece1-7004-47ce-9c6d-e6b2aba8910a",
   "kind": "item"
@@ -519,12 +599,68 @@
   "job": "a065cc22-3908-4619-bd16-aaea2fd21952",
   "kind": "panel"
  },
+ "assets/panels/consul_card.webp": {
+  "job": "37e06ec4-b754-4bb8-a840-730a59f2c916",
+  "kind": "card"
+ },
  "assets/panels/consul_p_bressia.webp": {
   "job": "34db46b5-0b4f-470e-b8f2-ee17ad5315be",
   "kind": "panel"
  },
+ "assets/panels/consul_p_ciceros.webp": {
+  "job": "53289939-7de5-4d62-b673-d0532ddcc8e7",
+  "kind": "panel"
+ },
+ "assets/panels/consul_p_device.webp": {
+  "job": "59ebc6b9-f4bd-4c7d-a8e6-2dbd5c3849aa",
+  "kind": "panel"
+ },
+ "assets/panels/consul_p_ebony.webp": {
+  "job": "20c9954b-d4c8-4771-8c6b-25f88ab41256",
+  "kind": "panel"
+ },
+ "assets/panels/consul_p_farcaster.webp": {
+  "job": "bd9362de-ae74-42d8-9370-55ae72af2b37",
+  "kind": "panel"
+ },
+ "assets/panels/consul_p_fist.webp": {
+  "job": "ae2e62af-c62a-4ee4-af3f-8c7deb29a0bc",
+  "kind": "panel"
+ },
+ "assets/panels/consul_p_flight.webp": {
+  "job": "f065ade4-82aa-4641-8ce6-d8099498de14",
+  "kind": "panel"
+ },
+ "assets/panels/consul_p_gladstone.webp": {
+  "job": "5a1595c3-a617-434a-977f-db4ae6d29e0d",
+  "kind": "panel"
+ },
+ "assets/panels/consul_p_lies.webp": {
+  "job": "6734f6c6-2163-43e6-819f-f8d59f97130c",
+  "kind": "panel"
+ },
+ "assets/panels/consul_p_mike.webp": {
+  "job": "770855db-3507-4cb5-8326-30b817ff3d4c",
+  "kind": "panel"
+ },
+ "assets/panels/consul_p_rebellion.webp": {
+  "job": "52468fbb-4b18-4022-bf86-4484d1a17080",
+  "kind": "panel"
+ },
+ "assets/panels/consul_p_recorder.webp": {
+  "job": "7ad62a2a-6dea-4496-ac7d-f0b707a1c9ac",
+  "kind": "panel"
+ },
  "assets/panels/consul_p_reunions.webp": {
   "job": "455c5b0d-a00d-4fb7-a1d8-f6a056ea69e3",
+  "kind": "panel"
+ },
+ "assets/panels/consul_p_spinship.webp": {
+  "job": "69744182-f5ef-4b25-b8d2-05fd481214a7",
+  "kind": "panel"
+ },
+ "assets/panels/consul_p_timedebt.webp": {
+  "job": "81bea648-733d-4877-af60-b61d4f229817",
   "kind": "panel"
  },
  "assets/panels/detective_card.webp": {

@@ -40,7 +40,7 @@ defineScene({
   hotspots: [
     { id: 'customhouse', name: t('Customhouse', 'Aduana'), rect: [820, 60, 450, 460], walkTo: [1040, 560],
       on: { look: async (g) => { g.set('c3_customhouse'); await g.say('player', t('The Customhouse. I signed transit papers here once, on a tour of the river ports. Its doors are charcoal.', 'La Aduana. Una vez firmé aquí papeles de tránsito, en una gira por los puertos del río. Sus puertas son carbón.')); await sumUp(g); } } },
-    { id: 'inn', name: t('River Front Inn', 'River Front Inn'), rect: [380, 180, 330, 340], walkTo: [560, 560],
+    { id: 'inn', name: t('River Front Inn', 'Posada River Front'), rect: [380, 180, 330, 340], walkTo: [560, 560],
       on: { look: async (g) => { g.set('c3_inn'); await g.say('player', t('The River Front Inn: a famous boarding house from Sad King Billy\'s day. The poets drank here on their way north. Roofless now.', 'El River Front Inn: una famosa casa de huéspedes de los tiempos del rey Billy el Triste. Los poetas bebían aquí camino del norte. Ahora sin techo.')); await sumUp(g); } } },
     { id: 'shrine', name: t('Riverfront temple', 'Templo ribereño'), rect: [1290, 190, 250, 330], walkTo: [1400, 570],
       on: { look: async (g) => { g.set('c3_shrine'); await g.say('player', t('A small Shrike temple. Burned like everything else. Whoever did this did not discriminate between the faithful and the rest.', 'Un pequeño templo del Alcaudón. Quemado como todo lo demás. Quien hizo esto no distinguió entre los fieles y los demás.')); await sumUp(g); } } },

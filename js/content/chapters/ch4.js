@@ -180,11 +180,11 @@ defineScene({
 defineScene({
   id: 'c4_deck', name: t('The windwagon\'s deck', 'La cubierta del carro de viento'),
   bg: 'assets/bg/c4_deck.webp', ambience: 'grass',
-  walk: [[480, 655], [1919, 655], [1919, 819], [480, 819]],
-  scale: [655, 0.8, 819, 0.95],
+  walk: [[480, 680], [1100, 700], [1919, 760], [1919, 819], [480, 819]],
+  scale: [680, 0.82, 819, 0.95],
   start: { x: 600, y: 720, dir: 'right' },
   actors: [
-    { id: 'kassad', x: 1300, y: 700, dir: 'left', on: {
+    { id: 'kassad', x: 1250, y: 795, dir: 'left', on: {
       look: t('Kassad, organising the watches.', 'Kassad, organizando las guardias.'),
       talk: async (g) => {
         if (!g.f('c4_seen')) { await g.say('kassad', t('Look up, Consul. The fighting has started.', 'Mire arriba, cónsul. Ha empezado la lucha.')); return; }
@@ -195,7 +195,7 @@ defineScene({
         await g.narrate(t('The others go below. The Consul keeps watch alone on the deck, the weapon in his lap, the grass hissing all around, until dawn.', 'Los demás bajan. El Cónsul hace guardia solo en cubierta, con el arma en el regazo y la hierba silbando alrededor, hasta el amanecer.'));
         await g.nextChapter();
       } } },
-    { id: 'masteen', x: 1700, y: 760, dir: 'left', when: (g) => !g.f('c4_masteen_below'), on: {
+    { id: 'masteen', x: 1640, y: 805, dir: 'left', when: (g) => !g.f('c4_masteen_below'), on: {
       look: t('Het Masteen at the rail, his face hidden, utterly still.', 'Het Masteen en la borda, el rostro oculto, completamente inmóvil.'),
       talk: t('He does not answer. He does not seem to hear.', 'No responde. No parece oír.') } },
     { id: 'sol', x: 800, y: 760, dir: 'right', on: { look: t('Sol has brought Rachel up for air.', 'Sol ha subido a Rachel a tomar el aire.'), talk: t('"Thank you for listening, all of you. It helps, a little, to say it aloud."', '«Gracias por escuchar, a todos. Ayuda, un poco, decirlo en voz alta.»') } },

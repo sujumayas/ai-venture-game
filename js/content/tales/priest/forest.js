@@ -37,6 +37,7 @@ async function plantStakes(g) {
 }
 
 async function storm(g) {
+  g.drop('priest_suit');
   await g.panels([
     {
       img: P('priest_p_storm'), kb: 'in', sfxSound: 'thunder',
@@ -132,7 +133,7 @@ defineScene({
   bg: 'assets/bg/priest_camp.webp',
   ambience: 'forest',
   walk: [[440, 705], [780, 705], [790, 697], [1150, 697], [1250, 620], [1700, 665], [1880, 705], [1880, 815], [440, 815]],
-  scale: [620, 0.4, 815, 0.66],
+  scale: [620, 0.34, 815, 0.56],
   start: { x: 560, y: 760, dir: 'right' },
   actors: [
     { id: 'priest_tuk', x: 1380, y: 735, dir: 'left', on: { talk: tukTalk,

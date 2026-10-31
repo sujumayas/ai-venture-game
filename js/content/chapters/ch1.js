@@ -123,7 +123,7 @@ defineScene({
         await g.say('player', t('The "down" here is made by singularities caged in the tree\'s base. I try not to think about that.', 'El «abajo» aquí lo crean singularidades enjauladas en la base del árbol. Intento no pensar en ello.'));
       } } },
     { id: 'lanterns', name: t('Glowbirds', 'Pájaros luminosos'), rect: [700, 40, 1100, 180], walk: false,
-      on: { look: t('Glowbirds drift between the branches like paper lanterns, with Old Earth fireflies and the floating lights of Maui-Covenant. Maui-Covenant. I look away.', 'Pájaros luminosos flotan entre las ramas como farolillos de papel, con luciérnagas de la vieja Tierra y luces flotantes de Maui-Covenant. Maui-Covenant. Aparto la mirada.') } },
+      on: { look: t('Glowbirds drift between the branches like paper lanterns, with Old Earth fireflies and the floating lights of Maui-Covenant. Maui-Covenant. I look away.', 'Pájaros luminosos flotan entre las ramas como farolillos de papel, con luciérnagas de la vieja Tierra y luces flotantes de Maui-Pacto. Maui-Pacto. Aparto la mirada.') } },
     { id: 'bridge', name: t('Suspension bridge', 'Puente colgante'), poly: [[620, 330], [1100, 300], [1120, 360], [880, 420], [640, 430]],
       walkTo: [700, 520],
       on: {

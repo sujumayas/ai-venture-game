@@ -638,6 +638,7 @@ export class Game {
    */
   async dialog(npc, opts, key) {
     const prev = this.talkingTo; this.talkingTo = npc; key = key || npc;
+    this.set('_endDialog', false);
     while (true) {
       const list = (typeof opts === 'function' ? opts(this) : opts).filter((o) => (!o.when || o.when(this)) && !(o.once && this.f(`d:${key}:${o.id}`)));
       if (!list.length) break;

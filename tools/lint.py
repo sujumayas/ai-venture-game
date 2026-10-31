@@ -38,9 +38,9 @@ for dp, _, fs in os.walk(CONTENT):
             ln = src[:m.start()].count('\n') + 1
             if bad_es.search(es):
                 report(f, ln, 'avoid "coger" in Spanish: ' + es[:60])
-            if en == es and len(en) > 12 and not en.startswith('<'):
+            if en == es and len(en.split()) >= 3 and not en.startswith('<'):
                 report(f, ln, 'identical EN/ES text: ' + en[:60])
-            if len(en) > 300:
+            if len(en) > 300 and not en.lstrip().startswith('<'):
                 report(f, ln, f'long string ({len(en)} chars), consider splitting: ' + en[:50])
 
 print(f'{problems} problem(s)')

@@ -109,10 +109,10 @@ defineScene({
   bg: 'assets/bg/priest_cathedral.webp',
   ambience: 'church',
   walk: [[620, 700], [960, 655], [1220, 680], [1600, 695], [1880, 735], [1880, 815], [520, 815], [540, 740]],
-  scale: [655, 0.68, 815, 0.98],
-  start: { x: 760, y: 770, dir: 'right' },
+  scale: [655, 0.56, 815, 0.82],
+  start: { x: 1000, y: 770, dir: 'left' },
   actors: [
-    { id: 'priest_oldwoman', x: 655, y: 660, dir: 'right', when: (g) => !g.f('priest_k_mass'),
+    { id: 'priest_oldwoman', x: 800, y: 645, dir: 'right', when: (g) => !g.f('priest_k_mass'),
       on: {
         look: t('An old woman in black, kneeling at the end of the fourth pew. Her eyes are milky white. She is blind, and wholly absorbed in prayer.',
           'Una anciana de negro, de rodillas al final del cuarto banco. Tiene los ojos blanquecinos. Es ciega y está entregada por completo a la oración.'),
@@ -123,7 +123,7 @@ defineScene({
         },
         'item:priest_crucifix': async (g) => { await think(g, t('She cannot see it. And she has no need to.', 'No puede verlo. Y no lo necesita.')); },
       } },
-    { id: 'priest_candle_fx', x: 640, y: 640, when: (g) => g.f('priest_k_mass'),
+    { id: 'priest_candle_fx', x: 790, y: 612, when: (g) => g.f('priest_k_mass'),
       on: {
         look: async (g) => {
           g.set('priest_k_candle');
