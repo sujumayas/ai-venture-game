@@ -37,6 +37,8 @@ for (const ch of chapters) {
         last = await page.evaluate(async (id) => { HYP.menu.close(); HYP.game.newState(); HYP.game.state.chapter = HYP.REG.tales[id].chapter; HYP.game.startTale(id); await new Promise((r) => setTimeout(r, 50)); return HYP.idle(); }, a);
       } else if (op === 'scene') {
         last = await page.evaluate(async ([id, pl]) => { HYP.menu.close(); HYP.game.newState(); if (pl) HYP.game.state.player = pl; HYP.game.goto(id); await new Promise((r) => setTimeout(r, 50)); return HYP.idle(); }, [a, b]);
+      } else if (op === 'endtale') {
+        last = await page.evaluate(async () => { if (!HYP.game.state.tale) return HYP.idle(); HYP.game.busyCount = 0; HYP.game.endTale(); await new Promise((r) => setTimeout(r, 50)); return HYP.idle(); });
       } else if (op === 'flag') {
         await page.evaluate(([k, v]) => HYP.game.set(k, v ?? true), [a, b]);
       } else if (op === 'give') {

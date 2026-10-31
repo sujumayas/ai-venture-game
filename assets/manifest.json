@@ -1,10 +1,158 @@
 {
+ "assets/bg/c1_dining.webp": {
+  "job": "18934a09-a9cc-4479-b246-41d3a5a77e87",
+  "kind": "bg"
+ },
+ "assets/bg/c1_pod.webp": {
+  "job": "249217c5-0c2e-455c-977b-614b519f3e75",
+  "kind": "bg"
+ },
+ "assets/bg/c1_walkway.webp": {
+  "job": "a2c922ef-7f8b-4ae9-a31b-1fa8b24b99b7",
+  "kind": "bg"
+ },
+ "assets/bg/detective_bar.webp": {
+  "job": "29a02946-afb2-4064-8885-634d009442de",
+  "kind": "bg"
+ },
+ "assets/bg/detective_datumplane.webp": {
+  "job": "b693adaa-8998-466d-aa74-d1f6334c7467",
+  "kind": "bg"
+ },
+ "assets/bg/detective_flat.webp": {
+  "job": "3be4cff3-890b-4a25-8ffd-8f7205187189",
+  "kind": "bg"
+ },
+ "assets/bg/detective_madhya.webp": {
+  "job": "9c653c3b-bfc9-4231-853e-81e0244e657f",
+  "kind": "bg"
+ },
+ "assets/bg/detective_office.webp": {
+  "job": "4263097e-4140-466b-89df-ad3db9b467ca",
+  "kind": "bg"
+ },
+ "assets/bg/detective_rome.webp": {
+  "job": "2e2865be-8ee4-47ab-a966-7c92aa4435a1",
+  "kind": "bg"
+ },
+ "assets/bg/detective_temple.webp": {
+  "job": "3d80e271-d704-4dfb-9db6-661b4715b125",
+  "kind": "bg"
+ },
  "assets/bg/p_balcony.webp": {
   "job": "4976e7a4-89c0-4b6b-911a-c84db33c7623",
   "kind": "bg"
  },
  "assets/bg/p_lounge.webp": {
   "job": "be4a2e5a-96bd-440b-9e7b-8eba9c2e6fc9",
+  "kind": "bg"
+ },
+ "assets/bg/poet_canals.webp": {
+  "job": "46280f61-57e5-4e26-8526-5fa04000ccd1",
+  "kind": "bg"
+ },
+ "assets/bg/poet_city.webp": {
+  "job": "845c0494-29b2-446f-b257-73e643f84632",
+  "kind": "bg"
+ },
+ "assets/bg/poet_courtyard.webp": {
+  "job": "665f7ffc-2f7b-4672-bea0-6bf5bfb7a4f8",
+  "kind": "bg"
+ },
+ "assets/bg/poet_house.webp": {
+  "job": "7a0aa79f-e691-4352-a03e-4027248229dd",
+  "kind": "bg"
+ },
+ "assets/bg/poet_study.webp": {
+  "job": "1fe8f7c0-51f8-41b1-9736-9c6ad810690b",
+  "kind": "bg"
+ },
+ "assets/bg/poet_transline.webp": {
+  "job": "0951469e-eaf8-4484-9107-adb46523baae",
+  "kind": "bg"
+ },
+ "assets/bg/priest_basilica.webp": {
+  "job": "e40c69eb-b1b1-426a-9297-dd1b6d0d752d",
+  "kind": "bg"
+ },
+ "assets/bg/priest_camp.webp": {
+  "job": "bdaa4ce5-7d8a-4a3f-97ee-c29b3b2dc348",
+  "kind": "bg"
+ },
+ "assets/bg/priest_cathedral.webp": {
+  "job": "57178efc-aac5-4851-b440-a299114ea534",
+  "kind": "bg"
+ },
+ "assets/bg/priest_cave.webp": {
+  "job": "b5ed35fe-707f-42de-97e8-7dfadfd13a79",
+  "kind": "bg"
+ },
+ "assets/bg/priest_chapel.webp": {
+  "job": "b15f2c2e-d2e3-4201-84cf-a86d4906e202",
+  "kind": "bg"
+ },
+ "assets/bg/priest_cleft.webp": {
+  "job": "7bf7d489-bf4e-4cbc-b40f-574a86e52f92",
+  "kind": "bg"
+ },
+ "assets/bg/priest_perecebo.webp": {
+  "job": "3711afc4-a5bc-4ea5-8b27-7f0367045f3d",
+  "kind": "bg"
+ },
+ "assets/bg/scholar_college.webp": {
+  "job": "d6df32aa-bf4a-43e1-bb24-7400a1755458",
+  "kind": "bg"
+ },
+ "assets/bg/scholar_dream.webp": {
+  "job": "da480aff-18ec-435a-b1ee-db5eefeecaed",
+  "kind": "bg"
+ },
+ "assets/bg/scholar_nursery.webp": {
+  "job": "8d701b15-3834-48f2-a661-ce82211dfa57",
+  "kind": "bg"
+ },
+ "assets/bg/scholar_room.webp": {
+  "job": "d55a3319-c844-4bb2-8836-d7769c9f722e",
+  "kind": "bg"
+ },
+ "assets/bg/scholar_room_child.webp": {
+  "job": "58bfb725-9cc1-49c3-9cfd-27c11124c70c",
+  "kind": "bg"
+ },
+ "assets/bg/scholar_study.webp": {
+  "job": "032151ff-d7c1-4111-8274-b8b58c446564",
+  "kind": "bg"
+ },
+ "assets/bg/scholar_treeship.webp": {
+  "job": "1c4856ba-0821-4ea4-ab46-3a1e65811883",
+  "kind": "bg"
+ },
+ "assets/bg/soldier_camp.webp": {
+  "job": "870a2a0c-cb28-42af-9048-5a8bb66a1dc0",
+  "kind": "bg"
+ },
+ "assets/bg/soldier_creche.webp": {
+  "job": "9197ad93-d19b-4fa9-8581-399aa8955407",
+  "kind": "bg"
+ },
+ "assets/bg/soldier_field.webp": {
+  "job": "eaf74591-776e-46bd-b6d1-1adf7b2177d4",
+  "kind": "bg"
+ },
+ "assets/bg/soldier_merrick.webp": {
+  "job": "49d73ea6-e29f-4ae9-a50c-2327c8077523",
+  "kind": "bg"
+ },
+ "assets/bg/soldier_poets.webp": {
+  "job": "1666b993-e369-4b0e-ac26-416dbd6c0b48",
+  "kind": "bg"
+ },
+ "assets/bg/soldier_tombs.webp": {
+  "job": "d96cb3fb-7156-4848-9bcb-80f1d811dede",
+  "kind": "bg"
+ },
+ "assets/bg/soldier_woods.webp": {
+  "job": "a5372e9d-eb0b-4222-b4b5-79a2445db52f",
   "kind": "bg"
  },
  "assets/bg/test_swamp.webp": {
@@ -15,8 +163,20 @@
   "job": "05af54d4-1c3d-4f29-8882-6af83787681e",
   "kind": "char"
  },
+ "assets/chars/c1_clone.webp": {
+  "job": "de399084-b802-4674-9794-84ef7417fbc0",
+  "kind": "char"
+ },
+ "assets/chars/c1_hoyt_pain.webp": {
+  "job": "331309c9-ab99-46a6-bba5-1aeb92cf9eee",
+  "kind": "char"
+ },
  "assets/chars/consul.webp": {
   "job": "06c6e93c-2421-4f0c-9873-3df666dd4659",
+  "kind": "char"
+ },
+ "assets/chars/gladstone.webp": {
+  "job": "fbdfd98b-353e-4d47-948e-a5542911f2be",
   "kind": "char"
  },
  "assets/chars/hoyt.webp": {
@@ -35,6 +195,18 @@
   "job": "50e42d09-cafa-4ea8-86fb-8902aa178ca3",
   "kind": "char"
  },
+ "assets/chars/scholar_prop_diploma.webp": {
+  "job": "eaa25d38-493e-4573-aa86-98d9e76b803f",
+  "kind": "char"
+ },
+ "assets/chars/scholar_prop_poster.webp": {
+  "job": "3fb80163-6f0a-4525-8ce1-b3b7769a8838",
+  "kind": "char"
+ },
+ "assets/chars/scholar_prop_viewer.webp": {
+  "job": "55bd3caa-c46a-4f1c-b992-bb11ef207a37",
+  "kind": "char"
+ },
  "assets/chars/shrike.webp": {
   "job": "de286cb5-3c58-44b1-bdd0-6fccebff17e6",
   "kind": "char"
@@ -46,6 +218,214 @@
  "assets/chars/sol.webp": {
   "job": "8a3bea64-a0c3-4b2e-8267-4a05c1c645ff",
   "kind": "char"
+ },
+ "assets/chars/soldier_kassad_cadet.webp": {
+  "job": "24a687a3-11c8-4498-930d-4d48978a8b26",
+  "kind": "char"
+ },
+ "assets/chars/soldier_kassad_knight.webp": {
+  "job": "aaadd832-fa14-4abb-a5ec-e10da51d5c16",
+  "kind": "char"
+ },
+ "assets/chars/soldier_kassad_suit.webp": {
+  "job": "cce52873-5e5b-4cdd-9dcb-85b2e886e47e",
+  "kind": "char"
+ },
+ "assets/chars/soldier_knight.webp": {
+  "job": "60751f79-4189-4713-9474-bada9a3ca1b8",
+  "kind": "char"
+ },
+ "assets/chars/soldier_moneta.webp": {
+  "job": "a7b6e612-c50e-4df4-9d49-3d3bb9eb1580",
+  "kind": "char"
+ },
+ "assets/chars/soldier_ouster.webp": {
+  "job": "804bbd21-a561-47bf-a422-0a4be201f7a4",
+  "kind": "char"
+ },
+ "assets/items/c1_injector.webp": {
+  "job": "58fc187d-ea51-4bf0-a133-9c0041847162",
+  "kind": "item"
+ },
+ "assets/items/c1_juice.webp": {
+  "job": "26c6474a-c43a-4457-8014-3b7a87c83be7",
+  "kind": "item"
+ },
+ "assets/items/c1_lot.webp": {
+  "job": "7defd25b-a933-4c2f-bb32-1f15ce1b9cf1",
+  "kind": "item"
+ },
+ "assets/items/c1_token.webp": {
+  "job": "9b4dd35e-43c3-43b7-be87-a0bd5f245444",
+  "kind": "item"
+ },
+ "assets/items/c1_tricorne.webp": {
+  "job": "8d95ea09-9922-4de9-a2be-ffe49215d95c",
+  "kind": "item"
+ },
+ "assets/items/detective_comlog.webp": {
+  "job": "7eb8ece1-7004-47ce-9c6d-e6b2aba8910a",
+  "kind": "item"
+ },
+ "assets/items/detective_fclog.webp": {
+  "job": "e82f3497-dcdc-45c8-8a44-269ebbb9569b",
+  "kind": "item"
+ },
+ "assets/items/detective_holo.webp": {
+  "job": "70ed5242-edd5-4399-bf00-38ea4bad8c9e",
+  "kind": "item"
+ },
+ "assets/items/detective_melanin.webp": {
+  "job": "07231f8c-67f9-48b5-a527-023bd3d386c6",
+  "kind": "item"
+ },
+ "assets/items/detective_ucard.webp": {
+  "job": "26218277-4f0e-44c8-9a9e-704b6104138c",
+  "kind": "item"
+ },
+ "assets/items/p_scotch.webp": {
+  "job": "7865ce8f-53c4-4601-87da-7a1bde6b8351",
+  "kind": "item"
+ },
+ "assets/items/scholar_comlog.webp": {
+  "job": "3592b0c8-6729-49d1-9cde-6f58c661a9ef",
+  "kind": "item"
+ },
+ "assets/items/scholar_cube.webp": {
+  "job": "10163e23-038c-424f-93ea-97d3efaef012",
+  "kind": "item"
+ },
+ "assets/items/scholar_picturebook.webp": {
+  "job": "6a97ee51-2d74-44a7-8d52-ba07e5f28b1e",
+  "kind": "item"
+ },
+ "assets/items/scholar_shard.webp": {
+  "job": "e6787959-79a4-4087-b08c-370f78d32646",
+  "kind": "item"
+ },
+ "assets/items/scholar_sling.webp": {
+  "job": "81e39d49-3981-4352-b07b-d6ab190ea247",
+  "kind": "item"
+ },
+ "assets/panels/c1_carry.webp": {
+  "job": "4b936520-7b7f-4840-a3d0-db12b2c22e49",
+  "kind": "panel"
+ },
+ "assets/panels/c1_cruciform.webp": {
+  "job": "084c472b-e303-4ace-bacd-0726d00d4375",
+  "kind": "panel"
+ },
+ "assets/panels/c1_lots.webp": {
+  "job": "61efd9d1-6210-4018-b0ae-dbfd64fab1c4",
+  "kind": "panel"
+ },
+ "assets/panels/c1_tesla.webp": {
+  "job": "0c7b3bf8-3ac7-4a43-b69a-890f0909bf2c",
+  "kind": "panel"
+ },
+ "assets/panels/c1_treeship.webp": {
+  "job": "fb80f63e-c6b1-454c-9a75-49d8efe81216",
+  "kind": "panel"
+ },
+ "assets/panels/detective_card.webp": {
+  "job": "2714dab0-c230-4d4d-804d-17fc2b797c21",
+  "kind": "card"
+ },
+ "assets/panels/detective_p_ambush.webp": {
+  "job": "adbba012-69b8-4108-b2a3-b1c54740aaef",
+  "kind": "panel"
+ },
+ "assets/panels/detective_p_fanny.webp": {
+  "job": "c521a7c2-69b2-415c-b9ee-913d1f09c2c3",
+  "kind": "panel"
+ },
+ "assets/panels/detective_p_father.webp": {
+  "job": "6934892b-75d6-456a-a88b-3301151672f2",
+  "kind": "panel"
+ },
+ "assets/panels/detective_p_lusus.webp": {
+  "job": "9407c8cf-10a2-46a5-b8d0-1378192c3cf9",
+  "kind": "panel"
+ },
+ "assets/panels/detective_p_reveal.webp": {
+  "job": "3cf88bf6-037f-4b6d-9723-c4a6604d301c",
+  "kind": "panel"
+ },
+ "assets/panels/p_liftoff.webp": {
+  "job": "00ab24a5-1364-4e1a-b523-8dc3d5d92e54",
+  "kind": "panel"
+ },
+ "assets/panels/p_memory.webp": {
+  "job": "c380a0c1-f1a9-4693-8a4f-dc62f8d75f8f",
+  "kind": "panel"
+ },
+ "assets/panels/p_storm.webp": {
+  "job": "3276034a-cdf7-4a4d-af6e-65c53ae0564a",
+  "kind": "panel"
+ },
+ "assets/panels/scholar_card.webp": {
+  "job": "341e41d6-0c93-4f6f-ba31-a5dae8533cb7",
+  "kind": "card"
+ },
+ "assets/panels/scholar_p_accident.webp": {
+  "job": "f798fb5c-11f8-4731-90d0-9c533f5df33b",
+  "kind": "panel"
+ },
+ "assets/panels/scholar_p_arundez.webp": {
+  "job": "7f450644-79f5-494e-80b5-8bc9a27ec1be",
+  "kind": "panel"
+ },
+ "assets/panels/scholar_p_barnard.webp": {
+  "job": "82fcbbf8-4ad2-4334-a47f-1c75fa0ec170",
+  "kind": "panel"
+ },
+ "assets/panels/scholar_p_family.webp": {
+  "job": "2e393a2f-63d6-4169-a581-e3d63e4f0cb2",
+  "kind": "panel"
+ },
+ "assets/panels/scholar_p_fields.webp": {
+  "job": "05e60abe-5c28-49cc-ae87-6ab1cd4d1ab6",
+  "kind": "panel"
+ },
+ "assets/panels/scholar_p_hospital.webp": {
+  "job": "e0d432b2-4ce6-464a-b53a-7c72e4ea0552",
+  "kind": "panel"
+ },
+ "assets/panels/scholar_p_leaving.webp": {
+  "job": "ad18a21b-8ffb-4d5f-9d84-942d371fb3cc",
+  "kind": "panel"
+ },
+ "assets/panels/scholar_p_media.webp": {
+  "job": "0b7b11bf-d0a9-4e0f-9b85-c174391be660",
+  "kind": "panel"
+ },
+ "assets/panels/scholar_p_road.webp": {
+  "job": "18d61bae-e441-4d57-8085-d608365dde3c",
+  "kind": "panel"
+ },
+ "assets/panels/scholar_p_skimmer.webp": {
+  "job": "e0c06758-dfc4-45d4-b9ec-5e7639d869c2",
+  "kind": "panel"
+ },
+ "assets/panels/scholar_p_smile.webp": {
+  "job": "fd897f2e-0b3d-456c-848b-f365be347a45",
+  "kind": "panel"
+ },
+ "assets/panels/scholar_p_sphinx.webp": {
+  "job": "e9da7718-5c14-4434-ba64-8f91e64def1a",
+  "kind": "panel"
+ },
+ "assets/panels/soldier_card.webp": {
+  "job": "41b47b3c-1d72-495d-814a-e43542e6f989",
+  "kind": "card"
+ },
+ "assets/panels/soldier_p_agincourt.webp": {
+  "job": "b80a7bf8-61e6-4c95-ba3a-e74f5a20357a",
+  "kind": "panel"
+ },
+ "assets/panels/soldier_p_tree.webp": {
+  "job": "6effda1c-d29d-4e57-bed2-fa5a30aab593",
+  "kind": "panel"
  },
  "assets/panels/title.webp": {
   "job": "ce8590e5-5e2b-48d4-b92e-44a3183303ea",
