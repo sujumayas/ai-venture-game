@@ -31,7 +31,7 @@ defineItems({
   detective_comlog: {
     name: t('Comlog', 'Comlog'), icon: 'assets/items/detective_comlog.webp',
     look: t("My comlog. Licensed-investigator access, a camera, and a ringtone I keep meaning to change.", 'Mi comlog. Acceso de investigadora con licencia, una cámara y un tono de llamada que siempre olvido cambiar.'),
-    use: t('I check my messages. None. Clients are like rain on Lusus: you only notice them when they stop.', 'Reviso mis mensajes. Ninguno. Los clientes son como la lluvia en Lusus: solo los notas cuando dejan de caer.'),
+    use: t('I check my messages. None. Clients are like rain on Lusus: you only notice them when they stop. (To point the comlog at someone or something, click it in the inventory, then click the target.)', 'Reviso mis mensajes. Ninguno. Los clientes son como la lluvia en Lusus: solo los notas cuando dejan de caer. (Para apuntar el comlog a alguien o a algo, haz clic en él en el inventario y luego en el objetivo.)'),
   },
   detective_ucard: {
     name: t('Universal card', 'Tarjeta universal'), icon: 'assets/items/detective_ucard.webp',
@@ -915,7 +915,7 @@ async function afterRun(g) {
       { text: t('They were waiting for us a block from the door. Core agents, grey as the man in the bar. I got two of them. It was not enough.', 'Nos esperaban a una manzana de la puerta. Agentes del Núcleo, grises como el hombre del bar. Abatí a dos. No bastó.'), who: LAMIA },
     ] },
     { img: P('p_fanny'), kb: 'in', captions: [
-      { text: t('He knew. His fingers found the back of my neck — the loop BB had given me — and he poured himself into it, everything he was, while there was still time.', 'Él lo sabía. Sus dedos encontraron mi nuca, el bucle que BB me había dado, y se vertió en él, todo lo que era, mientras aún había tiempo.'), who: LAMIA },
+      { text: t('Johnny went down, and he knew the wound was mortal. His fingers found the back of my neck — the loop BB had given me — and he poured himself into it, everything he was, while there was still time.', 'Johnny cayó, y supo que la herida era mortal. Sus dedos encontraron mi nuca, el bucle que BB me había dado, y se vertió en él, todo lo que era, mientras aún había tiempo.'), who: LAMIA },
     ], balloons: [
       { text: t('Fanny...', 'Fanny…'), who: J, x: 1250, y: 420 },
     ] },

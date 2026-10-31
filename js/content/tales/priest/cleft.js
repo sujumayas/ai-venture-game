@@ -19,8 +19,8 @@ async function showCrucifix(g) {
   await g.fade(false, 400);
   await J(g, t('I held up the crucifix I wear. As one, all of them knelt. They carry no weapons at all.',
     'Levanté el crucifijo que llevo. Todos a una se arrodillaron. No llevan ningún arma.'));
-  await J(g, t('Then they led me down to the village to "sleep": a two-hour rest they take every afternoon, all together, in silence.',
-    'Luego me llevaron al poblado a «dormir»: un descanso de dos horas que toman cada tarde, todos juntos, en silencio.'));
+  await J(g, t('Then they led me down to the village to "sleep": a two-hour rest they take every afternoon, all together, in silence. The big low hut at the end of the terrace, it seems, is to be mine.',
+    'Luego me llevaron al poblado a «dormir»: un descanso de dos horas que toman cada tarde, todos juntos, en silencio. La choza baja y grande al final de la terraza, por lo visto, será la mía.'));
   await day(g, t('Day 97 — the Three Score and Ten', 'Día 97 — los Tres Veintenas y Diez'));
   await J(g, t('That is what they call themselves. I have given names to the few I can tell apart: Alpha, who came forward first; Beta, perhaps female, perhaps his mate; Del.',
     'Así se llaman a sí mismos. He dado nombre a los pocos que distingo: Alfa, el primero en acercarse; Beta, quizá mujer, quizá su pareja; Del.'));
@@ -100,7 +100,11 @@ async function checkDusk(g) {
 async function moveIntoHut(g) {
   if (robe(g)) { await g.say('player', t('My hut. They carried me here, after the cave. I do not remember the climb.', 'Mi choza. Me trajeron aquí después de la cueva. No recuerdo la subida.')); return; }
   if (!g.f('priest_c_met')) { await think(g, t('Someone lives there. I should not walk in uninvited.', 'Alguien vive ahí. No debo entrar sin que me inviten.')); return; }
-  if (g.f('priest_c_hut')) { await g.say('player', t('My gear is stowed. Everything recorded.', 'Mi equipo está guardado. Todo registrado.')); return; }
+  if (g.f('priest_c_hut')) {
+    await g.say('player', t('My gear is stowed. Everything recorded.', 'Mi equipo está guardado. Todo registrado.'));
+    if (!g.f('priest_c_tuk')) await think(g, t('Everything but Tuk. Someone here knows how he died. Alpha, perhaps.', 'Todo menos lo de Tuk. Alguien aquí sabe cómo murió. Alfa, quizá.'));
+    return;
+  }
   await g.fade(true);
   g.set('priest_c_hut');
   await g.fade(false);
@@ -373,7 +377,9 @@ defineScene({
       async (g) => {
         if (!g.f('priest_c_met')) return alphaTalk(g);
         await g.say('priest_beta', robe(g) ? t('You are of the cruciform. Good.', 'Eres del cruciforme. Bien.') : t('You sleep now?', '¿Duermes ahora?'));
-        await think(g, t('Beta smiles faintly, and looks through me as if I were mist.', 'Beta sonríe apenas, y mira a través de mí como si yo fuera niebla.'));
+        await think(g, !robe(g) && !g.f('priest_c_hut')
+          ? t('Beta smiles faintly and nods toward the big low hut at the end of the terrace: the one they keep for me. My gear is still in my old tent.', 'Beta sonríe apenas y señala con la cabeza la choza baja y grande al final de la terraza: la que me reservan. Mi equipo sigue en mi vieja tienda.')
+          : t('Beta smiles faintly, and looks through me as if I were mist.', 'Beta sonríe apenas, y mira a través de mí como si yo fuera niebla.'));
       }),
     bik('priest_del', 1720, 695, 'left',
       t('Del. A shade smaller than the others, though they all seem the same age, the same face, the same patience.', 'Del. Un poco más pequeño que los demás, aunque todos parecen de la misma edad, con la misma cara y la misma paciencia.'),
@@ -394,7 +400,10 @@ defineScene({
       on: { look: t('A primitive loom. They weave the coarse dark cloth of their robes on it, slowly, endlessly, without a word.', 'Un telar primitivo. Tejen en él la tela oscura y basta de sus túnicas, despacio, sin fin, sin una palabra.'),
         use: t('I would only tangle it. Beta would quietly untangle it again.', 'Solo lo enredaría. Y Beta lo desenredaría en silencio.') } },
     { id: 'tent', name: t('My tent', 'Mi tienda'), rect: [36, 205, 210, 160],
-      on: { look: t('My old tent, patched and sagging. I hardly sleep in it now.', 'Mi vieja tienda, remendada y caída. Ya casi no duermo en ella.') } },
+      on: { look: async (g) => {
+        if (g.f('priest_c_met') && !g.f('priest_c_hut')) await g.say('player', t('My old tent, patched and sagging. The Bikura keep a hut for me in the village; I should move my things in there.', 'Mi vieja tienda, remendada y caída. Los bikura me reservan una choza en el poblado; debería trasladar allí mis cosas.'));
+        else await g.say('player', t('My old tent, patched and sagging. I hardly sleep in it now.', 'Mi vieja tienda, remendada y caída. Ya casi no duermo en ella.'));
+      } } },
     { id: 'grave', name: t('Tuk\'s grave', 'La tumba de Tuk'), rect: [240, 280, 125, 85],
       on: { look: t('Tuk\'s grave. I piled the stones myself. He talked so much, and now there is only the wind.', 'La tumba de Tuk. Apilé las piedras yo mismo. Hablaba tanto, y ahora solo queda el viento.'),
         use: async (g) => { await g.say('player', t('Requiem aeternam dona ei, Domine. Eternal rest grant him, O Lord.', 'Requiem aeternam dona ei, Domine. Dale, Señor, el descanso eterno.')); } } },
