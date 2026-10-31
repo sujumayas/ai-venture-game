@@ -16,13 +16,13 @@ const shootOuster = async (g) => {
 
 const cutCables = async (g) => {
   if (!g.f('soldier_ouster_down')) {
-    await g.say('player', t('Not with that boarder watching me. One problem at a time.', 'No con ese abordador vigilándome. Un problema cada vez.'), { style: 'think' });
+    await g.say('player', t('Not with that boarder watching me. One problem at a time.', 'Con ese abordador vigilándome, no. Cada cosa a su tiempo.'), { style: 'think' });
     return;
   }
   if (g.f('soldier_cables_cut')) { await g.say('player', t('They\'re cut. She\'s free.', 'Están cortados. Está libre.')); return; }
   g.set('soldier_cables_cut');
   g.sfx('laser'); g.shake(300); g.sfx('laser');
-  await tell(g, t('Three short bursts. The cable-arms parted and whipped back into the dark, hissing like cut snakes.', 'Tres ráfagas cortas. Los brazos de cable se partieron y se replegaron hacia la oscuridad, silbando como serpientes cortadas.'));
+  await tell(g, t('Three short bursts. The cable-arms parted and whipped back into the dark, hissing like cut snakes.', 'Tres ráfagas cortas. Los brazos de cable se partieron y se replegaron hacia la oscuridad, silbando como serpientes partidas.'));
 };
 
 const escape = async (g) => {
@@ -38,7 +38,7 @@ const escape = async (g) => {
   g.sfx('door');
   await panels(g, [
     { img: 'assets/panels/soldier_p_crash.webp', kb: 'in', sfxSound: 'explosion', captions: [
-      { text: t('The Ouster controls were built for longer hands than his, but a pilot is a pilot. Kassad tore the craft loose and dived for the planet below, with fire chasing him all the way down.', 'Los mandos éxters estaban hechos para manos más largas que las suyas, pero un piloto es un piloto. Kassad arrancó la nave y se lanzó hacia el planeta, con el fuego persiguiéndolo hasta abajo.'), who: KASSAD, pos: 'tl' },
+      { text: t('The Ouster controls were built for longer hands than his, but a pilot is a pilot. Kassad tore the craft loose and dived for the planet below, with fire chasing him all the way down.', 'Los mandos éxter estaban hechos para manos más largas que las suyas, pero un piloto es un piloto. Kassad soltó la nave de un tirón y se lanzó hacia el planeta, con el fuego persiguiéndolo hasta abajo.'), who: KASSAD, pos: 'tl' },
       { text: t('The planet was Hyperion. He came down at night, among ruins, and the world went dark.', 'El planeta era Hyperion. Cayó de noche, entre ruinas, y el mundo se apagó.'), pos: 'br' },
     ] },
   ]);
@@ -67,7 +67,7 @@ defineScene({
   actors: [
     { id: 'soldier_ouster', x: 1330, y: 720, dir: 'left', when: (g) => !g.f('soldier_ouster_down'),
       on: {
-        look: t('An Ouster. Tall as a doorway and thin as a rail, with long bare toes that grip like fingers and a prosthetic tail for steering in zero-g. Armed.', 'Un éxter. Alto como una puerta y flaco como un riel, con largos dedos de los pies que agarran como manos y una cola protésica para maniobrar en gravedad cero. Armado.'),
+        look: t('An Ouster. Tall as a doorway and thin as a rail, with long bare toes that grip like fingers and a prosthetic tail for steering in zero-g. Armed.', 'Un éxter. Alto como una puerta y delgado como una vara, con largos dedos de los pies que agarran como manos y una cola protésica para maniobrar en gravedad cero. Armado.'),
         talk: t('He has not come to talk. Neither have I.', 'No ha venido a hablar. Yo tampoco.'),
         use: t('With my bare hands, and half my stitches still fresh? No. I need a weapon.', '¿Con las manos desnudas y la mitad de los puntos todavía frescos? No. Necesito un arma.'),
         take: t('With my bare hands, and half my stitches still fresh? No. I need a weapon.', '¿Con las manos desnudas y la mitad de los puntos todavía frescos? No. Necesito un arma.'),
@@ -89,7 +89,7 @@ defineScene({
       } },
     { id: 'locker', name: t('Arms locker', 'Armero'), rect: [650, 200, 240, 400], walkTo: [770, 700], face: 'right',
       on: {
-        look: t('The ward\'s emergency arms locker. Armoured, and palm-locked to officers.', 'El armero de emergencia de la sala. Blindado, y con cierre palmar para oficiales.'),
+        look: t('The ward\'s emergency arms locker. Armoured, and palm-locked to officers.', 'El armero de emergencia de la sala. Blindado, y con cerradura palmar reservada a los oficiales.'),
         use: useLocker, open: useLocker,
       } },
     { id: 'cables', name: t('Cable-arms', 'Brazos de cable'), poly: [[1250, 200], [1560, 180], [1600, 560], [1300, 600]], walkTo: [1420, 700], face: 'right',
@@ -144,7 +144,7 @@ defineScene({
               await g.say('player', t('Then they\'ll be coming for me.', 'Entonces vendrán a por mí.'));
               await g.say('soldier_moneta', t('No. The Shrike has already found them. There is no one left.', 'No. El Alcaudón ya los ha encontrado. No queda nadie.'));
             } },
-            { id: 'real', text: t('You were a simulation. A dream in the Network.', 'Eras una simulación. Un sueño de la Red.'), run: async (g) => {
+            { id: 'real', text: t('You were a simulation. A dream in the Network.', 'Eras una simulación. Un sueño de la Red Táctica.'), run: async (g) => {
               await g.say('soldier_moneta', t('Here I am not a dream.', 'Aquí no soy un sueño.'));
             } },
             { id: 'past', text: t('You\'ve been with me since Agincourt.', 'Has estado conmigo desde Azincourt.'), run: async (g) => {
@@ -156,7 +156,7 @@ defineScene({
             { id: 'bye', text: t('(Say nothing.)', '(No decir nada.)'), silent: true, exit: true },
           ]);
         },
-        take: t('She is not someone you take anywhere. She leads.', 'No es alguien a quien uno lleve a ningún sitio. Ella guía.'),
+        take: t('She is not someone you take anywhere. She leads.', 'No es alguien a quien se pueda llevar a ninguna parte. Es ella quien guía.'),
       } },
   ],
   hotspots: [
@@ -182,7 +182,7 @@ defineScene({
         await g.goto('soldier_tombs', { x: 200, y: 760, dir: 'right' });
       } },
     { id: 'smoke', name: t('Smoke on the horizon', 'Humo en el horizonte'), rect: [1685, 240, 100, 130],
-      on: { look: t('A thin line of smoke, far away. Something else came down out there.', 'Una línea fina de humo, muy lejos. Algo más cayó allí.') } },
+      on: { look: t('A thin line of smoke, far away. Something else came down out there.', 'Una línea fina de humo, muy lejos. Algo más cayó por allí.') } },
   ],
   enter: async (g) => {
     if (g.f('soldier_poets_intro')) return;
@@ -190,7 +190,7 @@ defineScene({
     await g.narrate(t('Hyperion — the City of Poets', 'Hyperion — la Ciudad de los Poetas'), { style: 'time' });
     await tell(g, t('He woke in pain, on the stones of a dead city, with someone bending over him. He knew her face before he remembered his own name.', 'Despertó con dolor, sobre las piedras de una ciudad muerta, con alguien inclinado sobre él. Reconoció su cara antes de recordar su propio nombre.'));
     await g.say('player', t('You.', 'Tú.'));
-    await tell(g, t('For the first time they were together outside the Network, in the real world. And for the first time, she told him her name.', 'Por primera vez estaban juntos fuera de la Red, en el mundo real. Y por primera vez, ella le dijo su nombre.'));
+    await tell(g, t('For the first time they were together outside the Network, in the real world. And for the first time, she told him her name.', 'Por primera vez estaban juntos fuera de la Red Táctica, en el mundo real. Y por primera vez, ella le dijo su nombre.'));
     await g.say('soldier_moneta', t('Moneta.', 'Moneta.'));
     await g.say('player', t('Moneta.', 'Moneta.'), { style: 'think' });
   },
@@ -232,8 +232,8 @@ const putOnSuit = async (g) => {
   await g.say('soldier_moneta', t('To fight beside me, as you always have. But here you must be more than a man.', 'Que luches a mi lado, como siempre. Pero aquí tienes que ser más que un hombre.'));
   await panels(g, [
     { img: 'assets/panels/soldier_p_suit.webp', kb: 'in', sfxSound: 'hum', captions: [
-      { text: t('She brought something out of the Tombs and laid her hands on his chest, and quicksilver flowed from her palms over his skin.', 'Sacó algo de las Tumbas y le puso las manos en el pecho, y un azogue fluyó de sus palmas sobre su piel.'), who: KASSAD, pos: 'tl' },
-      { text: t('It covered him completely, a living mirror. He felt fast. He felt strong beyond anything the HTN had ever given him.', 'Lo cubrió por completo, un espejo vivo. Se sintió rápido. Se sintió más fuerte de lo que la HTN lo había hecho sentir jamás.'), pos: 'br' },
+      { text: t('She brought something out of the Tombs and laid her hands on his chest, and quicksilver flowed from her palms over his skin.', 'Sacó algo de las Tumbas, le puso las manos en el pecho, y de sus palmas fluyó azogue sobre su piel.'), who: KASSAD, pos: 'tl' },
+      { text: t('It covered him completely, a living mirror. He felt fast. He felt strong beyond anything the HTN had ever given him.', 'Lo cubrió por completo, un espejo vivo. Se sintió rápido. Se sintió más fuerte de lo que la RTH lo había hecho sentir jamás.'), pos: 'br' },
     ] },
   ]);
   g.setPlayer('soldier_kassad_suit');
@@ -280,7 +280,7 @@ defineScene({
       } },
     { id: 'shrike', x: 1520, y: 760, dir: 'left', when: (g) => g.f('soldier_shrike_here'),
       on: {
-        look: t('Four arms. Blades at every joint. Eyes like rubies with fire behind them. Every instinct I have says run. I don\'t.', 'Cuatro brazos. Cuchillas en cada articulación. Ojos como rubíes con fuego detrás. Cada instinto que tengo me dice que huya. No lo hago.'),
+        look: t('Four arms. Blades at every joint. Eyes like rubies with fire behind them. Every instinct I have says run. I don\'t.', 'Cuatro brazos. Cuchillas en cada articulación. Ojos como rubíes con fuego detrás. Todos mis instintos me dicen que huya. No lo hago.'),
         talk: t('It does not speak. I don\'t think it ever has.', 'No habla. No creo que haya hablado nunca.'),
         use: t('I am not that brave. Or that foolish.', 'No soy tan valiente. Ni tan necio.'),
       } },
@@ -299,7 +299,7 @@ defineScene({
         use: t('Walking into that shimmer with no idea what it does? I\'d rather test it with something I can spare.', '¿Meterme en ese resplandor sin saber qué hace? Prefiero probarlo con algo que no me importe perder.'),
         open: t('Walking into that shimmer with no idea what it does? I\'d rather test it with something I can spare.', '¿Meterme en ese resplandor sin saber qué hace? Prefiero probarlo con algo que no me importe perder.'),
         'item:soldier_stone': async (g) => {
-          if (g.f('soldier_pebble')) { await g.say('player', t('Once was enough. It will come back again; I don\'t need to see it twice.', 'Con una vez basta. Volverá otra vez; no necesito verlo dos veces.')); return; }
+          if (g.f('soldier_pebble')) { await g.say('player', t('Once was enough. It will come back again; I don\'t need to see it twice.', 'Con una vez basta. Volvería de nuevo; no necesito verlo repetido.')); return; }
           await throwPebble(g);
         },
       } },
@@ -334,7 +334,7 @@ defineScene({
 const ending = async (g) => {
   await panels(g, [
     { img: null, captions: [
-      { text: t('Afterward, in the silence of the empty camp, she came to him as she always had, and he did not turn away.', 'Después, en el silencio del campamento vacío, ella acudió a él como siempre, y él no la rechazó.'), who: KASSAD, pos: 'tl' },
+      { text: t('Afterwards, in the silence of the empty camp, she came to him as she always had, and he did not turn away.', 'Después, en el silencio del campamento vacío, ella acudió a él como siempre, y él no la rechazó.'), who: KASSAD, pos: 'tl' },
     ] },
     { img: 'assets/panels/soldier_p_transform.webp', kb: 'in', sfxSound: 'heartbeat', captions: [
       { text: t('And as they lay together, she changed.', 'Y mientras yacían juntos, ella cambió.'), who: KASSAD, pos: 'tl' },
@@ -344,15 +344,15 @@ const ending = async (g) => {
       { text: t('Into his mind she poured a vision: fleets beyond counting, worlds burning, billions dying in a war that filled the sky from end to end.', 'En su mente derramó una visión: flotas incontables, mundos en llamas, miles de millones muriendo en una guerra que llenaba el cielo de punta a punta.'), who: KASSAD, pos: 'tl' },
     ] },
     { img: null, captions: [
-      { text: t('Kassad tore himself free, bleeding, and waited to die.', 'Kassad se arrancó de ella, sangrando, y esperó la muerte.'), who: KASSAD, pos: 'tl' },
+      { text: t('Kassad tore himself free, bleeding, and waited to die.', 'Kassad se liberó de un tirón, sangrando, y esperó la muerte.'), who: KASSAD, pos: 'tl' },
       { text: t('She did not kill him. She was Moneta again, but her eyes were still red, and her teeth were still fangs. She whispered his name.', 'Ella no lo mató. Volvía a ser Moneta, pero sus ojos seguían rojos y sus dientes seguían siendo colmillos. Susurró su nombre.'), pos: 'br' },
     ], balloons: [
       { text: t('Kassad...', 'Kassad...'), who: 'soldier_moneta', x: 760, y: 470, style: 'shrike' },
     ] },
     { img: 'assets/panels/soldier_p_aftermath.webp', kb: 'left', captions: [
       { text: t('Two days later, a patrol of Hyperion\'s Self-Defense Force found him in the desert near the City of Poets.', 'Dos días después, una patrulla de la Fuerza de Autodefensa de Hyperion lo encontró en el desierto, cerca de la Ciudad de los Poetas.'), who: KASSAD, pos: 'tl' },
-      { text: t('When he woke, days after that, he told them he remembered nothing after the crash.', 'Cuando despertó, días más tarde, les dijo que no recordaba nada después del accidente.'), pos: 'tr' },
-      { text: t('Colonel Fedmahn Kassad resigned his commission. For sixteen years he all but vanished; for a time, people said, he even spoke out against war.', 'El coronel Fedmahn Kassad renunció a su cargo. Durante dieciséis años casi desapareció; durante un tiempo, se decía, incluso habló en contra de la guerra.'), pos: 'bl' },
+      { text: t('When he woke, days after that, he told them he remembered nothing after the crash.', 'Cuando despertó, días más tarde, les dijo que no recordaba nada después del aterrizaje forzoso.'), pos: 'tr' },
+      { text: t('Colonel Fedmahn Kassad resigned his commission. For sixteen years he all but vanished; for a time, people said, he even spoke out against war.', 'El coronel Fedmahn Kassad renunció a su grado. Durante dieciséis años casi desapareció; durante un tiempo, se decía, incluso habló en contra de la guerra.'), pos: 'bl' },
     ] },
   ]);
   await g.endTale();
@@ -367,7 +367,7 @@ const massacre = async (g) => {
     { img: 'assets/panels/soldier_p_massacre.webp', kb: 'in', sfxSound: 'shrike', captions: [
       { text: t('Then time came back, all at once.', 'Entonces el tiempo volvió, de golpe.'), who: KASSAD, pos: 'tl' },
       { text: t('It was not a battle. The Ousters never saw what was killing them. The Shrike went through them like a scythe through wheat, Moneta beside it, and Kassad with them, his silver hands as deadly as any blade.', 'No fue una batalla. Los éxters nunca vieron lo que los mataba. El Alcaudón los atravesó como una guadaña el trigo, Moneta a su lado, y Kassad con ellos, con unas manos de plata tan mortíferas como cualquier cuchilla.'), pos: 'tr' },
-      { text: t('In minutes it was over. The survivors fled up the ramp, and the landing craft clawed its way back into the sky.', 'En minutos terminó. Los supervivientes huyeron rampa arriba, y la nave de desembarco se arrastró de vuelta al cielo.'), pos: 'bl' },
+      { text: t('In minutes it was over. The survivors fled up the ramp, and the landing craft clawed its way back into the sky.', 'En minutos terminó. Los supervivientes huyeron rampa arriba, y la nave de desembarco remontó a duras penas hacia el cielo.'), pos: 'bl' },
     ], balloons: [
       { text: t('Let them go. They will carry the message back to their kind.', 'Déjalos ir. Llevarán el mensaje a los suyos.'), who: 'soldier_moneta', x: 980, y: 560 },
     ] },
@@ -402,14 +402,14 @@ defineScene({
       on: frozenOuster(t('An Ouster at the foot of the ramp, frozen in the middle of a word to someone inside the craft.', 'Un éxter al pie de la rampa, congelado en mitad de una palabra dirigida a alguien dentro de la nave.')) },
     { id: 'soldier_moneta_suit', x: 380, y: 750, dir: 'right',
       on: {
-        look: t('Moneta, all quicksilver. The only other thing in this camp that moves.', 'Moneta, toda de azogue. Lo único más en este campamento que se mueve.'),
+        look: t('Moneta, all quicksilver. The only other thing in this camp that moves.', 'Moneta, toda de azogue. Lo único, aparte de mí, que se mueve en este campamento.'),
         talk: async (g) => {
           await g.dialog('soldier_moneta_camp', [
             { id: 'time', text: t('Has time stopped?', '¿Se ha detenido el tiempo?'), run: async (g) => {
               await g.say('soldier_moneta_suit', t('Not stopped. He holds time in his hands, and we move in fast time, beside him.', 'No se ha detenido. Él tiene el tiempo en sus manos, y nosotros nos movemos en tiempo rápido, a su lado.'));
             } },
             { id: 'why', text: t('Why have we come here?', '¿Por qué hemos venido aquí?'), run: async (g) => {
-              await g.say('soldier_moneta_suit', t('They came to his world uninvited. They will go home with a message.', 'Vinieron a su mundo sin ser invitados. Volverán a casa con un mensaje.'));
+              await g.say('soldier_moneta_suit', t('They came here uninvited. They will go home with a message.', 'Vinieron aquí sin ser invitados. Volverán a casa con un mensaje.'));
             } },
             { id: 'what', text: t('What is he?', '¿Qué es él?'), run: async (g) => {
               await g.say('soldier_moneta_suit', t('The Lord of Pain.', 'El Señor del Dolor.'));

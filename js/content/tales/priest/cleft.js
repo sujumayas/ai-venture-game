@@ -25,7 +25,7 @@ async function showCrucifix(g) {
   await J(g, t('That is what they call themselves. I have given names to the few I can tell apart: Alpha, who came forward first; Beta, perhaps female, perhaps his mate; Del.',
     'Así se llaman a sí mismos. He dado nombre a los pocos que distingo: Alfa, el primero en acercarse; Beta, quizá mujer, quizá su pareja; Del.'));
   await J(g, t('Their speech is a debased seedship English. My comlog translates it, after a fashion.',
-    'Hablan un inglés degradado de nave colonia. Mi comlog lo traduce, a su manera.'));
+    'Hablan un inglés degradado de nave semilla. Mi comlog lo traduce, a su manera.'));
 }
 
 async function alphaTalk(g) {
@@ -35,7 +35,7 @@ async function alphaTalk(g) {
       { id: 'priest', text: t('I am a priest. A Jesuit, from Pacem.', 'Soy sacerdote. Jesuita, de Pacem.'), run: async (g) => {
         await g.say('priest_alpha', t('Are you of the cruciform?', '¿Eres del cruciforme?'));
       } },
-      { id: 'name', text: t('My name is Paul Duré. I mean you no harm.', 'Me llamo Paul Duré. No quiero haceros daño.'), run: async (g) => {
+      { id: 'name', text: t('My name is Paul Duré. I mean you no harm.', 'Me llamo Paul Duré. No quiero hacerles daño.'), run: async (g) => {
         await g.wait(400);
         await g.say('priest_alpha', t('Are you of the cruciform?', '¿Eres del cruciforme?'));
       } },
@@ -52,7 +52,7 @@ async function alphaTalk(g) {
     { id: 'why', text: t('Why did you ask if I was "of the cruciform"?', '¿Por qué me preguntaste si era «del cruciforme»?'), once: true, run: async (g) => {
       await g.say('priest_alpha', t('Those who are of the cruciform follow the cross. Those who follow the cross do not die the true death.', 'Los que son del cruciforme siguen la cruz. Los que siguen la cruz no mueren la muerte verdadera.'));
     } },
-    { id: 'tuk', text: t('My guide, Tuk. Did you kill him?', 'Mi guía, Tuk. ¿Lo matasteis vosotros?'), once: true, run: async (g) => {
+    { id: 'tuk', text: t('My guide, Tuk. Did you kill him?', 'Mi guía, Tuk. ¿Lo mataron ustedes?'), once: true, run: async (g) => {
       await g.say('priest_alpha', t('Yes. We cut his throat with sharp stones. We held him until he stopped moving.', 'Sí. Le cortamos el cuello con piedras afiladas. Lo sujetamos hasta que dejó de moverse.'));
       await g.say('priest_alpha', t('He was not of the cruciform. He died the true death.', 'No era del cruciforme. Murió la muerte verdadera.'));
       await g.say('player', t('And I? Why am I alive?', '¿Y yo? ¿Por qué sigo vivo?'));
@@ -66,9 +66,9 @@ async function alphaTalk(g) {
       await g.say('priest_alpha', t('...', '...'));
       await think(g, t('Nothing. The names mean nothing to them at all.', 'Nada. Los nombres no significan nada para ellos.'));
       await J(g, t('My comlog\'s records say the seedship that crashed here four hundred years ago carried seventy colonists, every one a Neo-Kerwin Marxist.',
-        'Según los registros de mi comlog, la nave colonia que se estrelló aquí hace cuatrocientos años llevaba setenta colonos, todos marxistas neokerwinianos.'));
+        'Según los registros de mi comlog, la nave semilla que se estrelló aquí hace cuatrocientos años llevaba setenta colonos, todos marxistas neokerwinianos.'));
     } },
-    { id: 'many', text: t('How many of you are there?', '¿Cuántos sois?'), once: true, run: async (g) => {
+    { id: 'many', text: t('How many of you are there?', '¿Cuántos son?'), once: true, run: async (g) => {
       await g.say('priest_alpha', t('We are the Three Score and Ten.', 'Somos los Tres Veintenas y Diez.'));
       await g.say('player', t('Seventy. Always seventy?', 'Setenta. ¿Siempre setenta?'));
       await g.say('priest_alpha', t('We are the Three Score and Ten.', 'Somos los Tres Veintenas y Diez.'));
@@ -85,9 +85,9 @@ async function checkDusk(g) {
   await g.fade(false);
   g.sfx('wind');
   await J(g, t('At dusk the wind rises out of the Cleft and plays it like an organ: from a bass that shakes the bones to shrieks beyond hearing.',
-    'Al anochecer el viento sube de la Grieta y la toca como un órgano: desde un bajo que sacude los huesos hasta chillidos que no se llegan a oír.'));
+    'Al anochecer el viento sube de la Grieta y la toca como un órgano: desde un bajo que sacude los huesos hasta chillidos que escapan al oído.'));
   await J(g, t('And every evening, all seventy of them go to the edge, climb over on the vines, and vanish. Later they come back, without a word. They will not say where they go.',
-    'Y cada tarde los setenta van al borde, bajan por las lianas y desaparecen. Más tarde vuelven sin una palabra. No quieren decir adónde van.'));
+    'Y cada anochecer los setenta van al borde, bajan por las lianas y desaparecen. Más tarde vuelven sin una palabra. No quieren decir adónde van.'));
   await g.fade(true);
   g.set('priest_c_forage');
   g.refresh();
@@ -171,9 +171,9 @@ async function leashed(g) {
   await J(g, t('I walked toward the flame forest. About ten kilometres from the Cleft a pain like a heart attack dropped me to my knees.',
     'Caminé hacia el bosque de llamas. A unos diez kilómetros de la Grieta, un dolor como un infarto me hizo caer de rodillas.'));
   await J(g, t('When I turned back, it stopped. When I faced the forest again, it began. I am on a leash.',
-    'Cuando me volví, cesó. Cuando volví a mirar hacia el bosque, empezó otra vez. Estoy atado con una correa.'));
+    'Cuando me volví, cesó. Cuando volví a mirar hacia el bosque, empezó otra vez. Llevo una correa invisible.'));
   await J(g, t('On the way back I found the original dropship of their seedship near the gorge: rusted ribs under a blanket of vines. Four hundred years of rain.',
-    'De regreso encontré cerca del desfiladero la lanzadera de su nave colonia: costillas oxidadas bajo un manto de lianas. Cuatrocientos años de lluvia.'));
+    'De regreso encontré cerca del desfiladero la lanzadera de su nave semilla: costillas oxidadas bajo un manto de lianas. Cuatrocientos años de lluvia.'));
   await g.fade(false);
   await checkMontage(g);
 }
@@ -204,8 +204,8 @@ async function checkMontage(g) {
         tc(t('Day 158', 'Día 158'), 'tl'),
         jc(t('Alpha speaks a little now. The scanner shows the organs of a teenage boy.', 'Alfa ya habla un poco. El escáner muestra los órganos de un adolescente.'), 'bl'),
         tc(t('Days 173–174', 'Días 173–174'), 'tl'),
-        jc(t('Will, the one with the broken finger, fell into a gorge. The red fire ants left only bone. They took his cruciform and left the skeleton. The true death, I thought.',
-          'Will, el del dedo roto, cayó a un barranco. Las hormigas de fuego rojas solo dejaron hueso. Se llevaron su cruciforme y abandonaron el esqueleto. La muerte verdadera, pensé.'), 'bl'),
+        jc(t('Will, the one with the broken finger, fell into a gorge, and the red fire ants left only bone. The Bikura took his cruciform and left the skeleton. The true death, I thought.',
+          'Will, el del dedo roto, cayó a un barranco, y las hormigas de fuego rojas solo dejaron los huesos. Los bikura se llevaron su cruciforme y abandonaron el esqueleto. La muerte verdadera, pensé.'), 'bl'),
         jc(t('Then I saw that Theta now wears two cruciforms. When Theta dies, two will rise, and the Seventy will be whole again.',
           'Luego vi que Theta lleva ahora dos cruciformes. Cuando Theta muera, se levantarán dos, y los Setenta volverán a estar completos.'), 'tl'),
       ],
@@ -238,8 +238,8 @@ REG.items.priest_medscanner.use = scanSelf;
 async function leaveBasilica(g) {
   if (!g.f('priest_b_rec')) { await think(g, t('Not yet. I must record this. No one will believe me otherwise. I am not sure I believe it.', 'Todavía no. Tengo que registrar esto. Nadie me creería si no. No estoy seguro de creérmelo yo.')); return; }
   await g.walkTo(430, 700);
-  await J(g, t('I tried to leave at once, to carry the news out to the world. Smoke from the flame forest drove me back. It burns for some hundred and thirty days a year, then sleeps for two months.',
-    'Intenté marcharme enseguida para llevar la noticia al mundo. El humo del bosque de llamas me hizo retroceder. Arde unos ciento treinta días al año y luego duerme dos meses.'));
+  await J(g, t('I tried to leave at once, to carry the news out to the world. Smoke from the flame forest drove me back. It stays active for some hundred and thirty days, three local months, then lies quiet for two.',
+    'Intenté marcharme enseguida para llevar la noticia al mundo. El humo del bosque de llamas me hizo retroceder. Permanece activo unos ciento treinta días, tres meses locales, y luego se aquieta durante dos.'));
   await J(g, t('So I said Mass at the edge of the Cleft, with the Basilica under my feet, and waited.', 'Así que dije misa al borde de la Grieta, con la Basílica bajo mis pies, y esperé.'));
   g.clearInv();
   await g.panels([
@@ -254,7 +254,7 @@ async function leaveBasilica(g) {
       ],
       balloons: [
         { who: 'priest_gamma', x: 1050, y: 380, text: t('He who does not follow the cross must die the true death.', 'Quien no sigue la cruz debe morir la muerte verdadera.') },
-        { who: 'priest_dure', x: 900, y: 520, style: 'shout', text: t('I have prayed at your altar!', '¡He rezado ante vuestro altar!') },
+        { who: 'priest_dure', x: 900, y: 520, style: 'shout', text: t('I have prayed at your altar!', '¡He rezado ante su altar!') },
         { who: 'priest_alpha', x: 1050, y: 380, text: t('Can he not become of the cruciform?', '¿No puede hacerse del cruciforme?') },
       ],
     },
@@ -265,8 +265,8 @@ async function leaveBasilica(g) {
         tc(t('Day 110', 'Día 110'), 'tl'),
         jc(t('Zed and Theta-Primus brought me out. They had lit a fire, the first I have ever seen them make.',
           'Zed y Theta-Primus me sacaron. Habían encendido un fuego, el primero que les he visto hacer.'), 'bl'),
-        jc(t('They were burning my comlog, my discs and chips, my scanners, my notes, my clothes. Every proof of what I found.',
-          'Estaban quemando mi comlog, mis discos y chips, mis escáneres, mis notas, mi ropa. Todas las pruebas de lo que encontré.'), 'tl'),
+        jc(t('They were burning my comlog, my discs and chips, my holo-scanner, my notes, my clothes. Every proof of what I found.',
+          'Estaban quemando mi comlog, mis discos y chips, mi holoescáner, mis notas, mi ropa. Todas las pruebas de lo que encontré.'), 'tl'),
       ],
       balloons: [
         { who: 'priest_alpha', x: 1150, y: 120, text: t('You will become of the cruciform.', 'Te harás del cruciforme.') },
@@ -311,23 +311,23 @@ async function shrikeComes(g) {
   g.sfx('shrike');
   g.place('shrike', 1530, 640, 'left', { scale: 1.45 });
   await J(g, t('The Bikura knelt, heads bowed. Something came out of the tunnel and glided among them.', 'Los bikura se arrodillaron, con la cabeza gacha. Algo salió del túnel y se deslizó entre ellos.'));
-  await J(g, t('Three metres tall at least, its surface rippling like quicksilver held in suspension. Blades jutted from its forehead, its wrists, its strange elbows, its knees.',
-    'Tres metros de alto por lo menos, con una superficie que ondulaba como mercurio en suspensión. Le salían cuchillas de la frente, las muñecas, los extraños codos, las rodillas.'));
+  await J(g, t('Three metres tall at least, its silver skin shifting like liquid mercury. Blades jutted from its forehead, its wrists, its strange elbows, its knees.',
+    'Tres metros de alto por lo menos, con una piel plateada que se movía como mercurio líquido. Le salían cuchillas de la frente, las muñecas, los extraños codos, las rodillas.'));
   await J(g, t('Four long arms spread wide, like a pope blessing the faithful. Fingers that clicked out like chrome scalpels. Red, many-faceted eyes burning in a barbed skull.',
-    'Cuatro brazos largos abiertos, como un papa que bendice a los fieles. Dedos que se desplegaban como bisturís cromados. Ojos rojos de muchas facetas ardiendo en un cráneo erizado.'));
+    'Cuatro brazos largos abiertos, como un papa que bendice a los fieles. Dedos que se desplegaban como bisturís cromados. Ojos rojos de muchas facetas ardiendo en un cráneo erizado de púas.'));
   const px = g.state.pos.x;
   g.sfx('whoosh');
   g.place('shrike', Math.min(1650, px + 230), 745, 'left', { scale: 1.45 });
   g.shake();
-  await J(g, t('Without moving it was suddenly less than a metre from me, fencing me in with its blades. I saw my own white face in its carapace.',
-    'Sin moverse, de pronto estaba a menos de un metro de mí, encerrándome entre sus cuchillas. Vi mi propia cara, blanca, en su caparazón.'));
+  await J(g, t('It did not move. And yet, all at once, it stood less than a metre from me, its blades closing me in. My own white face looked back at me from its carapace.',
+    'No se movió. Y, sin embargo, de pronto estaba a menos de un metro de mí, cercándome con sus cuchillas. Mi propia cara, pálida, me miraba desde su caparazón.'));
   await g.panels([{
     img: P('priest_p_shrike'), kb: 'in',
-    captions: [jc(t('And what I felt was not fear. It was something closer to exaltation. I waited for its embrace.',
-      'Y lo que sentí no fue miedo. Era algo más parecido a la exaltación. Esperé su abrazo.'), 'tl')],
+    captions: [jc(t('I was not afraid. What rose in me was nearer to exaltation, and I found that I was waiting for it to take me in its arms.',
+      'No tenía miedo. Lo que crecía en mí se parecía más a la exaltación, y me descubrí esperando que me estrechara entre sus brazos.'), 'tl')],
   }]);
   g.hide('shrike');
-  await J(g, t('Then it was simply gone. No sound, no smell, no rush of air.', 'Luego, sencillamente, ya no estaba. Ni un sonido, ni un olor, ni un soplo de aire.'));
+  await J(g, t('Then it was gone, between one heartbeat and the next. Not a sound, not a stir of wind, not a trace of scent.', 'Luego desapareció, de un latido al siguiente. Ni un sonido, ni un soplo de viento, ni rastro de olor.'));
   await g.walk('priest_alpha', Math.max(260, px + 200), 745);
   g.face('priest_alpha', 'player'); g.face('player', 'priest_alpha');
   await g.say('priest_alpha', t('Cruciform.', 'Cruciforme.'));
@@ -405,7 +405,7 @@ defineScene({
       on: { look: t('The stream falls almost three thousand metres. Somewhere down in the mist, it meets the Kans.', 'El arroyo cae casi tres mil metros. En algún lugar, abajo, entre la niebla, se une al Kans.') } },
     { id: 'vines', name: t('Vine ladders', 'Escalas de lianas'), rect: [840, 560, 240, 260], walkTo: [900, 520], face: 'right',
       on: {
-        look: t('Braided vines thick as my wrist, tied to stakes and dropping over the edge into the Cleft. Ladders, bridges, a whole web of them.', 'Lianas trenzadas, gruesas como mi muñeca, atadas a estacas y colgando por el borde hacia la Grieta. Escalas, puentes, toda una red.'),
+        look: t('Braided vines thick as my wrist, anchored to roots and rock and dropping over the edge into the Cleft. Ladders, bridges, a whole web of them.', 'Lianas trenzadas, gruesas como mi muñeca, sujetas a raíces y rocas y colgando por el borde hacia la Grieta. Escalas, puentes, toda una red.'),
         use: async (g) => {
           if (robe(g)) { await think(g, t('The Basilica is down there. I have no wish to see that altar again today.', 'La Basílica está ahí abajo. Hoy no tengo ganas de volver a ver ese altar.')); return; }
           if (!g.f('priest_c_met')) { await think(g, t('Down there? Not before I know who tied them.', '¿Ahí abajo? No antes de saber quién las ató.')); return; }
@@ -491,7 +491,7 @@ defineScene({
           await J(g, t('I have named it the Basilica. It is proof, Edouard. Proof of God, and salvation for the Church. And this time, it is real.',
             'La he llamado la Basílica. Es una prueba, Edouard. Una prueba de Dios, y la salvación de la Iglesia. Y esta vez es real.'));
         },
-        'item:priest_medscanner': t('The medscanner reads flesh, not stone. My comlog can record it.', 'El medescáner lee carne, no piedra. Mi comlog puede grabarla.'),
+        'item:priest_medscanner': t('The medscanner reads flesh, not stone. My comlog can record it.', 'El medescáner lee carne, no piedra. Para eso tengo el comlog.'),
         'item:priest_crucifix': t('My little silver cross, and this. The same shape, across who knows how many thousands of years.', 'Mi crucecita de plata, y esto. La misma forma, a través de quién sabe cuántos miles de años.'),
       } },
     { id: 'steps', name: t('Steps leading down', 'Escalones que bajan'), rect: [1460, 30, 250, 610], walkTo: [1560, 690],
@@ -541,8 +541,8 @@ defineScene({
     { id: 'cruci1', name: t('Cruciforms', 'Cruciformes'), rect: [560, 0, 760, 560],
       on: { look: async (g) => {
         g.set('priest_v_look');
-        await J(g, t('Hundreds of them, studding the walls and ceiling: crosses from a few millimetres to nearly a metre across. Organic. Like soft pink coral. The glow is brighter than Pacem under its three moons.',
-          'Cientos de ellos, cubriendo paredes y techo: cruces de unos milímetros a casi un metro. Orgánicos. Como coral rosa y blando. El brillo es más intenso que Pacem bajo sus tres lunas.'));
+        await J(g, t('Hundreds of them, studding the walls and ceiling: crosses from a few millimetres to nearly a metre across. Organic. Like soft pink coral. There is more light here than on Pacem under its three moons.',
+          'Cientos de ellos, cubriendo paredes y techo: cruces de unos milímetros a casi un metro. Orgánicos. Como coral rosa y blando. Hay más luz aquí que en Pacem bajo sus tres lunas.'));
       },
       use: t('I touch one. It is warm. Almost like skin.', 'Toco uno. Está tibio. Casi como piel.'),
       take: t('I do not dare. Not yet. Somehow I know they will choose one for me.', 'No me atrevo. Todavía no. De algún modo sé que ellos elegirán uno para mí.') } },

@@ -9,11 +9,11 @@ defineChars({
 });
 
 defineItems({
-  c1_juice: { name: t('Orange juice', 'Zumo de naranja'), icon: 'assets/items/c1_juice.webp',
+  c1_juice: { name: t('Orange juice', 'Jugo de naranja'), icon: 'assets/items/c1_juice.webp',
     look: t('The traditional first drink after fugue. Fresh, impossibly, a few light-minutes from nowhere.', 'La bebida tradicional tras la fuga criogénica. Fresca, imposiblemente, a pocos minutos luz de ninguna parte.'),
     use: async (g) => { g.drop('c1_juice'); g.set('c1_drank'); await g.say('player', t('Cold and sweet. The fog of fugue begins to lift.', 'Fresco y dulce. La niebla de la fuga empieza a disiparse.')); } },
   c1_tricorne: { name: t('Gold tricorne', 'Tricornio dorado'), icon: 'assets/items/c1_tricorne.webp',
-    look: t('My soft gold tricorne. Part of the formal travel dress of a Hegemony consul, which I have not been for some years.', 'Mi tricornio dorado de fieltro. Parte del atuendo formal de viaje de un cónsul de la Hegemonía, que no soy desde hace años.') },
+    look: t('My soft gold tricorne. Part of the formal travel dress of a Hegemony consul, which I have not been for some years.', 'Mi blando tricornio dorado. Parte del atuendo formal de viaje de un cónsul de la Hegemonía, que no soy desde hace años.') },
   c1_lot: { name: t('Folded lot', 'Papeleta doblada'), icon: 'assets/items/c1_lot.webp',
     look: t('A seven. The last. With luck, the war, or boredom, or the Shrike itself will end the stories before my turn comes.', 'Un siete. El último. Con suerte, la guerra, el aburrimiento o el propio Alcaudón acabarán con los relatos antes de que llegue mi turno.') },
   c1_token: { name: t('Templar token', 'Ficha templaria'), icon: 'assets/items/c1_token.webp',
@@ -72,11 +72,11 @@ defineScene({
       } },
     { id: 'c1_clone', x: 980, y: 760, dir: 'left', when: (g) => !g.f('c1_follow'),
       on: {
-        look: t('One of the crew clones. Barely a metre tall, serene, identical to its twin outside. Templar crews are grown, not hired.', 'Uno de los clones tripulantes. Apenas un metro de alto, sereno, idéntico a su gemelo de fuera. Las tripulaciones templarias se cultivan, no se contratan.'),
+        look: t('One of the crew clones. Barely a metre tall, serene, identical to its twin. Templar crews are grown, not hired.', 'Uno de los clones tripulantes. Apenas un metro de alto, sereno, idéntico a su gemelo. Las tripulaciones templarias se cultivan, no se contratan.'),
         talk: async (g) => {
           await g.say('c1_clone', g.f('c1_drank')
             ? t('The Captain is waiting, honoured guest.', 'El capitán espera, honorable huésped.')
-            : t('Orange juice, honoured guest. It is the custom after fugue.', 'Zumo de naranja, honorable huésped. Es la costumbre tras la fuga.'));
+            : t('Orange juice, honoured guest. It is the custom after fugue.', 'Jugo de naranja, honorable huésped. Es la costumbre tras la fuga.'));
         },
       } },
   ],
@@ -84,13 +84,13 @@ defineScene({
     { id: 'couch', name: t('Fugue couch', 'Diván de fuga'), poly: [[200, 280], [540, 260], [650, 420], [640, 560], [560, 650], [230, 640], [190, 470]], walkTo: [600, 760],
       on: { look: t('Frost still smokes off the fugue couch. Three weeks of time-debt, gone in a dreamless instant.', 'Aún humea la escarcha en el diván de fuga. Tres semanas de deuda temporal, idas en un instante sin sueños.'),
         use: t('No more sleep. Hyperion is five hours away.', 'Basta de dormir. Hyperion está a cinco horas.') } },
-    { id: 'juice', name: t('Glass of orange juice', 'Vaso de zumo de naranja'), rect: [930, 450, 80, 90], walkTo: [960, 760], when: (g) => !g.has('c1_juice') && !g.f('c1_drank'),
-      on: { look: t('Fresh orange juice, set out for me.', 'Zumo de naranja recién hecho, servido para mí.'),
+    { id: 'juice', name: t('Glass of orange juice', 'Vaso de jugo de naranja'), rect: [930, 450, 80, 90], walkTo: [960, 760], when: (g) => !g.has('c1_juice') && !g.f('c1_drank'),
+      on: { look: t('Fresh orange juice, set out for me.', 'Jugo de naranja recién exprimido, servido para mí.'),
         take: async (g) => { g.give('c1_juice'); await g.say('c1_clone', t('Welcome back to the living, honoured guest.', 'Bienvenido de vuelta entre los vivos, honorable huésped.')); } } },
     { id: 'table', name: t('Little table', 'Mesita'), rect: [840, 520, 260, 200], walkTo: [960, 760],
       on: { look: t('Grown, not built. Everything on the treeship was once alive, or still is.', 'Cultivada, no construida. Todo en la nave árbol estuvo vivo una vez, o aún lo está.') } },
     { id: 'walls', name: t('Pod wall', 'Pared de la cápsula'), rect: [600, 60, 600, 360], walk: false,
-      on: { look: t('Translucent walls, ribbed with curved weirwood struts. Like sleeping inside a seed.', 'Paredes translúcidas, nervadas con puntales curvos de madera de weir. Como dormir dentro de una semilla.') } },
+      on: { look: t('Translucent walls, ribbed with curved weirwood struts. Like sleeping inside a seed.', 'Paredes translúcidas, nervadas con puntales curvos de weirwood. Como dormir dentro de una semilla.') } },
     { id: 'door', name: t('Doorway', 'Puerta'), poly: [[1320, 120], [1560, 90], [1760, 200], [1780, 500], [1700, 700], [1360, 690], [1300, 400]],
       exit: async (g) => {
         if (!g.f('c1_follow')) { await g.say('player', t('I should speak with the captain before I go wandering about his tree.', 'Debería hablar con el capitán antes de pasearme por su árbol.')); return; }
@@ -123,7 +123,7 @@ defineScene({
         await g.say('player', t('The "down" here is made by singularities caged in the tree\'s base. I try not to think about that.', 'El «abajo» aquí lo crean singularidades enjauladas en la base del árbol. Intento no pensar en ello.'));
       } } },
     { id: 'lanterns', name: t('Glowbirds', 'Pájaros luminosos'), rect: [700, 40, 1100, 180], walk: false,
-      on: { look: t('Glowbirds drift between the branches like paper lanterns, with Old Earth fireflies and the floating lights of Maui-Covenant. Maui-Covenant. I look away.', 'Pájaros luminosos flotan entre las ramas como farolillos de papel, con luciérnagas de la vieja Tierra y luces flotantes de Maui-Pacto. Maui-Pacto. Aparto la mirada.') } },
+      on: { look: t('Glowbirds drift between the branches like paper lanterns, with Old Earth fireflies and the floating lights of Maui-Covenant. Maui-Covenant. I look away.', 'Pájaros luminosos flotan entre las ramas como farolillos de papel, con luciérnagas de la Vieja Tierra y luces flotantes de Maui-Pacto. Maui-Pacto. Aparto la mirada.') } },
     { id: 'bridge', name: t('Suspension bridge', 'Puente colgante'), poly: [[620, 330], [1100, 300], [1120, 360], [880, 420], [640, 430]],
       walkTo: [700, 520],
       on: {
@@ -142,7 +142,7 @@ defineScene({
         use: async (g) => {
           if (g.f('c1_hoytmissing')) { await g.say('player', t('Hoyt first. His pod is out along the bridge.', 'Primero Hoyt. Su cápsula está al otro lado del puente.')); return; }
           if (!g.f('c1_atdinner')) {
-            await g.say('masteen', t('The Yggdrasill is one of only five such trees. My Brotherhood has risked a great deal bringing her into a war.', 'La Yggdrasill es uno de solo cinco árboles como ella. Mi Hermandad ha arriesgado mucho trayéndola a una guerra.'));
+            await g.say('masteen', t('The Yggdrasill is one of only five such trees. My Brotherhood has risked a great deal bringing her into a war.', 'La Yggdrasill es uno de los cinco únicos árboles de su clase. Mi Hermandad ha arriesgado mucho al traerla a una guerra.'));
             await g.say('player', t('Then why bring her?', '¿Entonces por qué traerla?'));
             await g.say('masteen', t('Because the Tree was asked. And because I asked the Tree.', 'Porque se lo pidieron al Árbol. Y porque yo se lo pedí.'));
           }
@@ -171,15 +171,15 @@ const intro = {
   ],
   kassad: [
     t('Colonel Fedmahn Kassad, of FORCE. Of Mars, once.', 'El coronel Fedmahn Kassad, de la FUERZA. De Marte, en otro tiempo.'),
-    t('Black uniform, no insignia. A face of planes and edges. The Butcher of South Bressia, the newsfeeds called him. I know a little about Bressia.', 'Uniforme negro, sin insignias. Un rostro de planos y aristas. El Carnicero de Bressia Sur, lo llamaban los noticiarios. Yo sé algo de Bressia.'),
+    t('Black uniform, no insignia. A face of planes and edges. The Butcher of South Bressia, the newsfeeds called him. I know a little about Bressia.', 'Uniforme negro, sin insignias. Un rostro de planos y aristas. El Carnicero de Bressia del Sur, lo llamaban los noticiarios. Yo sé algo de Bressia.'),
   ],
   silenus: [
-    t('Martin Silenus, poet. Born, he will tell anyone, on Old Earth.', 'Martin Silenus, poeta. Nacido, se lo dirá a cualquiera, en la vieja Tierra.'),
+    t('Martin Silenus, poet. Born, he will tell anyone, on Old Earth.', 'Martin Silenus, poeta. Nacido, se lo dirá a cualquiera, en la Vieja Tierra.'),
     t('Blue at the neck and palms: Poulsen treatments, many of them. He is older than he looks, and he looks old.', 'Azulado en el cuello y las palmas: tratamientos Poulsen, muchos. Es más viejo de lo que parece, y parece viejo.'),
   ],
   sol: [
     t('Sol Weintraub, scholar, of Barnard\'s World. And his daughter, Rachel.', 'Sol Weintraub, erudito, del Mundo de Barnard. Y su hija, Rachel.'),
-    t('Sixty-eight, and carrying a baby only days old in a sling. The Wandering Jew, the media call him. I have heard something of his story.', 'Sesenta y ocho años, y lleva en un cabestrillo a una niña de pocos días. El Judío Errante, lo llaman los medios. Algo he oído de su historia.'),
+    t('Sixty-eight, and carrying a baby only days old in a sling. The Wandering Jew, the media call him. I have heard something of his story.', 'Sesenta y ocho años, y lleva en un portabebés a una niña de pocos días. El Judío Errante, lo llaman los medios. Algo he oído de su historia.'),
   ],
   lamia: [
     t('Brawne Lamia, private investigator, of Lusus.', 'Brawne Lamia, investigadora privada, de Lusus.'),
@@ -190,7 +190,7 @@ const intro = {
 const talks = {
   hoyt: [
     { id: 'pain', text: t('Are you well, Father?', '¿Se encuentra bien, padre?'), run: async (g) => {
-      await g.say('hoyt', t('Well enough. A chronic condition. I have... medication.', 'Lo bastante. Una dolencia crónica. Tengo... medicación.'));
+      await g.say('hoyt', t('Well enough. A chronic condition. I have... medication.', 'Bastante bien. Una dolencia crónica. Tengo... medicación.'));
     } },
     { id: 'why', text: t('What brings a priest to the Shrike?', '¿Qué trae a un sacerdote al Alcaudón?'), run: async (g) => {
       await g.say('hoyt', t('Another priest. I\'ll explain, if it comes to that.', 'Otro sacerdote. Lo explicaré, si llega el caso.'));
@@ -244,7 +244,7 @@ function pilgrimActor(id, x, y, dir) {
           await g.say('masteen', intro[id][0]);
           await g.say('player', intro[id][1], { style: 'think' });
         }
-        if (g.f('c1_lots')) { await g.say(id, t('Not now, Consul. Father Hoyt is speaking.', 'Ahora no, cónsul. El padre Hoyt va a hablar.')); return; }
+        if (g.f('c1_lots')) { await g.say(id, t('Not now, Consul. Father Hoyt is about to begin.', 'Ahora no, cónsul. El padre Hoyt va a empezar.')); return; }
         await g.dialog(id, [...talks[id], { id: 'bye', text: t('Excuse me.', 'Disculpe.'), exit: true }], 'c1_' + id);
         if (metAll(g) && !g.f('c1_sat')) await g.say('masteen', t('Now that you all know one another, please: sit. The crew has prepared the last meal before planetfall.', 'Ahora que todos se conocen, por favor: siéntense. La tripulación ha preparado la última cena antes del descenso.'));
       },
@@ -271,8 +271,8 @@ async function giveHat(g) {
   await g.say('player', t('Seven. The last.', 'Siete. El último.'), { style: 'think' });
   await g.say('player', t('Good. With luck, events will overtake us long before it is my turn.', 'Bien. Con suerte, los acontecimientos nos alcanzarán mucho antes de mi turno.'), { style: 'think' });
   await g.say('hoyt', t('I have number one.', 'Yo tengo el número uno.'));
-  await g.say('silenus', t('The priest goes first! There\'s a sermon in that somewhere.', '¡El cura primero! En algún sitio hay un sermón en eso.'));
-  await g.say('hoyt', t('Not a sermon. A story. But to tell mine, I must first tell another man\'s.', 'No un sermón. Una historia. Pero para contar la mía debo contar antes la de otro hombre.'));
+  await g.say('silenus', t('The priest goes first! There\'s a sermon in that somewhere.', '¡El cura primero! Ahí hay un sermón escondido.'));
+  await g.say('hoyt', t('Not a sermon. A story. But to tell mine, I must first tell another man\'s.', 'No es un sermón. Es una historia. Pero para contar la mía debo contar antes la de otro hombre.'));
   await g.narrate(t('Hoyt leaves, and returns with two small leather notebooks, stained and scorched by fire.', 'Hoyt se marcha y vuelve con dos pequeños cuadernos de cuero, manchados y chamuscados por el fuego.'));
   await g.narrate(t('Sol lays his sleeping daughter on a padded mat beside his chair and sets his comlog to murmur white noise. He lights a pipe. Het Masteen draws his hood forward.', 'Sol tiende a su hija dormida sobre una colchoneta junto a su silla y pone su comlog a murmurar ruido blanco. Enciende una pipa. Het Masteen se cala la capucha.'));
   await g.say('silenus', t('"...And whan this goode man saugh that it was so, as he that wys was and obedient..." Chaucer, my friends. Pilgrims telling tales. Begin, Father!', '«...And whan this goode man saugh that it was so, as he that wys was and obedient...» Chaucer, amigos. Peregrinos contando cuentos. ¡Empiece, padre!'));
@@ -285,10 +285,10 @@ const table = [
     await g.say('masteen', t('Not yet in the system. Our instruments have seen fusion skirmishes out in the Oort cloud.', 'Aún no han entrado en el sistema. Nuestros instrumentos han visto escaramuzas de fusión en la nube de Oort.'));
     await g.say('kassad', t('Scouts. The Swarm will follow.', 'Exploradores. El Enjambre vendrá detrás.'));
   } },
-  { id: 'faith', text: t('Shall we each confess our faith? It seems the season for it.', '¿Confesamos cada uno nuestra fe? Parece la temporada.'), run: async (g) => {
+  { id: 'faith', text: t('Shall we each confess our faith? It seems the season for it.', '¿Confesamos cada uno nuestra fe? Parece el momento.'), run: async (g) => {
     await g.say('hoyt', t('Catholic.', 'Católico.'));
     await g.say('silenus', t('Zen Gnostic, lapsed Lutheran, devout hedonist, part-time Shrike-fearer, and on Sundays... a simple pagan.', 'Gnóstico zen, luterano descarriado, hedonista devoto, temeroso del Alcaudón a tiempo parcial y, los domingos... un simple pagano.'));
-    await g.say('lamia', t('I don\'t bother with religions.', 'Yo no me molesto con las religiones.'));
+    await g.say('lamia', t('I don\'t bother with religions.', 'Yo no pierdo el tiempo con religiones.'));
     await g.say('masteen', t('Many believe the Shrike is an avatar sent to punish. That is heresy. Whatever it is, it is part of what is.', 'Muchos creen que el Alcaudón es un avatar enviado para castigar. Eso es herejía. Sea lo que sea, forma parte de lo que es.'));
   } },
   { id: 'legend', text: t('They say the Shrike grants one wish.', 'Dicen que el Alcaudón concede un deseo.'), run: async (g) => {
@@ -298,7 +298,7 @@ const table = [
   { id: 'seventh', text: t('Is the child the seventh pilgrim, Captain?', '¿Es la niña el séptimo peregrino, capitán?'), run: async (g) => {
     await g.say('masteen', t('No. Only one who can consciously choose to seek the Shrike may count.', 'No. Solo cuenta quien puede elegir conscientemente buscar al Alcaudón.'));
     await g.say('masteen', t('I am the seventh.', 'Yo soy el séptimo.'));
-    await g.say('sol', t('Seven. A prime. The Church only lets groups of a prime number travel north.', 'Siete. Un primo. La Iglesia solo deja viajar al norte a grupos de un número primo.'));
+    await g.say('sol', t('Seven. A prime. The Church only lets groups of a prime number travel north.', 'Siete. Un número primo. La Iglesia solo deja viajar al norte a grupos de un número primo de peregrinos.'));
   } },
 ];
 
@@ -307,9 +307,9 @@ async function proposal(g) {
   await g.say('sol', t('May I suggest something? Each of us carries time-debt from a different world. We are islands of time.', '¿Puedo sugerir algo? Cada uno de nosotros carga deuda temporal de un mundo distinto. Somos islas de tiempo.'));
   await g.say('sol', t('Perhaps each of us also carries a piece of a puzzle no one has solved since humans first landed on Hyperion.', 'Quizá cada uno lleve también una pieza de un rompecabezas que nadie ha resuelto desde que los humanos llegaron a Hyperion.'));
   await g.say('sol', t('I propose we tell one another why we have come. Our stories. I confess I like a mystery.', 'Propongo que nos contemos por qué hemos venido. Nuestras historias. Confieso que me gustan los misterios.'));
-  await g.say('masteen', t('It may be wise to know our stories before we face the Shrike.', 'Puede ser sabio conocer nuestras historias antes de enfrentarnos al Alcaudón.'));
+  await g.say('masteen', t('It may be wise to know our stories before we face the Shrike.', 'Quizá sea prudente conocer nuestras historias antes de enfrentarnos al Alcaudón.'));
   await g.say('lamia', t('And what stops us from lying?', '¿Y qué nos impide mentir?'));
-  await g.say('silenus', t('Nothing at all. That\'s the beauty of it.', 'Nada en absoluto. Esa es la belleza del asunto.'));
+  await g.say('silenus', t('Nothing at all. That\'s the beauty of it.', 'Nada en absoluto. Ahí está la gracia.'));
   g.talkingTo = 'sol';
   const c = await g.choose([
     { id: 'vote', text: t('Then let\'s put it to a vote.', 'Entonces votémoslo.') },
@@ -331,7 +331,7 @@ async function proposal(g) {
   await g.say('lamia', t('No. Stupid.', 'No. Es estúpido.'));
   await g.narrate(t('Kassad shrugs and abstains. Four for, two against, one abstention. The motion carries.', 'Kassad se encoge de hombros y se abstiene. Cuatro a favor, dos en contra, una abstención. Se aprueba.'));
   await g.narrate(t('Nobody volunteers to go first.', 'Nadie se ofrece a empezar.'));
-  await g.say('silenus', t('Lots, then! I\'ll write one through seven. All I need is a hat. Consul, that magnificent tricorne of yours...', '¡A suertes, entonces! Escribiré del uno al siete. Solo me falta un sombrero. Cónsul, ese magnífico tricornio suyo...'));
+  await g.say('silenus', t('Lots, then! I\'ll write one through seven. All I need is a hat. Consul, that magnificent tricorne of yours...', '¡Echémoslo a suertes, entonces! Escribiré del uno al siete. Solo me falta un sombrero. Cónsul, ese magnífico tricornio suyo...'));
   g.set('c1_needhat');
 }
 
@@ -351,12 +351,12 @@ defineScene({
           if (g.f('c1_needhat') && !g.f('c1_lots')) { await g.say('masteen', t('Master Silenus is waiting for your hat, Consul.', 'El señor Silenus espera su sombrero, cónsul.')); return; }
           if (!g.f('c1_sat')) {
             g.set('c1_sat');
-            await g.narrate(t('They sit. The Consul takes the place at the captain\'s left. Crew clones bring wine, roast beef and boiled sky squid. Lamia eats the last of the chocolate cheesecake.', 'Se sientan. El Cónsul ocupa el lugar a la izquierda del capitán. Los clones traen vino, rosbif y calamar celeste hervido. Lamia se come lo que queda de la tarta de chocolate.'));
+            await g.narrate(t('They sit. The Consul takes the place at the captain\'s left. Crew clones bring wine, roast beef and boiled sky squid. Lamia eats the last of the chocolate cheesecake.', 'Se sientan. El Cónsul ocupa el lugar a la izquierda del capitán. Los clones traen vino, rosbif y calamar celeste hervido. Lamia se come lo que queda de la tarta de queso con chocolate.'));
           }
           await g.dialog('masteen', [...table, { id: 'end', text: t('(Listen to the others.)', '(Escuchar a los demás.)'), exit: true }], 'c1_table');
           const asked = table.filter((o) => g.f('d:c1_table:' + o.id)).length;
           if (asked >= 3 && !g.f('c1_proposal')) await proposal(g);
-          else if (!g.f('c1_proposal')) await g.say('player', t('There is more to talk about. Something hangs over this table, unsaid.', 'Hay más de qué hablar. Algo flota sobre esta mesa, sin decirse.'), { style: 'think' });
+          else if (!g.f('c1_proposal')) await g.say('player', t('There is more to talk about. Something hangs over this table, unsaid.', 'Hay más de qué hablar. Algo flota sobre esta mesa sin que nadie lo diga.'), { style: 'think' });
         },
       } },
     pilgrimActor('kassad', 420, 690, 'right'),
@@ -379,7 +379,7 @@ defineScene({
     { id: 'chair', name: t('Captain\'s chair', 'Silla del capitán'), rect: [1400, 350, 200, 300], walk: false,
       on: { look: t('A high carved chair at the head of the table.', 'Una alta silla tallada a la cabecera de la mesa.') } },
     { id: 'stars', name: t('Stars', 'Estrellas'), rect: [800, 0, 400, 260], walk: false,
-      on: { look: t('The stars wheel slowly overhead as the tree changes attitude for its approach.', 'Las estrellas giran lentamente sobre nosotros mientras el árbol cambia de actitud para la aproximación.') } },
+      on: { look: t('The stars wheel slowly overhead as the tree changes attitude for its approach.', 'Las estrellas giran lentamente sobre nosotros mientras el árbol cambia de orientación para la aproximación.') } },
     { id: 'leave', name: t('Basket lift', 'Elevador de cesta'), rect: [0, 560, 220, 260], exitDir: 'l', walkTo: [270, 780],
       exit: async (g) => {
         if (!g.f('c1_hoytmissing')) { await g.say('player', t('Leave dinner before it starts? The captain would never forgive me.', '¿Irme antes de cenar? El capitán no me lo perdonaría.')); return; }
@@ -435,7 +435,7 @@ defineScene({
     { id: 'out', name: t('Back to the tree', 'Volver al árbol'), rect: [130, 80, 300, 440], exitDir: 'l', walkTo: [300, 600],
       exit: async (g) => {
         if (!g.f('c1_harpsichord')) { await g.say('player', t('Is everyone aboard? Let me ask the colonel.', '¿Están todos a bordo? Preguntaré al coronel.')); return; }
-        await g.say('player', t('I\'ll fetch the priest myself. His pod is on a branch halfway up the tree.', 'Iré yo mismo a por el cura. Su cápsula está en una rama a media altura del árbol.'));
+        await g.say('player', t('I\'ll fetch the priest myself. His pod is on a branch halfway up the tree.', 'Iré yo mismo a buscar al cura. Su cápsula está en una rama a media altura del árbol.'));
         await g.goto('c1_walkway', { x: 760, y: 560, dir: 'left' });
       } },
     { id: 'holopit', name: t('Holo niche', 'Nicho holográfico'), poly: [[600, 560], [860, 490], [1100, 490], [1330, 560], [1360, 700], [1180, 790], [770, 790], [590, 700]], walk: false,
@@ -499,25 +499,25 @@ async function confession(g) {
   ]);
   const H = { who: t('Father Hoyt', 'Padre Hoyt') };
   await g.say('c1_hoyt_pain', t('All right. All right. God forgive you.', 'Está bien. Está bien. Que Dios lo perdone.'));
-  await g.narrate(t('The skimmer wasn\'t lost to the teslas. A storm forced us down near the Cleft: Semfa, a pilot, another man and me. Orlandi was upriver, waiting out the weather.', 'El deslizador no se perdió por los teslas. Una tormenta nos obligó a bajar cerca de la Grieta: Semfa, un piloto, otro hombre y yo. Orlandi estaba río arriba, esperando a que pasara el temporal.'), H);
+  await g.narrate(t('The skimmer wasn\'t lost to the teslas. A storm forced us down near the Cleft: Semfa, a pilot, another man and me. Orlandi was upriver, waiting out the weather.', 'No fueron los árboles tesla los que nos hicieron perder el deslizador. Una tormenta nos obligó a bajar cerca de la Grieta: Semfa, un piloto, otro hombre y yo. Orlandi estaba río arriba, esperando a que pasara el temporal.'), H);
   await g.narrate(t('The Bikura came in the night. They killed the others. Me they spared, because of the crucifix I wore. They spoke of the way of the cross. Of a "Son of Flames".', 'Los bikura vinieron de noche. Mataron a los demás. A mí me perdonaron por el crucifijo que llevaba. Hablaron del camino de la cruz. De un «Hijo de las Llamas».'), H);
   await g.panels([
     { img: 'assets/panels/c1_tesla.webp', kb: 'in', sfxSound: 'crackle', captions: [
-      { text: t('At dawn they led me three kilometres into the flame forest, to a tesla tree a hundred metres tall. They knelt at a distance.', 'Al amanecer me llevaron tres kilómetros adentro del bosque de llamas, hasta un árbol tesla de cien metros. Se arrodillaron a distancia.'), who: 'hoyt' },
+      { text: t('At dawn they led me three kilometres into the flame forest, to a tesla tree a hundred metres tall. They knelt at a distance.', 'Al amanecer me llevaron tres kilómetros hacia el interior del bosque de llamas, hasta un árbol tesla de cien metros. Se arrodillaron a distancia.'), who: 'hoyt' },
       { text: t('Duré had built a small asbestos platform on the trunk. He had sharpened the deflector stakes, and he had nailed himself to the tree with them.', 'Duré había construido una pequeña plataforma de asbesto en el tronco. Había afilado las estacas deflectoras y se había clavado al árbol con ellas.'), who: 'hoyt' },
       { text: t('Seven years, Consul. The current never stopped. He died, and the cruciform brought him back, and he died again. Ten thousand times.', 'Siete años, cónsul. La corriente nunca se detuvo. Moría, y el cruciforme lo devolvía, y volvía a morir. Diez mil veces.'), who: 'hoyt' },
       { text: t('And the pain won. When I lifted his journals down, the cruciform fell away from him. He looked at me. He smiled. And he died, truly, in my arms.', 'Y el dolor venció. Cuando bajé sus diarios, el cruciforme se desprendió de él. Me miró. Sonrió. Y murió, de verdad, en mis brazos.'), who: 'hoyt' },
     ] },
   ]);
-  await g.narrate(t('Orlandi came the next day, mad with grief for Semfa. He burned the Bikura where they stood, like sheep. Then he brought the cliff down on them.', 'Orlandi llegó al día siguiente, enloquecido de dolor por Semfa. Quemó a los bikura donde estaban, como a ovejas. Luego les echó el acantilado encima.'), H);
+  await g.narrate(t('Orlandi came the next day, out of his mind with grief for Semfa. He turned his lasers on the village, and the Bikura did not even run. Then his charges brought the cliff down on them.', 'Orlandi llegó al día siguiente, fuera de sí por la muerte de Semfa. Disparó sus láseres contra la aldea, y los bikura ni siquiera huyeron. Luego sus cargas les echaron el acantilado encima.'), H);
   await g.say('c1_hoyt_pain', t('I didn\'t stop him. God help me, Consul. I laughed.', 'No lo detuve. Que Dios me ayude, cónsul. Me reí.'));
   await g.say('c1_hoyt_pain', t('The painkillers worked, at first. Every year it is worse. Every day. Even in fugue. I would have had to come back anyway.', 'Los calmantes funcionaban, al principio. Cada año es peor. Cada día. Incluso en la fuga. Habría tenido que volver de todos modos.'));
-  await g.narrate(t('The Consul presses the injector into the hollow of the priest\'s arm. Hoyt\'s body unknots. His eyes close.', 'El Cónsul aprieta el inyector en el hueco del brazo del sacerdote. El cuerpo de Hoyt se afloja. Cierra los ojos.'));
+  await g.narrate(t('The Consul presses the injector into the priest\'s armpit. Hoyt\'s body unknots. His eyes close.', 'El Cónsul aplica el inyector en la axila del sacerdote. El cuerpo de Hoyt se afloja. Cierra los ojos.'));
   g.drop('c1_injector');
   await g.panels([
     { img: 'assets/panels/c1_cruciform.webp', kb: 'in', captions: [
-      t('He opens the priest\'s shirt. On Hoyt\'s chest lies a cruciform: a raised cross of flesh, like a great pink worm under the skin.', 'Abre la camisa del sacerdote. Sobre el pecho de Hoyt hay un cruciforme: una cruz de carne en relieve, como un gran gusano rosado bajo la piel.'),
-      t('He turns him gently. Between the shoulder blades there is a second one, smaller. It stirs under his fingers.', 'Lo gira con cuidado. Entre los omóplatos hay un segundo, más pequeño. Se agita bajo sus dedos.'),
+      t('He opens the priest\'s shirt. On Hoyt\'s chest is a cruciform: a pink ridge of flesh in the shape of a cross, as if something lived just under the skin.', 'Abre la camisa del sacerdote. En el pecho de Hoyt hay un cruciforme: un relieve de carne rosada en forma de cruz, como si algo viviera justo bajo la piel.'),
+      t('He turns him gently. Between the shoulder blades there is a second one, smaller. It stirs under his fingers.', 'Lo vuelve de lado con cuidado. Entre los omóplatos hay un segundo, más pequeño. Se agita bajo sus dedos.'),
       t('Two cruciforms. His own, and Paul Duré\'s.', 'Dos cruciformes. El suyo, y el de Paul Duré.'),
     ] },
     { img: 'assets/panels/c1_carry.webp', kb: 'left', captions: [

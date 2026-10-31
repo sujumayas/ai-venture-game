@@ -71,7 +71,7 @@ async function sayMass(g) {
 }
 
 async function packJournals(g) {
-  if (!late(g)) { await g.say('player', t('My journals. Four hundred days of them.', 'Mis diarios. Cuatrocientos días de ellos.')); return; }
+  if (!late(g)) { await g.say('player', t('My journals. More than four hundred days of them.', 'Mis diarios. Más de cuatrocientos días.')); return; }
   if (g.f('priest_h_packed')) { await g.say('player', t('They are in the bag.', 'Están en la bolsa.')); return; }
   await g.walkTo(420, 760);
   g.face('player', 'left');
@@ -119,7 +119,7 @@ async function partC(g) {
       img: 'assets/bg/priest_cleft.webp', kb: 'right',
       captions: [
         hc(t('Orlandi found two bush pilots. We flew two skimmers up the Cleft itself, to skirt most of the forest. We lost one skimmer, and four people, to tesla activity.',
-          'Orlandi encontró dos pilotos de la selva. Volamos con dos deslizadores por la propia Grieta, para esquivar casi todo el bosque. Perdimos un deslizador, y a cuatro personas, por la actividad tesla.'), 'tl'),
+          'Orlandi encontró dos pilotos curtidos en la selva. Volamos con dos deslizadores por la propia Grieta, para esquivar casi todo el bosque. Perdimos un deslizador, y a cuatro personas, por la actividad tesla.'), 'tl'),
         hc(t('We found the Bikura. All seventy of them. We found the bag, with his journals. And proof that he had died trying to cross the flame forest.',
           'Encontramos a los bikura. A los setenta. Encontramos la bolsa, con sus diarios. Y la prueba de que había muerto intentando cruzar el bosque de llamas.'), 'bl'),
       ],

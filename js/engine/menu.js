@@ -75,7 +75,11 @@ export class Menu {
       const ok = s.reviewer || s.reached.includes(c.id) || c.alwaysOpen;
       return `<div class="chap ${ok ? '' : 'locked'}" ${ok ? `data-act="chapter" data-arg="${c.id}"` : ''} style="background-image:url('${c.thumb || c.cardImg || ''}')"><div class="chap-t"><small>${escapeHtml(tr(c.kicker || ''))}</small>${escapeHtml(tr(c.short || c.title))}${ok ? '' : `<small>${escapeHtml(tr(UI.locked))}</small>`}</div></div>`;
     }).join('');
-    this.show(`<div class="menu-panel"><h2>${escapeHtml(tr(UI.chapters))}</h2><div class="chap-grid">${cells}</div>
+    const tales = Object.values(REG.tales).map((tl) => {
+      const ok = s.reviewer || s.reached.includes('tale:' + tl.id);
+      return `<div class="chap ${ok ? '' : 'locked'}" ${ok ? `data-act="tale" data-arg="${tl.id}"` : ''} style="background-image:url('${tl.cardImg || ''}')"><div class="chap-t"><small>${escapeHtml(tr(tl.kicker || ''))}</small>${escapeHtml(tr(tl.title))}${ok ? '' : `<small>${escapeHtml(tr(UI.locked))}</small>`}</div></div>`;
+    }).join('');
+    this.show(`<div class="menu-panel"><h2>${escapeHtml(tr(UI.chapters))}</h2><div class="chap-grid">${cells}</div><h3>${escapeHtml(tr(UI.tales))}</h3><div class="chap-grid">${tales}</div>
       <div class="menu-actions">${this.btn('back', UI.back)}</div></div>`, this.prev !== 'title' && !!this.g.scene);
   }
 
@@ -103,6 +107,7 @@ export class Menu {
       case 'continue': this.close(); g.newState(); await g.loadSlot('auto'); break;
       case 'chapters': this.chapters(); break;
       case 'chapter': this.close(); g.newState(); await g.startChapter(arg); break;
+      case 'tale': this.close(); g.newState(); g.state.chapter = REG.tales[arg].chapter; await g.startTale(arg); break;
       case 'options': this.options(); break;
       case 'about': this.about(); break;
       case 'resume': this.close(); break;

@@ -45,7 +45,7 @@ defineItems({
   priest_masskit: {
     name: t('Mass kit', 'Estuche de misa'), icon: I('priest_masskit'),
     look: t('My travelling Mass kit: a stole, a little pyx, a worn missal. It has followed me from altar to altar for forty years.',
-      'Mi estuche de misa de viaje: una estola, un pequeño píxide, un misal gastado. Me ha seguido de altar en altar durante cuarenta años.'),
+      'Mi estuche de misa de viaje: una estola, una pequeña píxide, un misal gastado. Me ha seguido de altar en altar durante cuarenta años.'),
   },
   priest_comlog: {
     name: t('Ancient comlog', 'Comlog antiguo'), icon: I('priest_comlog'),

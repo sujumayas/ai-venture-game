@@ -32,8 +32,8 @@ async function semfaTalk(g) {
       await g.say('priest_semfa', t('Semfa. I am from Port Romance.', 'Semfa. Soy de Port Romance.'));
     } },
     { id: 'here', text: t('Do you work here at Perecebo?', '¿Trabaja aquí, en Perecebo?'), once: true, run: async (g) => {
-      await g.say('priest_semfa', t('My husband did. Mikel. There was an accident at the harvest, three months ago.', 'Mi marido sí. Mikel. Hubo un accidente en la cosecha, hace tres meses.'));
-      await g.say('priest_semfa', t('I stayed. I do odd jobs. It is easier than going back.', 'Me quedé. Hago lo que haya. Es más fácil que volver.'));
+      await g.say('priest_semfa', t('My husband did. Mikel. There was an accident at the harvest, three local months ago.', 'Mi marido sí. Mikel. Hubo un accidente en la cosecha, hace tres meses locales.'));
+      await g.say('priest_semfa', t('I stayed. I do odd jobs. It is easier than going back.', 'Me quedé. Hago trabajos de todo tipo. Es más fácil que volver.'));
       await g.say('player', t('I am so sorry. I will pray for him. And for you.', 'Lo siento mucho. Rezaré por él. Y por usted.'));
     } },
     { id: 'fever', text: t('Did I say anything, in the fever?', '¿Dije algo durante la fiebre?'), once: true, run: async (g) => {
@@ -54,7 +54,7 @@ async function orlandiTalk(g) {
     await g.say('priest_orlandi', t('Father Duré. You look almost alive today. Semfa will be pleased.', 'Padre Duré. Hoy parece casi vivo. Semfa se alegrará.'));
   }
   await g.dialog('priest_orlandi', [
-    { id: 'bill', text: t('About the bill for my care...', 'Respecto a la cuenta de mis cuidados...'), once: true, run: async (g) => {
+    { id: 'bill', text: t('About the bill for my care...', 'En cuanto a la cuenta por mis cuidados...'), once: true, run: async (g) => {
       await g.say('priest_orlandi', t('There is no bill. We do not charge priests for fevers here. It would be bad luck.', 'No hay cuenta. Aquí no cobramos las fiebres a los curas. Daría mala suerte.'));
     } },
     { id: 'cleft', text: t('I must go up to the Pinion Plateau. To the Cleft.', 'Tengo que subir a la meseta Pinion. A la Grieta.'), once: true, run: async (g) => {
@@ -80,7 +80,7 @@ async function tukTalk(g) {
   }
   if (!g.f('priest_pe_met_tuk')) {
     g.set('priest_pe_met_tuk');
-    await g.say('priest_tuk', t('Tuk is your man, Padre! Up the yellow rain forest, over the Pinion, through the flame forest, to the Cleft. Easy!', '¡Tuk es su hombre, padre! Por la selva amarilla, sobre el Pinion, a través del bosque de llamas, hasta la Grieta. ¡Fácil!'));
+    await g.say('priest_tuk', t('Tuk is your man, Padre! Up the yellow rain forest, over the Pinion, through the flame forest, to the Cleft. Easy!', '¡Tuk es el guía que necesita, padre! Por la selva amarilla, sobre el Pinion, a través del bosque de llamas, hasta la Grieta. ¡Fácil!'));
     await g.say('priest_tuk', t('Well. Not easy.', 'Bueno. Fácil no.'));
   }
   await g.dialog('priest_tuk', [
@@ -141,7 +141,7 @@ defineScene({
       look: t('Semfa, at the edge of the matrix paddies, watching the water.', 'Semfa, al borde de los arrozales de matriz, mirando el agua.'),
       talk: semfaTalk } },
     { id: 'priest_orlandi', x: 1010, y: 600, dir: 'left', on: {
-      look: t('Orlandi, the plantation administrator: a quiet, dark man with a slight lisp. Workers straighten their backs a little when he passes.', 'Orlandi, el administrador de la plantación: un hombre callado y moreno que cecea un poco. Los peones enderezan la espalda cuando pasa.'),
+      look: t('Orlandi, the plantation administrator: a quiet, dark man with a slight lisp. Workers straighten their backs a little when he passes.', 'Orlandi, el administrador de la plantación: un hombre callado y moreno que cecea un poco. Los peones enderezan un poco la espalda cuando pasa.'),
       talk: orlandiTalk } },
     { id: 'priest_tuk', x: 1520, y: 770, dir: 'left', when: (g) => g.f('priest_pe_tuk'), on: {
       look: t('Tuk, my guide. He smiles a great deal, talks even more, and keeps glancing up towards the highlands.', 'Tuk, mi guía. Sonríe mucho, habla todavía más y no deja de mirar hacia las tierras altas.'),
@@ -162,12 +162,12 @@ defineScene({
       on: { look: t('A hammock on the veranda. Tempting. Very tempting.', 'Una hamaca en el porche. Tentadora. Muy tentadora.'), use: t('If I lie down now, Tuk will leave without me.', 'Si me tumbo ahora, Tuk se irá sin mí.') } },
     { id: 'chair', name: t('Wicker chair', 'Silla de mimbre'), rect: [505, 395, 120, 145],
       on: { look: t('A wicker chair. Semfa sat in it through the worst nights, they tell me.', 'Una silla de mimbre. Me cuentan que Semfa pasó en ella las peores noches.') } },
-    { id: 'washstand', name: t('Wash-stand', 'Lavamanos'), rect: [145, 300, 140, 265], walkTo: [310, 610], face: 'left',
+    { id: 'washstand', name: t('Wash-stand', 'Palanganero'), rect: [145, 300, 140, 265], walkTo: [310, 610], face: 'left',
       on: {
-        look: t('A wash-stand: a tin basin, clean water, a small round mirror. And a razor someone has left out for me.', 'Un lavamanos: una jofaina de lata, agua limpia, un espejito redondo. Y una navaja que alguien me ha dejado.'),
+        look: t('A wash-stand: a tin basin, clean water, a small round mirror. And a razor someone has left out for me.', 'Un palanganero: una jofaina de lata, agua limpia, un espejito redondo. Y una navaja que alguien me ha dejado.'),
         use: async (g) => {
           if (g.f('priest_pe_shaved')) { await g.say('player', t('Once a day is quite enough vanity for a Jesuit.', 'Una vez al día es vanidad suficiente para un jesuita.')); return; }
-          await g.say('player', t('Twelve days of fever have left a stranger in the mirror. Let us see if Paul Duré is still under there.', 'Doce días de fiebre han dejado a un desconocido en el espejo. Veamos si Paul Duré sigue ahí debajo.'));
+          await g.say('player', t('Days of fever have left a stranger in the mirror. Let us see if Paul Duré is still under there.', 'Los días de fiebre han dejado a un desconocido en el espejo. Veamos si Paul Duré sigue ahí debajo.'));
           g.sfx('splash');
           await g.wait(600);
           g.set('priest_pe_shaved');

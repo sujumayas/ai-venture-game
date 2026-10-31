@@ -34,6 +34,7 @@ export const UI = {
   newGame: t('New Pilgrimage', 'Nueva peregrinación'),
   cont: t('Continue', 'Continuar'),
   chapters: t('Chapters', 'Capítulos'),
+  tales: t('The six tales', 'Los seis relatos'),
   load: t('Load', 'Cargar'),
   save: t('Save', 'Guardar'),
   options: t('Options', 'Opciones'),

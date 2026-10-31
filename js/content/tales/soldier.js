@@ -20,7 +20,7 @@ defineChars({
   soldier_ouster_b: { name: t('Ouster at the fire', 'Éxter junto al fuego'), sprite: C('soldier_ouster'), height: 740 },
   soldier_ouster_c: { name: t('Ouster on the ramp', 'Éxter en la rampa'), sprite: C('soldier_ouster'), height: 740 },
   soldier_cadet: { name: t('Fellow cadet', 'Compañero cadete'), sprite: null },
-  soldier_htn: { name: t('HTN records', 'Registros de la HTN'), sprite: null, balloon: 'machine' },
+  soldier_htn: { name: t('HTN records', 'Registros de la RTH'), sprite: null, balloon: 'machine' },
   soldier_locker: { name: t('Arms locker', 'Armero'), sprite: null, balloon: 'machine' },
 });
 
@@ -56,7 +56,7 @@ defineTale({
       { img: 'assets/panels/soldier_p_agincourt.webp', kb: 'in', captions: [
         { text: t('Agincourt — Saint Crispin\'s Day, 1415', 'Azincourt — día de San Crispín, 1415'), style: 'time', pos: 'tl' },
         { text: t('The first time Fedmahn Kassad saw her, he was up to his knees in mud, and men were dying all around him.', 'La primera vez que Fedmahn Kassad la vio, estaba hundido en el barro hasta las rodillas, y a su alrededor morían hombres.'), who: KASSAD, pos: 'tr' },
-        { text: t('It was not 1415, and it was not France. It was an exercise in the Historical Tactical Network of the Olympus Command School, on Mars. And it was as real as anything he would ever live.', 'No era 1415, ni era Francia. Era un ejercicio de la Red Táctica Histórica de la Escuela de Mando del Olimpo, en Marte. Y era tan real como cualquier cosa que él viviría jamás.'), pos: 'bl' },
+        { text: t('It was not 1415, and it was not France. It was an exercise in the Historical Tactical Network of the Olympus Command School, on Mars. And it was as real as anything he would ever live.', 'No era 1415, ni era Francia. Era un ejercicio de la Red Táctica Histórica (RTH) de la Escuela de Mando del Olimpo, en Marte. Y era tan real como cualquier cosa que él viviría jamás.'), pos: 'bl' },
         { text: t('Cadets had been lifted dead out of the immersion crèches. Kassad was twenty-three, and he did not care. He loved it: the noise, the fear, the fierce joy of the fight.', 'Habían sacado cadetes muertos de las cunas de inmersión. Kassad tenía veintitrés años y no le importaba. Le encantaba: el estruendo, el miedo, la alegría feroz del combate.'), pos: 'br' },
       ] },
     ]);

@@ -26,7 +26,7 @@ defineScene({
         },
       } },
     { id: 'crows', name: t('Crows', 'Cuervos'), rect: [300, 140, 480, 120],
-      on: { look: t('Crows, waiting for the battle to end. The Network even thought of the crows.', 'Cuervos, esperando a que termine la batalla. La Red pensó hasta en los cuervos.') } },
+      on: { look: t('Crows, waiting for the battle to end. The Network even thought of the crows.', 'Cuervos, esperando a que termine la batalla. La Red Táctica pensó hasta en los cuervos.') } },
     { id: 'bow', name: t('Longbow and arrows', 'Arco largo y flechas'), poly: [[320, 460], [470, 460], [700, 610], [650, 665], [320, 525]],
       on: {
         look: t('A yew longbow, dropped by some archer who ran out of arrows and went in among the knights with his mallet and his knife.', 'Un arco largo de tejo, abandonado por algún arquero que se quedó sin flechas y se metió entre los caballeros con su mazo y su cuchillo.'),
@@ -47,7 +47,7 @@ defineScene({
         look: t('A rondel dagger, the thin stiff blade the archers carry to finish armoured men. Narrow enough for a visor.', 'Una daga de rondel, la hoja fina y rígida que llevan los arqueros para rematar a los hombres con armadura. Lo bastante estrecha para un visor.'),
         take: async (g) => {
           g.set('soldier_dagger'); g.give('soldier_dagger');
-          await g.say('player', t('The Network remembers everything. Even the mud on the blade.', 'La Red lo recuerda todo. Hasta el barro de la hoja.'));
+          await g.say('player', t('The Network remembers everything. Even the mud on the blade.', 'La Red Táctica lo recuerda todo. Hasta el barro de la hoja.'));
         },
         use: t('I should pick it up first.', 'Primero debería recogerla.'),
       } },
@@ -68,7 +68,7 @@ defineScene({
   enter: async (g) => {
     if (g.f('soldier_field_intro')) return;
     g.set('soldier_field_intro');
-    await g.narrate(t('Agincourt. HTN simulation, Olympus Command School', 'Azincourt. Simulación de la HTN, Escuela de Mando del Olimpo'), { style: 'time' });
+    await g.narrate(t('Agincourt. HTN simulation, Olympus Command School', 'Azincourt. Simulación de la RTH, Escuela de Mando del Olimpo'), { style: 'time' });
     g.sfx('shot');
     await g.say('player', t('The French charge has drowned in the mud. And one of their knights is running for the trees.', 'La carga francesa se ha ahogado en el barro. Y uno de sus caballeros corre hacia los árboles.'), { style: 'shout' });
     await tell(g, t('Kassad had already decided the knight was his. Every cadet in the exercise was hunting a kill; this one would not get away.', 'Kassad ya había decidido que el caballero era suyo. Todos los cadetes del ejercicio buscaban una presa; esta no se le escaparía.'));
@@ -144,7 +144,7 @@ defineScene({
     { id: 'soldier_knight', x: 1290, y: 740, dir: 'left', when: (g) => !g.f('soldier_knight_dead'),
       on: {
         look: async (g) => {
-          if (g.f('soldier_woman_here')) await g.say('player', t('He reels, helm dented, visor bent open. Whatever she hit him with, he is still dangerous. But not for long.', 'Se tambalea, con el yelmo abollado y el visor doblado. Lo que sea que ella usó, él sigue siendo peligroso. Pero no por mucho tiempo.'));
+          if (g.f('soldier_woman_here')) await g.say('player', t('He reels, helm dented, visor bent open. Whatever she hit him with, he is still dangerous. But not for long.', 'Se tambalea, con el yelmo abollado y el visor doblado. Por fuerte que ella lo haya golpeado, sigue siendo peligroso. Pero no por mucho tiempo.'));
           else await g.say('player', t('Full plate, a fleur-de-lis surcoat, visor down. He is bigger than me and fresh, and I have been fighting since dawn.', 'Armadura completa, sobreveste de flores de lis, visor bajado. Es más grande que yo y está descansado, y yo llevo peleando desde el alba.'));
         },
         talk: async (g) => {
@@ -160,7 +160,7 @@ defineScene({
         'item:soldier_sword': fightKnight,
         'item:soldier_dagger': async (g) => {
           if (!g.f('soldier_woman_here')) {
-            await g.say('player', t('A dagger against a fresh man with a longsword? He\'d cut me down before I got close. The sword first; wear him down.', '¿Una daga contra un hombre descansado con espada larga? Me derribaría antes de acercarme. Primero la espada, para cansarlo.'), { style: 'think' });
+            await g.say('player', t('A dagger against a fresh man with a longsword? He\'d cut me down before I got close. The sword first; wear him down.', '¿Una daga contra un hombre descansado con espada larga? Me derribaría antes de que pudiera acercarme. Primero la espada, para cansarlo.'), { style: 'think' });
             return;
           }
           await killKnight(g);
@@ -172,7 +172,7 @@ defineScene({
         look: t('Short dark hair, dark eyes, a plain grey-green cloak that belongs to no century. She is not in any history I was taught.', 'Pelo corto y oscuro, ojos oscuros, una capa gris verdosa que no pertenece a ningún siglo. No aparece en ninguna historia que me hayan enseñado.'),
         talk: async (g) => {
           if (!g.f('soldier_knight_dead')) {
-            await tell(g, t('She said nothing. Her eyes went to the reeling knight, then to the dagger at Kassad\'s belt.', 'Ella no dijo nada. Sus ojos fueron al caballero tambaleante y después a la daga del cinturón de Kassad.'));
+            await tell(g, t('She said nothing. Her eyes went to the reeling knight, then to the dagger at Kassad\'s belt.', 'Ella no dijo nada. Su mirada fue del caballero tambaleante a la daga que Kassad llevaba al cinto.'));
             return;
           }
           await g.dialog('soldier_moneta', [
@@ -219,12 +219,12 @@ const montage = async (g) => {
   g.sfx('hum');
   await panels(g, [
     { img: 'assets/panels/soldier_p_battles.webp', kb: 'in', captions: [
-      { text: t('She came back. Not every time, but in battle after battle, across all the centuries the Network could summon, she was there when the fighting was worst.', 'Volvió. No siempre, pero en batalla tras batalla, a través de todos los siglos que la Red podía convocar, ella estaba allí cuando la lucha era más dura.'), who: KASSAD, pos: 'tl' },
+      { text: t('She came back. Not every time, but in battle after battle, across all the centuries the Network could summon, she was there when the fighting was worst.', 'Volvió. No siempre, pero en batalla tras batalla, a través de todos los siglos que la Red Táctica podía convocar, ella estaba allí cuando la lucha era más dura.'), who: KASSAD, pos: 'tl' },
       { text: t('Always the same: first the fight, side by side; afterwards, love. He told no one. And she never told him her name.', 'Siempre igual: primero la lucha, codo con codo; después, el amor. Él no se lo contó a nadie. Y ella nunca le dijo su nombre.'), pos: 'br' },
       { text: t('Then, toward the end of his years at Olympus, she stopped coming. Kassad graduated, and went looking for wars that were not simulated.', 'Luego, hacia el final de sus años en el Olimpo, dejó de venir. Kassad se graduó y salió a buscar guerras que no fueran simuladas.'), pos: 'bl' },
     ] },
     { img: 'assets/panels/soldier_p_mars.webp', kb: 'right', captions: [
-      { text: t('He had been born below that mountain, in the South Tharsis Relocation Camps, among the few who still called themselves Palestinians. He grew up in violence the way other boys grow up in weather.', 'Había nacido al pie de aquella montaña, en los Campos de Reubicación de Tharsis Sur, entre los pocos que aún se llamaban palestinos. Creció en la violencia como otros niños crecen con el clima.'), who: KASSAD, pos: 'tl' },
+      { text: t('He had been born below that mountain, in the South Tharsis Relocation Camps, among the few who still called themselves Palestinians. He grew up in violence the way other boys grow up in weather.', 'Había nacido al pie de aquella montaña, en los Campos de Reubicación de Tharsis Sur, entre los pocos que aún se llamaban palestinos. Creció en la violencia como otros niños crecen a la intemperie.'), who: KASSAD, pos: 'tl' },
       { text: t('Soldiering gave the violence a shape. It also gave him a code, the New Bushido: honour lies only in combat between equals, and those who do not fight are to be spared.', 'La vida militar le dio forma a esa violencia. También le dio un código, el Nuevo Bushido: el honor solo existe en el combate entre iguales, y a quienes no luchan hay que perdonarlos.'), pos: 'br' },
     ] },
     { img: 'assets/panels/soldier_p_prophet.webp', kb: 'out', captions: [
@@ -234,7 +234,7 @@ const montage = async (g) => {
     ] },
     { img: 'assets/panels/soldier_p_beam.webp', kb: 'in', sfxSound: 'laser', captions: [
       { text: t('Kassad went down to the planet himself. And while the New Prophet was addressing his whole world, Kassad called down a single beam from orbit.', 'Kassad bajó él mismo al planeta. Y mientras el Nuevo Profeta hablaba a todo su mundo, Kassad hizo caer un único rayo desde la órbita.'), who: KASSAD, pos: 'tl' },
-      { text: t('The holy war died with its prophet. There was a FORCE court-martial review on Freeholm. Then there was fame.', 'La guerra santa murió con su profeta. Hubo una revisión ante un consejo de guerra de la FUERZA en Freeholm. Después llegó la fama.'), pos: 'br' },
+      { text: t('The holy war died with its prophet. There was a FORCE court-martial review on Freeholm. Then there was fame.', 'La guerra santa murió con su profeta. Hubo una vista de revisión ante un consejo de guerra de la FUERZA en Freeholm. Después llegó la fama.'), pos: 'br' },
       { text: t('That night, for the first time in years, she came to him in a dream. She was about to tell him something when he woke.', 'Esa noche, por primera vez en años, ella lo visitó en un sueño. Estaba a punto de decirle algo cuando él despertó.'), pos: 'bl' },
     ] },
     { img: 'assets/panels/soldier_p_bressia.webp', kb: 'left', sfxSound: 'explosion', captions: [
@@ -265,10 +265,10 @@ defineScene({
             { id: 'woman', text: t('Did you see a woman at Agincourt?', '¿Viste a una mujer en Azincourt?'), run: async (g) => {
               await g.say('soldier_cadet', t('A woman? I spent the whole day with the archers, Kassad. I saw mud, Frenchmen, and more mud.', '¿Una mujer? Me pasé el día entero con los arqueros, Kassad. Vi barro, franceses y más barro.'));
             } },
-            { id: 'dream', text: t('Can the Network make up someone nobody programmed?', '¿Puede la Red inventarse a alguien que nadie programó?'), run: async (g) => {
+            { id: 'dream', text: t('Can the Network make up someone nobody programmed?', '¿Puede la Red Táctica inventarse a alguien que nadie programó?'), run: async (g) => {
               g.set('soldier_cadet_dream');
-              await g.say('soldier_cadet', t('You haven\'t heard what the old hands say? The HTN doesn\'t simulate anything.', '¿No has oído lo que dicen los veteranos? La HTN no simula nada.'));
-              await g.say('soldier_cadet', t('It dreams. And it lets us dream along with it.', 'Sueña. Y nos deja soñar con ella.'));
+              await g.say('soldier_cadet', t('You haven\'t heard what the old hands say? The HTN doesn\'t simulate anything.', '¿No has oído lo que dicen los veteranos? La RTH no simula nada.'));
+              await g.say('soldier_cadet', t('It dreams. And it lets us dream along with it.', 'Sueña. Y nos deja soñar junto con ella.'));
               await g.say('player', t('Dreams.', 'Sueños.'), { style: 'think' });
             } },
             { id: 'look', text: t('You look pale.', 'Te veo pálido.'), run: async (g) => {
@@ -280,7 +280,7 @@ defineScene({
       } },
     { id: 'pod_own', name: t('Your crèche', 'Tu cuna'), rect: [330, 190, 350, 410], walkTo: [520, 690],
       on: {
-        look: t('My immersion crèche. The HTN goes straight into the nervous system: in there, a sword cut hurts as much as a real one. More, some say.', 'Mi cuna de inmersión. La HTN entra directamente en el sistema nervioso: allí dentro, un tajo de espada duele tanto como uno real. Más, dicen algunos.'),
+        look: t('My immersion crèche. The HTN goes straight into the nervous system: in there, a sword cut hurts as much as a real one. More, some say.', 'Mi cuna de inmersión. La RTH entra directamente en el sistema nervioso: allí dentro, un tajo de espada duele tanto como uno real. Más, dicen algunos.'),
         use: async (g) => {
           if (!researchDone(g)) {
             await g.say('player', t('Not yet. First I want to know who she is. The records, and the others who were in there with me.', 'Todavía no. Primero quiero saber quién es. Los registros, y los demás que estaban allí dentro conmigo.'), { style: 'think' });
@@ -298,7 +298,7 @@ defineScene({
       } },
     { id: 'console', name: t('Records console', 'Consola de registros'), rect: [1130, 340, 250, 380], walkTo: [1260, 760], face: 'right',
       on: {
-        look: t('The exercise records: every participant, every persona the HTN generated, every death.', 'Los registros del ejercicio: cada participante, cada persona que generó la HTN, cada muerte.'),
+        look: t('The exercise records: every participant, every persona the HTN generated, every death.', 'Los registros del ejercicio: cada participante, cada personaje que generó la RTH, cada muerte.'),
         use: async (g) => {
           if (g.f('soldier_records')) {
             await g.say('player', t('I\'ve searched it three times. She isn\'t in there.', 'Ya lo he buscado tres veces. Ella no está ahí.'));
@@ -306,7 +306,7 @@ defineScene({
           }
           g.sfx('chime');
           await g.say('player', t('Records. Exercise Agincourt, this run. All participants.', 'Registros. Ejercicio Azincourt, esta sesión. Todos los participantes.'));
-          await g.say('soldier_htn', t('AGINCOURT 1415. PARTICIPANTS: CADETS AND INSTRUCTORS OF THIS SECTION. OTHER PERSONAE: STANDARD HISTORICAL LIBRARY.', 'AZINCOURT 1415. PARTICIPANTES: CADETES E INSTRUCTORES DE ESTA SECCIÓN. OTRAS PERSONAS: BIBLIOTECA HISTÓRICA ESTÁNDAR.'));
+          await g.say('soldier_htn', t('AGINCOURT 1415. PARTICIPANTS: CADETS AND INSTRUCTORS OF THIS SECTION. OTHER PERSONAE: STANDARD HISTORICAL LIBRARY.', 'AZINCOURT 1415. PARTICIPANTES: CADETES E INSTRUCTORES DE ESTA SECCIÓN. OTROS PERSONAJES: BIBLIOTECA HISTÓRICA ESTÁNDAR.'));
           await g.say('player', t('Search: a woman. Short dark hair. Grey-green cloak. Not in period costume.', 'Buscar: una mujer. Pelo corto y oscuro. Capa gris verdosa. Sin traje de época.'));
           await g.say('soldier_htn', t('NO MATCH.', 'SIN COINCIDENCIAS.'));
           await g.say('player', t('Widen it. Every student, every instructor, every staff member at Olympus.', 'Amplía la búsqueda. Cada alumno, cada instructor, cada miembro del personal del Olimpo.'));
@@ -318,7 +318,7 @@ defineScene({
       } },
     { id: 'window', name: t('Window', 'Ventanal'), rect: [1400, 60, 250, 420],
       on: {
-        look: t('Olympus Mons: a shield volcano wider than some countries, and the Command School dug into its flank. Somewhere far below, beyond sight, are the Tharsis camps where I grew up.', 'El monte Olimpo: un volcán en escudo más ancho que algunos países, y la Escuela de Mando excavada en su ladera. Muy abajo, fuera de la vista, están los campos de Tharsis donde crecí.'),
+        look: t('Olympus Mons: a shield volcano wider than some countries, and the Command School dug into its flank. Somewhere far below, beyond sight, are the Tharsis camps where I grew up.', 'El monte Olimpo: un volcán en escudo más ancho que algunos países, y la Escuela de Mando excavada en su ladera. Allá abajo, ocultos, están los campos de Tharsis donde crecí.'),
       } },
     { id: 'door', name: t('Door to the barracks', 'Puerta a los barracones'), rect: [1660, 60, 260, 560], walkTo: [1700, 700],
       on: {

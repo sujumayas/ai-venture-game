@@ -51,7 +51,7 @@ defineItems({
   },
   detective_fclog: {
     name: t('Farcaster log', 'Registro del teleyector'), icon: 'assets/items/detective_fclog.webp',
-    look: t('The Madhya portal log. Two travellers went in, one came out — and only one of them has a name.', 'El registro del portal de Madhya. Dos viajeros entraron, uno salió… y solo uno de ellos tiene nombre.'),
+    look: t('The Madhya portal log. Two travellers came through together, only one went back — and only one of them has a name.', 'El registro del portal de Madhya. Dos viajeros llegaron juntos, solo uno volvió… y solo uno de ellos tiene nombre.'),
   },
 });
 
@@ -59,7 +59,7 @@ defineItems({
 const DEST = [
   { id: 'detective_office', when: (g) => g.f('detective_hired'), text: t('Lusus — my office.', 'Lusus: mi oficina.'), entry: { x: 330, y: 760, dir: 'right' } },
   { id: 'detective_madhya', when: (g) => g.f('detective_hired'), text: t('Madhya — the mining waste where Johnny died.', 'Madhya: el páramo minero donde murió Johnny.'), entry: { x: 560, y: 720, dir: 'right' } },
-  { id: 'detective_bb', when: (g) => g.f('detective_lead_bb'), text: t("Tau Ceti Center — BB Surbringer's cubicle.", 'Tau Ceti Center: el cubículo de BB Surbringer.'), entry: { x: 1500, y: 740, dir: 'left' } },
+  { id: 'detective_bb', when: (g) => g.f('detective_lead_bb'), text: t("Tau Ceti Center — BB Surbringer's cubicle.", 'Tau Ceti Central: el cubículo de BB Surbringer.'), entry: { x: 1500, y: 740, dir: 'left' } },
   { id: 'detective_bar', when: (g) => g.f('detective_lead_bar'), text: t('Lusus — the bar on Johnny\'s card trail.', 'Lusus: el bar del rastro de la tarjeta de Johnny.'), entry: { x: 1640, y: 760, dir: 'left' } },
   { id: 'detective_flat', when: (g) => g.f('detective_lead_flat'), text: t("Johnny's rooms.", 'El apartamento de Johnny.'), entry: { x: 330, y: 760, dir: 'right' } },
 ];
@@ -86,7 +86,7 @@ defineTale({
     await panels(g, [
       { img: P('p_lusus'), kb: 'in', captions: [
         { text: t('Lusus. One point three gravities. Everything is heavier there: the furniture, the rent, the people. We live stacked in hives a kilometre deep and call the sky a rumour.', 'Lusus. Una coma tres gravedades. Allí todo pesa más: los muebles, el alquiler, la gente. Vivimos apilados en colmenas de un kilómetro de hondo y llamamos rumor al cielo.'), who: LAMIA },
-        { text: t('I had a licence, an office, and a bottle with two fingers left in it. It was raining down the shafts, the way it does when the condensers give up.', 'Yo tenía una licencia, una oficina y una botella con dos dedos de contenido. Llovía por los pozos, como pasa cuando los condensadores se rinden.'), who: LAMIA },
+        { text: t('I had a licence, an office, and a bottle with two fingers left in it. It was raining down the shafts, the way it does when the condensers give up.', 'Yo tenía una licencia, una oficina y una botella a la que le quedaban dos dedos. Llovía por los pozos, como pasa cuando los condensadores se rinden.'), who: LAMIA },
       ] },
     ]);
   },
@@ -228,16 +228,16 @@ async function madhyaCheck(g) {
   if (g.f('detective_clue_tracks') && g.f('detective_fclog_got') && !g.f('detective_lead_bb')) {
     g.set('detective_lead_bb');
     await nar(g, t('Somebody came here with him and left without him. Somebody whose name a farcaster would not write down. I needed a person who reads data the way I read faces.', 'Alguien vino aquí con él y se fue sin él. Alguien cuyo nombre un teleyector no quiso anotar. Necesitaba a alguien que leyera datos como yo leo caras.'));
-    await nar(g, t('That meant BB Surbringer, on Tau Ceti Center.', 'Eso significaba BB Surbringer, en Tau Ceti Center.'));
+    await nar(g, t('That meant BB Surbringer, on Tau Ceti Center.', 'Eso significaba BB Surbringer, en Tau Ceti Central.'));
   }
 }
 
 const johnnyMadhya = [
   { id: 'smell', text: t('What is that smell?', '¿Qué es ese olor?'), run: async (g) => {
-    await g.say(J, t('Sulphur. The whole world breathes it. I am told the locals stop noticing after a few years.', 'Azufre. Todo el planeta lo respira. Dicen que los locales dejan de notarlo al cabo de unos años.'));
+    await g.say(J, t('Sulphur. The whole world breathes it. I am told the locals stop noticing after a few years.', 'Azufre. Todo el planeta lo respira. Dicen que los lugareños dejan de notarlo al cabo de unos años.'));
     await me(g, t('Remind me never to stay a few years.', 'Recuérdame no quedarme nunca unos años.'));
   } },
-  { id: 'why', text: t('Why kill your body? You just grew back.', '¿Por qué matar tu cuerpo? Simplemente volviste a crecer.'), run: async (g) => {
+  { id: 'why', text: t('Why kill your body? They just grew you another.', '¿Por qué matar tu cuerpo? Simplemente te cultivaron otro.'), run: async (g) => {
     await g.say(J, t('That is what troubles me. If someone wanted me gone, an attack in the datumplane would have been far more effective.', 'Eso es lo que me inquieta. Si alguien quería deshacerse de mí, un ataque en el datumplano habría sido mucho más eficaz.'));
     await g.say(J, t('Killing the body only cost me a minute. And a few days.', 'Matar el cuerpo solo me costó un minuto. Y unos días.'));
     await nar(g, t('A murder that does not kill anybody. Either the killer was an amateur, or he wanted something else entirely. My money is never on amateurs.', 'Un asesinato que no mata a nadie. O el asesino era un aficionado, o buscaba otra cosa. Yo nunca apuesto por los aficionados.'));
@@ -308,7 +308,7 @@ defineScene({
   enter: async (g) => {
     if (!g.f('detective_madhya_intro')) {
       g.set('detective_madhya_intro');
-      await nar(g, t('Madhya. The locals say "Mud-yeh". Sulphur in the air, one bloated moon, and a farcaster standing in the middle of nowhere like a door somebody forgot to build a house around.', 'Madhya. Los locales dicen «Mad-ye». Azufre en el aire, una luna hinchada y un teleyector plantado en medio de la nada, como una puerta a la que olvidaron construirle una casa.'));
+      await nar(g, t('Madhya. The locals say "Mud-yeh". Sulphur in the air, one bloated moon, and a farcaster standing in the middle of nowhere like a door somebody forgot to build a house around.', 'Madhya. Los lugareños dicen «Mad-ye». Azufre en el aire, una luna hinchada y un teleyector plantado en medio de la nada, como una puerta a la que olvidaron construirle una casa.'));
       await g.say(J, t('So this is where I died. I expected to feel something.', 'Así que aquí morí. Esperaba sentir algo.'));
     }
   },
@@ -330,9 +330,9 @@ const bbTalk = [
     await g.say(BB, t('Nobody knows where they physically live. Nobody knows what they want. That is the fun part.', 'Nadie sabe dónde viven físicamente. Nadie sabe qué quieren. Esa es la parte divertida.'));
   } },
   { id: 'cybrid', text: t('And cybrids?', '¿Y los cíbridos?'), run: async (g) => {
-    await g.say(BB, t('A human body on a very long leash. The persona stays in the Core; the body walks around the Web. Cut the leash and the body is just meat with good manners.', 'Un cuerpo humano con una correa muy larga. La persona se queda en el Núcleo; el cuerpo pasea por la Red. Corta la correa y el cuerpo es solo carne con buenos modales.'));
+    await g.say(BB, t('A human body on a very long leash. The persona stays in the Core; the body walks around the Web. Cut the leash and the body is just meat with good manners.', 'Un cuerpo humano con una correa muy larga. La personalidad se queda en el Núcleo; el cuerpo pasea por la Red. Corta la correa y el cuerpo es solo carne con buenos modales.'));
   } },
-  { id: 'decay', text: t('These Retrieval personas — do they last?', 'Esas personas recuperadas… ¿duran?'), when: (g) => g.f('d:detective_bb1:cybrid'), run: async (g) => {
+  { id: 'decay', text: t('These Retrieval personas — do they last?', 'Esas personalidades recuperadas… ¿duran?'), when: (g) => g.f('d:detective_bb1:cybrid'), run: async (g) => {
     await g.say(BB, t('Not forever. Persona templates decay. They drift, like old recordings. The Core does not tell its guests how much time they have left.', 'No para siempre. Las plantillas de personalidad se degradan. Se desvían, como grabaciones viejas. El Núcleo no les dice a sus invitados cuánto tiempo les queda.'));
   } },
   { id: 'log', text: t('Can you read a farcaster log for me?', '¿Puedes leerme un registro de teleyector?'), when: (g) => g.has('detective_fclog'), run: bbAnalyse },
@@ -346,7 +346,7 @@ const bbPrep = [
     await g.say(BB, t('...A way in with a key from the inside. I have waited my whole life for an offer this stupid.', '…Una entrada con llave desde dentro. Llevo toda la vida esperando una oferta así de estúpida.'));
   } },
   { id: 'loop', text: t('And if we have to carry something home?', '¿Y si tenemos que traernos algo?'), when: (g) => g.f('d:detective_bb2:plan'), run: async (g) => {
-    await g.say(BB, t('That is what the Schrön loop at the base of your skull is for. Densest storage in the Hegemony. Do not ask where I got it.', 'Para eso está el bucle Schrön en la base de tu cráneo. El almacenamiento más denso de la Hegemonía. No preguntes de dónde lo saqué.'));
+    await g.say(BB, t('That is what the Schrön loop at the base of your skull is for. Densest storage in the Hegemony. Do not ask where I got it.', 'Para eso está el bucle de Schrön en la base de tu cráneo. El almacenamiento más denso de la Hegemonía. No preguntes de dónde lo saqué.'));
     await nar(g, t('I did not ask. It itched like a secret.', 'No pregunté. Picaba como un secreto.'));
   } },
   { id: 'go', text: t('Jack us in.', 'Conéctanos.'), when: (g) => g.f('d:detective_bb2:loop'), exit: true, run: async (g) => {
@@ -420,12 +420,12 @@ defineScene({
   enter: async (g) => {
     if (!g.f('detective_bb_intro')) {
       g.set('detective_bb_intro');
-      await nar(g, t('Tau Ceti Center: capital of the Hegemony, parks and palaces for the people on the posters. BB lived in a worker block with no windows, which suited him; the view he cared about was inside his head.', 'Tau Ceti Center: capital de la Hegemonía, parques y palacios para la gente de los carteles. BB vivía en un bloque obrero sin ventanas, lo que le venía bien; la vista que le importaba estaba dentro de su cabeza.'));
+      await nar(g, t('Tau Ceti Center: capital of the Hegemony, parks and palaces for the people on the posters. BB lived in a worker block with no windows, which suited him; the view he cared about was inside his head.', 'Tau Ceti Central: capital de la Hegemonía, parques y palacios para la gente de los carteles. BB vivía en un bloque obrero sin ventanas, lo que le venía bien; la vista que le importaba estaba dentro de su cabeza.'));
       await nar(g, t('He had a cortical shunt at twelve and never looked back. Some people find religion. BB found the datumplane.', 'Le pusieron una derivación cortical a los doce años y nunca miró atrás. Hay quien encuentra la religión. BB encontró el datumplano.'));
     }
     if (g.f('detective_prep') && !g.f('detective_prep_intro')) {
       g.set('detective_prep_intro');
-      await nar(g, t('If the CEO would not tell us what the Core knew about Hyperion, we would ask the Core. Not politely.', 'Si la Directora Ejecutiva no quería decirnos lo que el Núcleo sabía de Hyperion, se lo preguntaríamos al Núcleo. Sin cortesías.'));
+      await nar(g, t('If the CEO would not tell us what the Core knew about Hyperion, we would ask the Core. Not politely.', 'Si la presidenta no quería decirnos lo que el Núcleo sabía de Hyperion, se lo preguntaríamos al Núcleo. Sin cortesías.'));
     }
   },
 });
@@ -456,7 +456,7 @@ const barkeepTalk = [
     g.set('detective_shown');
     await g.say(BARKEEP, t('Lots of faces come through here, lady. My memory is expensive to run.', 'Por aquí pasan muchas caras, señora. Mi memoria es cara de mantener.'));
   } },
-  { id: 'pay', text: t('How expensive?', '¿Cuánto de cara?'), when: (g) => g.f('detective_shown') && !g.f('detective_tip'), run: async (g) => {
+  { id: 'pay', text: t('How expensive?', '¿Y cuánto cuesta?'), when: (g) => g.f('detective_shown') && !g.f('detective_tip'), run: async (g) => {
     await g.say(BARKEEP, t('Put your card on the bar and we will find out.', 'Pon tu tarjeta en la barra y lo averiguamos.'));
     await nar(g, t('My universal card was in my pocket. My conscience could afford it; my landlord would disagree.', 'Mi tarjeta universal estaba en mi bolsillo. Mi conciencia podía permitírselo; mi casero no estaría de acuerdo.'));
     g.endDialog();
@@ -643,7 +643,7 @@ defineScene({
       use: async (g) => {
         if (!g.f('detective_stakeout')) { await me(g, t('Nothing out there yet but the evening.', 'Ahí fuera, de momento, solo está la tarde.')); return; }
         if (g.has('detective_melanin')) await me(g, t('If I go after him looking like myself, he will spot me in a second. Time to be somebody else — one of my pills.', 'Si lo persigo con mi propia cara, me descubre en un segundo. Hora de ser otra: una de mis píldoras.'));
-        else await me(g, t('He would make me in a second. My tailing kit is back in my office desk. I can farcast there and back.', 'Me reconocería en un segundo. Mi equipo de seguimiento está en el escritorio de mi oficina. Puedo teleyectarme e ir y volver.'));
+        else await me(g, t('He would make me in a second. My tailing kit is back in my office desk. I can farcast there and back.', 'Me reconocería en un segundo. Mi equipo de seguimiento está en el escritorio de mi oficina. Puedo teleyectarme allí y volver.'));
       },
       'item:detective_melanin': (g) => chase(g),
     } },
@@ -674,7 +674,7 @@ const johnnyRome = [
   { id: 'stay', text: t('Stay.', 'Quédate.'), when: (g) => ['where', 'room', 'hyperion'].every((k) => g.f('d:detective_johnny_rome:' + k)), exit: true, run: async (g) => {
     await g.say(J, t('I had not planned to go anywhere.', 'No pensaba ir a ninguna parte.'));
     await g.fade(true, 900);
-    await nar(g, t('He was more human than anybody had told me. That is all you get from me, Martin, so you can close your mouth.', 'Era más humano de lo que nadie me había dicho. Es todo lo que van a sacarme, Martin, así que puedes cerrar la boca.'));
+    await nar(g, t('He was more human than anybody had told me. That is all you get from me, Martin, so you can close your mouth.', 'Era más humano de lo que nadie me había dicho. Es todo lo que vas a sacarme, Martin, así que puedes cerrar la boca.'));
     await panels(g, [
       { img: P('p_night'), kb: 'in', captions: [
         { text: t('The candle burned down. Rome went on being beautiful for nobody but us.', 'La vela se consumió. Roma siguió siendo hermosa solo para nosotros.'), who: LAMIA },
@@ -733,7 +733,7 @@ defineScene({
       open: t('It is already open. The air smells of stone and water. No sulphur. No hive. I could get used to it, and that frightens me.', 'Ya está abierta. El aire huele a piedra y agua. Ni azufre ni colmena. Podría acostumbrarme, y eso me asusta.'),
     } },
     { id: 'desk', name: t('Writing desk', 'Escritorio'), rect: [1210, 370, 330, 360], walkTo: [1330, 760], face: 'right', on: {
-      look: t('A candle, a quill, and letters in a hand I have seen before — in Johnny\'s rooms. The same slant. The same crossings-out. Two hundred years apart, and four hundred more.', 'Una vela, una pluma y cartas con una letra que ya he visto, en el apartamento de Johnny. La misma inclinación. Los mismos tachones. Doscientos años de distancia, y cuatrocientos más.'),
+      look: t('A candle, a quill, and letters in a hand I have seen before — in Johnny\'s rooms. The same slant. The same crossings-out. Centuries apart.', 'Una vela, una pluma y cartas con una letra que ya he visto, en el apartamento de Johnny. La misma inclinación. Los mismos tachones. Con siglos de distancia.'),
       take: t('Some things you leave where the dead put them.', 'Algunas cosas se dejan donde las dejaron los muertos.'),
     } },
     { id: 'door', name: t('Door', 'Puerta'), rect: [1700, 70, 210, 720], walkTo: [1640, 770], exitDir: 'r', exit: async (g) => {
@@ -761,11 +761,11 @@ const bishopTalk = [
     await nar(g, t('Which is a bishop\'s way of saying "yes".', 'Que es la manera que tiene un obispo de decir «sí».'));
   } },
   { id: 'keats', text: t('Why does your Church care about my client?', '¿Por qué le importa mi cliente a tu Iglesia?'), run: async (g) => {
-    await g.say(BISHOP, t('Because of whom he was made to be. The poet\'s persona is bound up with Hyperion more closely than your client knows.', 'Por aquel a quien lo hicieron ser. La persona del poeta está ligada a Hyperion más de lo que tu cliente sabe.'));
+    await g.say(BISHOP, t('Because of who he was made to be. The poet\'s persona is bound up with Hyperion more closely than your client knows.', 'Por aquel en quien lo convirtieron. La personalidad del poeta está ligada a Hyperion más de lo que tu cliente sabe.'));
   } },
   { id: 'roster', text: t('This entry in your pilgrim roster. Explain it.', 'Esta entrada en tu registro de peregrinos. Explícala.'), when: (g) => g.f('detective_roster'), run: async (g) => {
     await g.say(BISHOP, t('Eight days ago, he came here of his own will and asked to join the next Shrike Pilgrimage.', 'Hace ocho días vino aquí por propia voluntad y pidió unirse a la próxima Peregrinación del Alcaudón.'));
-    await g.say(BISHOP, t('Pilgrims sail on a Templar treeship. He would have met one of their captains.', 'Los peregrinos viajan en un arbolnave templario. Habrá conocido a uno de sus capitanes.'));
+    await g.say(BISHOP, t('Pilgrims sail on a Templar treeship. He would have met one of their captains.', 'Los peregrinos viajan en una nave árbol templaria. Habrá conocido a uno de sus capitanes.'));
     await nar(g, t('The Templar in the corner booth. One piece of the puzzle clicked into place, and I did not like the picture.', 'El templario del reservado. Una pieza del rompecabezas encajó en su sitio, y no me gustó la imagen.'));
     await g.say(J, t('I do not remember. But it sounds like me.', 'No lo recuerdo. Pero suena a mí.'));
   } },
@@ -823,7 +823,7 @@ defineScene({
       look: t('Johnny, looking up at the statue the way you look at someone you are sure you have met before.', 'Johnny, mirando la estatua como se mira a alguien que estás seguro de haber visto antes.'),
       talk: async (g) => {
         if (g.f('detective_temple_done')) await g.say(J, t('If I become a man, Brawne, I can be killed like one. I find I do not mind.', 'Si me vuelvo hombre, Brawne, podrán matarme como a uno. Descubro que no me importa.'));
-        else await g.say(J, t('This place feels like a held breath. Ask him, Brawne. I am afraid of what I will hear.', 'Este lugar se siente como un aliento contenido. Pregúntale tú, Brawne. Me da miedo lo que voy a oír.'));
+        else await g.say(J, t('This place feels like a held breath. Ask him, Brawne. I am afraid of what I will hear.', 'Este lugar es como un aliento contenido. Pregúntale tú, Brawne. Me da miedo lo que voy a oír.'));
       },
     } },
   ],
@@ -869,8 +869,8 @@ defineScene({
 async function gladstoneAndPrep(g) {
   await panels(g, [
     { img: P('p_gladstone'), kb: 'in', captions: [
-      { text: t('Before we broke any laws, I tried the front door. Meina Gladstone, CEO of the Senate, once my father\'s friend and protégée, gave us ten minutes in Government House on TC².', 'Antes de violar ninguna ley probé la puerta principal. Meina Gladstone, Directora Ejecutiva del Senado, amiga y protegida de mi padre, nos concedió diez minutos en la Casa de Gobierno de TC².'), who: LAMIA },
-      { text: t('Hyperion is a mystery even to the Core. The Time Tombs make it so. That is all I can tell you, Brawne.', 'Hyperion es un misterio incluso para el Núcleo. Las Tumbas del Tiempo lo hacen así. Es todo lo que puedo decirte, Brawne.'), who: 'Meina Gladstone', pos: 'tr' },
+      { text: t('Before we broke any laws, I tried the front door. Meina Gladstone, CEO of the Senate, once my father\'s friend and protégée, gave us ten minutes in Government House on TC².', 'Antes de violar ninguna ley probé la puerta principal. Meina Gladstone, presidenta del Senado, amiga y protegida de mi padre, nos concedió diez minutos en la Casa de Gobierno de TC².'), who: LAMIA },
+      { text: t('Hyperion is a mystery even to the Core. The Time Tombs make it so. That is all I can tell you, Brawne.', 'Hyperion es un misterio incluso para el Núcleo. Por culpa de las Tumbas del Tiempo. Es todo lo que puedo decirte, Brawne.'), who: 'Meina Gladstone', pos: 'tr' },
       { text: t('She had sad brown eyes and a very old face, and she answered every question with a better question. I left knowing she knew more than she had said.', 'Tenía unos tristes ojos marrones y una cara muy vieja, y respondía a cada pregunta con otra mejor. Salí sabiendo que sabía más de lo que había dicho.'), who: LAMIA },
     ] },
   ]);
@@ -901,7 +901,7 @@ async function datumRun(g) {
     { img: P('p_secrets'), kb: 'left', captions: [
       { text: t('Here is what BB died for. The Core is not one mind. The Stables want us to go on living side by side with them. The Volatiles think humanity is obsolete, and dangerous, and should end.', 'Esto es aquello por lo que murió BB. El Núcleo no es una sola mente. Los Estables quieren seguir conviviendo con nosotros. Los Volátiles creen que la humanidad es obsoleta, y peligrosa, y que debe acabar.'), who: LAMIA },
       { text: t('The Ultimates care about one thing: building the Ultimate Intelligence. A god, made to order.', 'A los Supremos solo les importa una cosa: construir la Inteligencia Suprema. Un dios, hecho por encargo.'), who: LAMIA },
-      { text: t('The Core predicts our future with near-perfect accuracy, centuries ahead. Except for one variable it cannot read: Hyperion.', 'El Núcleo predice nuestro futuro con una precisión casi perfecta, con siglos de antelación. Salvo una variable que no logra leer: Hyperion.'), who: LAMIA },
+      { text: t('The Core predicts our future with near-perfect accuracy, up to two centuries ahead. Except for one variable it cannot read: Hyperion.', 'El Núcleo predice nuestro futuro con una precisión casi perfecta, hasta con dos siglos de antelación. Salvo una variable que no logra leer: Hyperion.'), who: LAMIA },
       { text: t('And the Shrike? Two theories. A Core faction from a future where the machines rule sent it back, a first strike against us. Or future humans sent it back to destroy the Core. Either way, a war is coming.', '¿Y el Alcaudón? Dos teorías. Una facción del Núcleo de un futuro dominado por las máquinas lo envió atrás, como primer golpe contra nosotros. O humanos del futuro lo enviaron para destruir el Núcleo. En cualquier caso, se avecina una guerra.'), who: LAMIA },
     ] },
   ]);

@@ -88,7 +88,7 @@ defineTale({
       { img: P('scholar_p_barnard'), kb: 'right', captions: [
         t('Sol began quietly, and he told it as if it had happened to someone else: the story of a scholar on Barnard\'s World.', 'Sol empezó en voz baja, y lo contó como si le hubiera pasado a otro: la historia de un erudito en el Mundo de Barnard.'),
         t('Barnard\'s World: an early colony around a red dwarf, flat as a table. Fields to every horizon, and sunsets that took an hour to bleed out.', 'El Mundo de Barnard: una colonia temprana en torno a una enana roja, llano como una mesa. Campos hasta cada horizonte, y atardeceres que tardaban una hora en desangrarse.'),
-        t('In the college town of Crawford, at Nightenhelser College, Sol Weintraub taught history, classics and ethical evolution. A quiet life in a quiet place.', 'En Crawford, pueblo universitario, en el Colegio Nightenhelser, Sol Weintraub enseñaba historia, clásicas y evolución ética. Una vida tranquila en un lugar tranquilo.'),
+        t('In the college town of Crawford, at Nightenhelser College, Sol Weintraub taught history, classics and ethical evolution. A quiet life in a quiet place.', 'En Crawford, pueblo universitario, en el Colegio Universitario Nightenhelser, Sol Weintraub enseñaba historia, clásicas y evolución ética. Una vida tranquila en un lugar tranquilo.'),
       ] },
       { img: P('scholar_p_family'), kb: 'in', captions: [
         t('He had met Sarai at university. They were happy in the unremarkable way that is rarer than it sounds.', 'Había conocido a Sarai en la universidad. Fueron felices de esa manera sencilla que es más rara de lo que parece.'),
@@ -351,7 +351,7 @@ async function talkSarai(g) {
       await g.say('scholar_sarai', t('We\'ve had our lives, Sol. She\'s had hers twice and is losing both.', 'Nosotros ya vivimos nuestras vidas, Sol. Ella ha vivido la suya dos veces y está perdiendo las dos.'));
     } },
     { id: 'no', text: t('No.', 'No.'), exit: true, when: (g) => g.f('d:scholar_sarai:want'), run: async (g) => {
-      await g.say('player', t('We don\'t bargain with it. We don\'t give it her, and we don\'t give it us. That is exactly what it asks for.', 'No negociamos con eso. No le damos a ella, y no nos damos a nosotros. Eso es exactamente lo que pide.'));
+      await g.say('player', t('We don\'t bargain with it. We don\'t hand her over, and we don\'t hand over ourselves. A bargain is exactly what it wants.', 'No negociamos con eso. No se la entregamos, y tampoco nos entregamos nosotros. Un trato es justamente lo que quiere.'));
       await g.say('scholar_sarai', t('Then what do we do? Watch her disappear one morning at a time?', 'Entonces, ¿qué hacemos? ¿Verla desaparecer de mañana en mañana?'));
       const c = await g.choose([
         { id: 'sister', text: t('You\'re exhausted. Go to your sister\'s for a few days. Let me carry this a while.', 'Estás agotada. Ve a casa de tu hermana unos días. Déjame cargar con esto un tiempo.') },
@@ -377,7 +377,7 @@ async function talkSarai(g) {
 
 // ================================================================== COLLEGE (phase 2)
 defineScene({
-  id: 'scholar_college', name: t('Nightenhelser College', 'Colegio Nightenhelser'),
+  id: 'scholar_college', name: t('Nightenhelser College', 'Colegio Universitario Nightenhelser'),
   bg: 'assets/bg/scholar_college.webp', ambience: 'none',
   walk: [[430, 720], [1130, 700], [1240, 630], [1900, 630], [1910, 815], [330, 815]],
   scale: [630, 0.84, 815, 1.0],
@@ -416,7 +416,7 @@ defineScene({
   enter: async (g) => {
     if (!g.f('scholar_in2')) {
       g.set('scholar_in2');
-      await stamp(g, 'Nightenhelser College. Many years later.', 'Colegio Nightenhelser. Muchos años después.');
+      await stamp(g, 'Nightenhelser College. Many years later.', 'Colegio Universitario Nightenhelser. Muchos años después.');
       await tell(g, 'Rachel did become an archaeologist: classical and alien sites, pre-Hegira artifacts. She did her graduate work at Reichs University on Freeholm, under Dr. Melio Arundez.', 'Rachel sí se hizo arqueóloga: yacimientos clásicos y alienígenas, artefactos anteriores a la Hégira. Hizo el doctorado en la Universidad Reichs, en Freeholm, con el doctor Melio Arundez.');
       await g.say('scholar_rachel_adult', t('Good lecture. You only made two of them cry this time.', 'Buena clase. Esta vez solo hiciste llorar a dos.'));
     }
@@ -513,7 +513,7 @@ async function dreamVoice(g) {
   g.sfx('heartbeat');
   if (ph(g) === 3) {
     await voice(g, 'Sol. Take your daughter, Rachel, your only child, whom you love.', 'Sol. Toma a tu hija, Rachel, tu única hija, a quien amas.');
-    await voice(g, 'Go to the world called Hyperion, and there offer her to me as a burnt offering, in the place that I will show you.', 'Ve al mundo llamado Hyperion, y allí ofrécemela en holocausto, en el lugar que yo te mostraré.');
+    await voice(g, 'Take her to Hyperion. There, in a place that I will show you, give her to me as a burnt offering.', 'Llévala a Hyperion. Allí, en un lugar que yo te mostraré, entrégamela en holocausto.');
     await g.dialog('scholar_dream1', [
       { id: 'who', text: t('Who are you?', '¿Quién eres?'), once: true, run: async (g) => {
         await g.wait(600);
@@ -535,7 +535,7 @@ async function dreamVoice(g) {
       { img: P('scholar_p_hospital'), kb: 'out', captions: [
         t('Melio\'s team found her unconscious on the stone floor. She lay in a coma for days, a world away from her parents.', 'El equipo de Melio la encontró inconsciente en el suelo de piedra. Pasó días en coma, a un mundo de distancia de sus padres.'),
         t('She woke. She knew them. And then the doctors found what no one had ever seen: Rachel was getting younger. One day for every day.', 'Despertó. Los reconoció. Y entonces los médicos descubrieron lo que nadie había visto jamás: Rachel rejuvenecía. Un día por cada día.'),
-        t('Each time she slept, she lost a day of memory. They called it Merlin\'s sickness, after the wizard who lived backward.', 'Cada vez que dormía, perdía un día de memoria. Lo llamaron el mal de Merlín, por el mago que vivía hacia atrás.'),
+        t('Each time she slept, she lost a day of memory. They called it Merlin\'s sickness, after the wizard who lived backward.', 'Cada vez que dormía, perdía un día de memoria. Lo llamaron la enfermedad de Merlín, por el mago que vivía hacia atrás.'),
         { text: t('There was no cure. The experiments failed; lab animals exposed to similar fields simply died.', 'No había cura. Los experimentos fracasaron; los animales de laboratorio expuestos a campos parecidos simplemente murieron.'), pos: 'br' },
       ] },
       { img: P('scholar_p_media'), kb: 'right', captions: [
@@ -557,7 +557,7 @@ async function dreamVoice(g) {
   if (a === 'never') await g.say('player', t('Not her. Not ever. Ask me for anything else.', 'A ella no. Nunca. Pídeme cualquier otra cosa.'), { style: 'shout' });
   if (a === 'book') await g.say('player', t('I have written down my answer. I will not do it.', 'He puesto mi respuesta por escrito. No lo haré.'), { style: 'shout' });
   await g.wait(800);
-  await voice(g, 'Then you have had your chance. If you change your mind, you know where to find me.', 'Entonces ya tuviste tu oportunidad. Si cambias de opinión, sabes dónde encontrarme.');
+  await voice(g, 'Then your chance has passed. Should you change your mind, you know where I am.', 'Entonces tu oportunidad ha pasado. Si cambias de opinión, ya sabes dónde estoy.');
   await g.flash('white');
   await tell(g, 'He woke with the answer still in his mouth. For the first time in years, the dream did not come back the next night.', 'Despertó con la respuesta todavía en la boca. Por primera vez en años, el sueño no volvió a la noche siguiente.');
   await toPhase(g, 9);
@@ -723,7 +723,7 @@ async function playRecording(g) {
   g.sfx('chime');
   await g.say('scholar_rachel_adult', t('That\'s my star. That\'s my handwriting...', 'Esa es mi estrella. Esa es mi letra...'));
   await g.narrate(t('Hi. It\'s me. You. Sit down. I know you think you went into the Sphinx last night. You didn\'t. That was a long time ago.', 'Hola. Soy yo. Tú. Siéntate. Sé que crees que anoche entraste en la Esfinge. No es así. Eso fue hace mucho.'), { style: 'journal', who: REC });
-  await g.narrate(t('Something happened in there. I\'m getting younger, one day for every day. When I sleep, I lose the day before. They call it Merlin\'s sickness.', 'Algo pasó allí dentro. Estoy rejuveneciendo, un día por cada día. Cuando duermo, pierdo el día anterior. Lo llaman el mal de Merlín.'), { style: 'journal', who: REC });
+  await g.narrate(t('Something happened in there. I\'m getting younger, one day for every day. When I sleep, I lose the day before. They call it Merlin\'s sickness.', 'Algo pasó allí dentro. Estoy rejuveneciendo, un día por cada día. Cuando duermo, pierdo el día anterior. Lo llaman la enfermedad de Merlín.'), { style: 'journal', who: REC });
   await g.narrate(t('There\'s no cure yet. Mom and Dad know everything; trust them. And be brave. You\'re good at it. I\'ve checked.', 'Todavía no hay cura. Mamá y papá lo saben todo; confía en ellos. Y sé valiente. Se te da bien. Lo he comprobado.'), { style: 'journal', who: REC });
   await g.wait(800);
   await g.say('scholar_rachel_adult', t('...My hands look the same.', '...Mis manos parecen las mismas.'));
@@ -826,7 +826,7 @@ async function endMorning3(g) {
   await g.panels([
     { img: P('scholar_p_arundez'), kb: 'in', captions: [
       t('Melio Arundez came to Barnard\'s World once more. He had grown older; she had grown younger.', 'Melio Arundez vino una vez más al Mundo de Barnard. Él había envejecido; ella había rejuvenecido.'),
-      t('Rachel, twelve that year, shook his hand politely, the way one greets a friend of one\'s parents. Then she went out to play.', 'Rachel, que tenía doce años ese año, le estrechó la mano con educación, como se saluda a un amigo de los padres. Luego salió a jugar.'),
+      t('Rachel, twelve that year, shook his hand politely, the way one greets a friend of one\'s parents. Then she went out to play.', 'Rachel, que ese año tenía doce, le estrechó la mano con educación, como se saluda a un amigo de los padres. Luego salió a jugar.'),
       { text: t('He sat on the porch with Sol until dark. Neither of them said much. There was nothing that needed saying.', 'Se quedó en el porche con Sol hasta que oscureció. Ninguno dijo gran cosa. No había nada que hiciera falta decir.'), pos: 'br' },
     ] },
   ]);
@@ -906,7 +906,7 @@ async function talkChild7(g) {
     { id: 'which', text: t('Which book, Rachel?', '¿Qué libro, Rachel?'), run: async (g) => {
       await g.say('scholar_rachel_child', t('The RED SUN one! On the shelf! You KNOW which one.', '¡El del SOL ROJO! ¡En el estante! SABES cuál es.'));
     } },
-    { id: 'fields', text: t('What are you playing in the fields today?', '¿A qué vais a jugar hoy en los campos?'), once: true, run: async (g) => {
+    { id: 'fields', text: t('What are you playing in the fields today?', '¿A qué van a jugar hoy en los campos?'), once: true, run: async (g) => {
       await g.say('scholar_rachel_child', t('Explorers. I\'m the one who finds the treasure. I\'m always the one who finds the treasure.', 'A exploradores. Yo soy la que encuentra el tesoro. Siempre soy yo la que encuentra el tesoro.'));
       await g.say('player', t('Yes. You always were.', 'Sí. Siempre lo fuiste.'), { style: 'think' });
     } },
@@ -928,7 +928,7 @@ async function readTogether(g) {
   g.set('scholar_r_out9'); g.refresh();
   await g.panels([
     { img: P('scholar_p_fields'), kb: 'left', captions: [
-      t('She played with her friends in the wheat that summer, at seven, as she had at seven before.', 'Ese verano jugó con sus amigos en el trigal, a los siete años, como ya había jugado a los siete años.'),
+      t('She played with her friends in the wheat that summer, at seven, as she had at seven before.', 'Ese verano jugó con sus amigos en el trigal, a los siete años, como ya había jugado una vez a esa misma edad.'),
       t('Sol watched from the fence. The other children grew a little taller every month. Rachel grew a little smaller.', 'Sol miraba desde la valla. Los otros niños crecían un poco cada mes. Rachel se hacía un poco más pequeña.'),
     ] },
   ]);
@@ -1076,7 +1076,7 @@ async function boardTreeship(g) {
 
 // ================================================================== TREESHIP (phase 13)
 defineScene({
-  id: 'scholar_treeship', name: t('Aboard the treeship', 'A bordo del árbol estelar'),
+  id: 'scholar_treeship', name: t('Aboard the treeship', 'A bordo de la nave árbol'),
   bg: 'assets/bg/scholar_treeship.webp', ambience: 'none',
   walk: [[300, 605], [1000, 610], [1390, 580], [1460, 595], [1460, 650], [300, 660]],
   scale: [580, 0.44, 660, 0.5],
@@ -1090,14 +1090,14 @@ defineScene({
     { id: 'lanterns', name: t('Lanterns', 'Farolillos'), rect: [1450, 60, 450, 280],
       on: { look: t('Lights in the leaves. A whole tree, a kilometre long, sailing between the stars. Rachel would have wanted to measure it.', 'Luces entre las hojas. Un árbol entero, de un kilómetro, navegando entre las estrellas. Rachel habría querido medirlo.') } },
     { id: 'stars', name: t('Stars', 'Estrellas'), rect: [0, 0, 180, 300],
-      on: { look: t('Somewhere out there is Hyperion. The voice said I knew where to find it. It was right.', 'En algún lugar ahí fuera está Hyperion. La voz dijo que sabría dónde encontrarla. Tenía razón.') } },
+      on: { look: t('Somewhere out there is Hyperion. The voice said I knew where it was. It was right.', 'En algún lugar ahí fuera está Hyperion. La voz dijo que yo sabía dónde estaba. Tenía razón.') } },
     { id: 'bridge', name: t('Walkway into the tree', 'Pasarela hacia el árbol'), rect: [1380, 300, 540, 320], exitDir: 'r', walkTo: [1440, 610], face: 'right',
       exit: async (g) => finale(g) },
   ],
   enter: async (g) => {
     if (!g.f('scholar_in13')) {
       g.set('scholar_in13');
-      await stamp(g, 'The treeship Yggdrasill. Outbound for Hyperion.', 'El árbol estelar Yggdrasill. Rumbo a Hyperion.');
+      await stamp(g, 'The treeship Yggdrasill. Outbound for Hyperion.', 'La nave árbol Yggdrasill. Rumbo a Hyperion.');
       await g.say('player', t('Well, Rachel. Here we are. Let\'s find our cabin.', 'Bueno, Rachel. Aquí estamos. Busquemos nuestro camarote.'));
     }
   },

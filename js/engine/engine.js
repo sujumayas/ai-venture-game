@@ -762,6 +762,7 @@ export class Game {
     this.state.inv = (ch.inv || []).slice();
     this.item = null; this.verb = null; this.renderInv();
     if (!this.settings.reached.includes(id)) { this.settings.reached.push(id); this.saveSettings(); }
+    if (this.onChapter) this.onChapter(id);
     this.lock();
     try {
       if (!opts.noCard) await this.card({ kicker: ch.kicker, title: ch.title, sub: ch.sub, img: ch.cardImg });
@@ -784,6 +785,7 @@ export class Game {
     this.state.frame = { player: this.state.player, inv: this.state.inv.slice(), scene: this.state.scene, pos: this.state.pos };
     this.state.tale = id;
     if (tl.chapter) this.state.chapter = tl.chapter;
+    if (!this.settings.reached.includes('tale:' + id)) { this.settings.reached.push('tale:' + id); this.saveSettings(); }
     this.state.player = tl.player;
     this.state.inv = (tl.inv || []).slice();
     this.item = null; this.verb = null; this.renderInv();
@@ -829,6 +831,7 @@ export class Game {
     this.state = Object.assign(freshState(), s.state);
     this.item = null; this.verb = null; this.renderInv();
     const pos = this.state.pos || {};
+    if (this.onChapter && this.state.chapter) this.onChapter(this.state.chapter);
     await this.goto(this.state.scene, { x: pos.x, y: pos.y, dir: pos.dir }, { loaded: true });
     return true;
   }

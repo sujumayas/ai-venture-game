@@ -1,0 +1,38 @@
+// Menu / save-load / language smoke test with screenshots.
+import { createRequire } from 'module';
+const require = createRequire(import.meta.url);
+const { chromium } = require('playwright');
+const BASE = process.env.BASE || 'http://localhost:8123/';
+const out = process.argv[2] || '/tmp';
+const browser = await chromium.launch();
+const page = await browser.newPage({ viewport: { width: 1280, height: 720 } });
+const errs = [];
+page.on('pageerror', (e) => errs.push(e.message));
+await page.goto(BASE + '?lang=en');
+await page.waitForFunction(() => window.HYP && document.getElementById('loading').classList.contains('done'));
+await page.waitForTimeout(500);
+await page.screenshot({ path: out + '/m_title.png' });
+await page.click('text=Options'); await page.waitForTimeout(200);
+await page.click('text=Español'); await page.waitForTimeout(200);
+await page.screenshot({ path: out + '/m_options_es.png' });
+await page.click('text=Volver'); await page.waitForTimeout(200);
+await page.click('text=Capítulos'); await page.waitForTimeout(400);
+await page.screenshot({ path: out + '/m_chapters.png' });
+await page.click('text=Volver'); await page.waitForTimeout(200);
+// start new game in fast mode via API, play a bit, save to slot 1, reload, load
+await page.evaluate(async () => { HYP.game.fast = true; HYP.menu.close(); HYP.game.newState(); HYP.game.startChapter('prologue'); await new Promise(r=>setTimeout(r,50)); await HYP.idle(); });
+await page.evaluate(async () => { await HYP.act('use', 'piano'); await HYP.act('take', 'decanter'); });
+const before = await page.evaluate(() => HYP.state());
+await page.evaluate(() => HYP.game.saveSlot(1));
+await page.reload();
+await page.waitForFunction(() => window.HYP && document.getElementById('loading').classList.contains('done'));
+await page.waitForTimeout(300);
+await page.screenshot({ path: out + '/m_title_es_continue.png' });
+await page.evaluate(async () => { HYP.game.fast = true; HYP.menu.close(); HYP.game.newState(); await HYP.game.loadSlot(1); await HYP.idle(); });
+const after = await page.evaluate(() => HYP.state());
+console.log('save/load scene', before.scene, '->', after.scene, 'inv', JSON.stringify(after.inv), 'played', after.flags.p_played);
+await page.evaluate(() => { HYP.game.fast = false; HYP.menu.pause(); });
+await page.waitForTimeout(300);
+await page.screenshot({ path: out + '/m_pause.png' });
+console.log('errors', errs, await page.evaluate(() => HYP.errors()));
+await browser.close();

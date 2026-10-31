@@ -591,6 +591,14 @@
   "job": "9d3d2ffa-3caa-49d0-88cd-ad37c86ea23c",
   "kind": "panel"
  },
+ "assets/panels/c5_watch.webp": {
+  "job": "ab020c5d-803c-45c2-865b-484149d8f55a",
+  "kind": "panel"
+ },
+ "assets/panels/c6_confession.webp": {
+  "job": "162d4b1d-e240-4137-912a-72d46bce7285",
+  "kind": "panel"
+ },
  "assets/panels/c6_figure.webp": {
   "job": "444f387e-e56c-411e-ad88-2eb7719b645b",
   "kind": "panel"

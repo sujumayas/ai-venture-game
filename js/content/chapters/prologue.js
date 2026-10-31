@@ -55,13 +55,13 @@ defineScene({
           await g.narrate(t('One of the beasts blunders into the ship\'s containment field. Blue light, a startled roar, a splash. The music goes on.', 'Una de las bestias choca contra el campo de contención de la nave. Luz azul, un rugido de sorpresa, un chapoteo. La música sigue.'), { ms: 6000 });
           await g.wait(1200);
           g.sfx('fatline');
-          await g.say(SHIP, t('Fatline transmission arriving. Priority: Hegemony. The source is Tau Ceti Center.', 'Llega una transmisión por línea densa. Prioridad: Hegemonía. Origen: Tau Ceti Central.'));
+          await g.say(SHIP, t('Fatline transmission arriving. Priority: Hegemony. The source is Tau Ceti Center.', 'Llega una transmisión por línea densa. Prioridad: Hegemonía. Origen: Tau Ceti Center.'));
           await g.say('player', t('Out here? No one has used that channel in years.', '¿Aquí? Nadie ha usado ese canal en años.'));
           await g.say('player', t('I\'ll take it in the holo niche. But first, a drink.', 'La veré en el nicho holográfico. Pero primero, una copa.'));
           g.set('p_played');
         },
         talk: t('Pianos do not talk back. That is the charm of them.', 'Los pianos no contestan. Ese es su encanto.'),
-        take: t('It took a spinship and a small fortune to bring it here. It stays.', 'Traerlo aquí costó una nave de salto y una pequeña fortuna. Se queda.'),
+        take: t('It took a spinship and a small fortune to bring it here. It stays.', 'Traerlo hasta aquí costó una travesía interestelar y una pequeña fortuna. Se queda.'),
       } },
     { id: 'bench', name: t('Piano bench', 'Banqueta del piano'), rect: [175, 560, 200, 150], walkTo: [440, 700], face: 'left',
       on: { look: t('Worn velvet. It remembers the shape of me.', 'Terciopelo gastado. Recuerda mi forma.'), use: async (g) => g.act('use', 'piano') } },
@@ -97,7 +97,7 @@ defineScene({
   enter: async (g) => {
     if (!g.f('p_intro')) {
       g.set('p_intro');
-      await g.narrate(t('The Hegemony Consul sits on the balcony of his ebony spaceship. Below, in the swamps of a world without a name, something enormous bellows in the dusk.', 'El Cónsul de la Hegemonía está sentado en el balcón de su nave de ébano. Abajo, en los pantanos de un mundo sin nombre, algo enorme brama en el crepúsculo.'));
+      await g.narrate(t('On a world without a name, the man who was once the Hegemony\'s Consul sits out on the balcony of his ebony ship. In the swamps below, something enormous bellows at the dusk.', 'En un mundo sin nombre, el hombre que fue Cónsul de la Hegemonía descansa en el balcón de su nave de ébano. En los pantanos, a sus pies, algo enorme brama al crepúsculo.'));
       await g.narrate(t('He hunts in the fern forests by day. By night he plays for the saurians. It is, he tells himself, a kind of peace.', 'De día caza en los bosques de helechos. De noche toca para los saurios. Es, se dice a sí mismo, una especie de paz.'));
       await g.say('player', t('Time for a little music, I think.', 'Creo que es hora de un poco de música.'));
     }
@@ -113,7 +113,7 @@ defineScene({
   actors: [
     { id: 'gladstone_holo', x: 955, y: 610, dir: 'left', when: (g) => g.f('p_holo_on'), name: t('Gladstone (hologram)', 'Gladstone (holograma)'), noFace: true,
       on: {
-        look: t('Meina Gladstone, CEO of the Hegemony Senate. The press compares her to Lincoln. She looks older than I remember, and more tired.', 'Meina Gladstone, presidenta del Senado de la Hegemonía. La prensa la compara con Lincoln. Parece más vieja de lo que recuerdo, y más cansada.'),
+        look: t('Meina Gladstone, CEO of the Hegemony Senate. The press compares her to Lincoln. She looks older than I remember, and more tired.', 'Meina Gladstone, Directora Ejecutiva del Senado de la Hegemonía. La prensa la compara con Lincoln. Parece más vieja de lo que recuerdo, y más cansada.'),
         talk: t('It\'s a recording. Fatline messages don\'t take questions.', 'Es una grabación. Los mensajes por línea densa no admiten preguntas.'),
       } },
   ],
@@ -174,17 +174,17 @@ async function playMessage(g) {
   g.set('p_holo_on'); g.refresh();
   await g.wait(600);
   const G = 'gladstone_holo';
-  await g.say(G, t('I am Meina Gladstone, speaking from Tau Ceti Center. Forgive the intrusion on your solitude.', 'Soy Meina Gladstone y hablo desde Tau Ceti Central. Perdone que irrumpa en su soledad.'));
+  await g.say(G, t('I am Meina Gladstone, speaking from Tau Ceti Center. Forgive the intrusion on your solitude.', 'Soy Meina Gladstone y le hablo desde Tau Ceti Center. Perdone que irrumpa en su soledad.'));
   await g.say(G, t('The Church of the Shrike has chosen you for the final pilgrimage to Hyperion, and the All Thing has confirmed the choice.', 'La Iglesia del Alcaudón lo ha elegido para la última peregrinación a Hyperion, y la Asamblea Total ha confirmado la elección.'));
   await g.say(G, t('Three standard weeks ago the Time Tombs appeared to begin opening. Their anti-entropic fields are expanding fast.', 'Hace tres semanas estándar, las Tumbas del Tiempo parecieron empezar a abrirse. Sus campos antientrópicos se expanden deprisa.'));
   await g.say(G, t('The Shrike is now seen as far south as the Bridle Range.', 'Ya se ve al Alcaudón tan al sur como la cordillera de la Brida.'));
-  await g.say(G, t('A FORCE task force has left Parvati to evacuate our citizens. Its time-debt is a little over three Hyperion years.', 'Una fuerza operativa de la FUERZA ha partido de Parvati para evacuar a nuestros ciudadanos. Su deuda temporal es de algo más de tres años de Hyperion.'));
-  await g.say(G, t('An Ouster migration cluster of at least four thousand units is heading for the system. A battle fleet has been detached to meet it.', 'Un enjambre migratorio éxter de al menos cuatro mil unidades se dirige al sistema. Hemos destacado una flota de combate para hacerle frente.'));
+  await g.say(G, t('A FORCE task force has left Parvati to evacuate our citizens. Its time-debt is a little over three Hyperion years.', 'Un destacamento de la FUERZA ha partido de Parvati para evacuar a nuestros ciudadanos. Su deuda temporal es de algo más de tres años de Hyperion.'));
+  await g.say(G, t('An Ouster migration cluster of at least four thousand units is heading for the system. A full battle fleet has been detached from the Camn System to meet it.', 'Un enjambre migratorio éxter de al menos cuatro mil unidades se dirige al sistema. Hemos destacado desde el sistema Camn una flota de combate completa para hacerle frente.'));
   await g.say(G, t('The Templars are sending their treeship Yggdrasill. You can reach it with three weeks of time-debt before it jumps. The other six pilgrims will be aboard.', 'Los templarios envían su nave árbol Yggdrasill. Puede alcanzarla con tres semanas de deuda temporal antes de que salte. Los otros seis peregrinos irán a bordo.'));
   await g.say(G, t('Among them are Sol Weintraub, the scholar, and Colonel Fedmahn Kassad.', 'Entre ellos están Sol Weintraub, el erudito, y el coronel Fedmahn Kassad.'));
-  await g.say(G, t('Our intelligence says at least one of the seven is an Ouster agent. We do not know which.', 'Nuestra inteligencia dice que al menos uno de los siete es un agente éxter. No sabemos cuál.'));
+  await g.say(G, t('Our intelligence says at least one of the seven is an Ouster agent. We do not know which.', 'Según nuestros servicios de inteligencia, al menos uno de los siete es un agente éxter. No sabemos cuál.'));
   await g.say(G, t('If the Ousters take Hyperion, that agent must be eliminated, and the Tombs sealed. At any cost.', 'Si los éxters toman Hyperion, ese agente debe ser eliminado y las Tumbas selladas. Cueste lo que cueste.'));
-  await g.say(G, t('You knew Hyperion better than anyone. Godspeed.', 'Usted conocía Hyperion mejor que nadie. Buena suerte.'));
+  await g.say(G, t('You knew Hyperion better than anyone. Godspeed.', 'Usted conocía Hyperion mejor que nadie. Que Dios lo acompañe.'));
   g.set('p_holo_on', false); g.refresh();
   g.sfx('hum');
   if (replay) return;
@@ -197,14 +197,14 @@ async function playMessage(g) {
   ]);
   if (c === 'think') await g.wait(1500);
   await g.say('player', t('No reply.', 'Sin respuesta.'));
-  await g.say('player', t('Hyperion. Eleven years I was consul there. A dozen barges of pilgrims went north to the Tombs in my time. Not one came back.', 'Hyperion. Once años fui cónsul allí. En mi tiempo, una docena de barcazas de peregrinos subieron hacia las Tumbas. Ninguna volvió.'));
+  await g.say('player', t('Hyperion. Eleven years I was consul there. A dozen barges of pilgrims went north to the Tombs in my time. Not one came back.', 'Hyperion. Once años fui cónsul allí. En mi tiempo, una docena de barcazas de peregrinos subieron hacia las Tumbas. Ninguno de ellos volvió.'));
   await g.say('player', t('If I am going, the course must be plotted tonight.', 'Si voy a ir, hay que trazar el rumbo esta noche.'));
 }
 
 async function finale(g) {
   await g.panels([
     { img: 'assets/panels/p_storm.webp', kb: 'in', captions: [
-      t('He lies awake in the bow bedroom beneath the skylight and plays Wagner, the Ride of the Valkyries, loud against the storm.', 'Se acuesta despierto en el dormitorio de proa, bajo la claraboya, y pone a Wagner, la Cabalgata de las valquirias, a todo volumen contra la tormenta.'),
+      t('He lies awake in the bow bedroom beneath the skylight and plays Wagner, the Ride of the Valkyries, loud against the storm.', 'Tendido en el dormitorio de proa, bajo la claraboya, pone a Wagner, la Cabalgata de las valquirias, a todo volumen contra la tormenta.'),
       t('The lightning answers. He does not sleep.', 'Los relámpagos responden. No duerme.'),
     ] },
     { img: 'assets/panels/p_memory.webp', kb: 'out', sfxSound: 'shrike', captions: [

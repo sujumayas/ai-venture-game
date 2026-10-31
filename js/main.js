@@ -24,6 +24,22 @@ async function boot() {
 }
 boot();
 
+// ---------------------------------------------------------------- background prefetch of the current chapter's art
+const PREFIX = { prologue: ['p_'], ch1: ['c1_', 'priest_'], ch2: ['c2_', 'soldier_'], ch3: ['c3_', 'poet_'], ch4: ['c4_', 'scholar_'], ch5: ['c5_', 'detective_'], ch6: ['c6_', 'consul_'], epilogue: ['e_'] };
+let manifest = null;
+const fetched = new Set();
+game.onChapter = async (id) => {
+  if (game.fast) return;
+  try {
+    manifest = manifest || await (await fetch('assets/index.json')).json();
+    const pre = PREFIX[id] || [];
+    const list = manifest.filter((p) => pre.some((x) => p.split('/').pop().startsWith(x)) && !fetched.has(p));
+    list.forEach((p) => fetched.add(p));
+    const worker = async () => { while (list.length) { const p = list.shift(); await new Promise((r) => { const im = new Image(); im.onload = im.onerror = r; im.src = p; }); } };
+    worker(); worker();
+  } catch (e) { /* prefetch is best-effort */ }
+};
+
 // ---------------------------------------------------------------- Test / debug API (used by automated playtests)
 window.HYP = {
   game, REG, audio,

@@ -24,7 +24,7 @@ async function plantStakes(g) {
   if (!g.f('priest_f_suit')) { await g.say('priest_tuk', t('Suit first, Padre! The smoke here eats your lungs.', '¡Primero el traje, padre! El humo de aquí se come los pulmones.')); return; }
   if (!g.has('priest_mallet')) { await think(g, t('The ground is packed ash and roots. I cannot drive them in by hand. Tuk must have something in the packs.', 'El suelo es ceniza apisonada y raíces. No puedo clavarlas a mano. Tuk tendrá algo en los fardos.')); return; }
   await g.walkTo(700, 760);
-  await g.say('priest_tuk', t('All the way round, Padre. Close the ring tight. Nothing gets in, nothing gets out.', 'Toda la vuelta, padre. Cierre bien el anillo. Nada entra, nada sale.'));
+  await g.say('priest_tuk', t('All the way round, Padre. Close the ring tight. Nothing gets in, nothing gets out.', 'Alrededor de toda la tienda, padre. Cierre bien el anillo. Nada entra, nada sale.'));
   for (let i = 0; i < STAKES.length; i++) {
     g.set('priest_f_s' + i); g.refresh(); g.sfx('tick');
     await g.wait(260);
@@ -113,7 +113,7 @@ async function tukTalk(g) {
       await think(g, t('...a name I will not be writing in my journal.', '...un nombre que no pienso escribir en mi diario.'));
     } },
     { id: 'tree', text: t('Is that a tesla tree?', '¿Eso es un árbol tesla?'), once: true, run: async (g) => {
-      await g.say('priest_tuk', t('A small one. Don\'t stare at it, Padre. It feels you looking.', 'Uno pequeño. No lo mire tanto, padre. Nota que lo mira.'));
+      await g.say('priest_tuk', t('Yes, Padre. Don\'t stare at it. It feels you looking.', 'Sí, padre. No lo mire tanto. Nota que lo mira.'));
     } },
     { id: 'red', text: t('And the red trees?', '¿Y los árboles rojos?'), once: true, run: async (g) => {
       await g.say('priest_tuk', t('Prometheus. When the lightning finds them, they go bang. Phoenix bushes burn and grow back. Everything here wants fire.', 'Prometeos. Cuando el rayo los encuentra, revientan. Los arbustos fénix se queman y vuelven a crecer. Aquí todo quiere fuego.'));
@@ -146,7 +146,7 @@ defineScene({
       on: { look: t('A violet sky smeared with smoke. Now and then, a dry crackle of static runs across it.', 'Un cielo violeta manchado de humo. De vez en cuando lo recorre un chasquido seco de estática.') } },
     { id: 'grove', name: t('Bestos grove', 'Bosquecillo de asbesto'), rect: [0, 0, 520, 690],
       on: { look: t('White, fibrous, forked bestos plants: the one thing in this forest that will not burn. Tuk compares them to something I will not record.', 'Plantas de asbesto, blancas, fibrosas y bifurcadas: lo único en este bosque que no arde. Tuk las compara con algo que no pienso anotar.'),
-        take: t('I break off a fibre. It bends like wool and does not char in the flame-tongues. Remarkable.', 'Arranco una fibra. Se dobla como la lana y no se chamusca en las lenguas de fuego. Notable.') } },
+        take: t('I break off a fibre. It bends like wool and does not char in the flame-tongues. Remarkable.', 'Arranco una fibra. Se dobla como la lana y no se chamusca en las lenguas de fuego. Asombroso.') } },
     { id: 'prometheus', name: t('Prometheus trees', 'Prometeos'), rect: [600, 180, 270, 360],
       on: { look: t('Islands of dark red prometheus trees. Tuk says they explode when the lightning finds them.', 'Islotes de prometeos de un rojo oscuro. Tuk dice que estallan cuando el rayo los encuentra.') } },
     { id: 'flames', name: t('Flame-tongues', 'Lenguas de fuego'), rect: [1480, 490, 340, 140],
@@ -156,7 +156,7 @@ defineScene({
         await J(g, t('Day 83. Our first tesla tree: a hundred metres at least, nearly twice the height of the tallest prometheus.',
           'Día 83. Nuestro primer árbol tesla: cien metros por lo menos, casi el doble que el prometeo más alto.'));
         await J(g, t('Near the crown, an onion-shaped accumulator bulb; above it, dozens of silvery nimbus vines on the branches. Like a High Mosque on New Mecca hung with cheap tinsel.',
-          'Cerca de la copa, un bulbo acumulador con forma de cebolla; encima, docenas de lianas nimbo plateadas en las ramas. Como una alta mezquita de Nueva La Meca adornada con oropel barato.'));
+          'Cerca de la copa, un bulbo acumulador con forma de cebolla; encima, docenas de lianas nimbo plateadas en las ramas. Como una Alta Mezquita de Nueva Meca adornada con oropel barato.'));
       } } },
     { id: 'packs', name: t('Packs', 'Fardos'), rect: [975, 600, 175, 100], walkTo: [1060, 760],
       on: {

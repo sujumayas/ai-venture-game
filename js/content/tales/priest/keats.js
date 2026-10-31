@@ -38,7 +38,7 @@ async function leaveKeats(g) {
   }
   await g.walkTo(600, 760);
   await J(g, t('Keats has soured on me. Three Zen Gnostic centres, four High Mosques, saloons, brothels, the fiberplastic market, and Shrike temples on every second corner.',
-    'Keats se me ha agriado. Tres centros zen gnósticos, cuatro altas mezquitas, tabernas, burdeles, el mercado de fibroplástico y templos del Alcaudón en cada esquina.'));
+    'Keats se me ha agriado. Tres centros zen gnósticos, cuatro Altas Mezquitas, tabernas, burdeles, el mercado de fibroplástico y templos del Alcaudón en una esquina de cada dos.'));
   await J(g, t('Hyperion, I have decided, is a poet\'s world without poetry. Tomorrow I take the weekly airship south.',
     'Hyperion, he decidido, es un mundo de poetas sin poesía. Mañana tomo el dirigible semanal hacia el sur.'));
   await journeySouth(g);
@@ -52,7 +52,7 @@ async function journeySouth(g) {
       captions: [
         tc(t('Days 10–11 of my exile', 'Días 10–11 de mi exilio'), 'tl'),
         jc(t('The passenger airship is a vast cargo dirigible. I have made camp by the rear cargo lock, beside a planter family\'s pigs and a rooster.',
-          'El dirigible de pasajeros es un enorme carguero. He acampado junto a la escotilla de carga de popa, al lado de los cerdos y el gallo de una familia de colonos.'), 'bl'),
+          'El dirigible de pasajeros es un enorme carguero. He acampado junto a la escotilla de carga de popa, al lado de los cerdos y el gallo de una familia de hacendados.'), 'bl'),
         jc(t('Three days down the ragged coast they call the Mane. Then Cat Island and its "capital", Felix: five thousand souls in shacks. Then the island chain of the Nine Tails.',
           'Tres días bordeando la costa abrupta que llaman la Crin. Luego la isla del Gato y su «capital», Felix: cinco mil almas en chozas. Luego el rosario de islas de las Nueve Colas.'), 'tl'),
         jc(t('A retired professor, Heremis Denzel, tells me at dinner that the continents\' official names honour three forgotten survey bureaucrats. No one uses them.',
@@ -67,12 +67,12 @@ async function journeySouth(g) {
       img: P('priest_p_portromance'), kb: 'in',
       captions: [
         tc(t('Day 28 — Port Romance', 'Día 28 — Port Romance'), 'tl'),
-        jc(t('Yellow weirwood on scaffolds, plank walkways over the mudflats where the Kans meets Toschahai Bay. A dredge pounds all night long.',
-          'Madera amarilla de weirwood sobre andamios, pasarelas de tablas sobre el fango donde el Kans se une a la bahía de Toschahai. Una draga golpea toda la noche.'), 'bl'),
+        jc(t('Yellow weirwood buildings on scaffolds, plank walkways over the mudflats where the Kans meets Toschahai Bay. A dredge pounds all night long.',
+          'Edificios de weirwood amarillo sobre andamios, pasarelas de tablas sobre el fango donde el Kans se une a la bahía de Toschahai. Una draga martillea toda la noche.'), 'bl'),
         jc(t('Eight days here and three dead men: one drowned on the flats, one burned in a gutted shop, one shot three metres from me. No name. Six silver coins.',
-          'Ocho días aquí y tres muertos: uno ahogado en el fango, uno quemado en una tienda en ruinas, uno de un disparo a tres metros de mí. Sin nombre. Seis monedas de plata.'), 'tl'),
-        jc(t('I gave him the last rites and sat through the autopsy. The little doctor weighed the heart in his palm and said that was all a life was worth.',
-          'Le di los últimos sacramentos y asistí a la autopsia. El médico, un hombrecillo, sopesó el corazón en la palma y dijo que eso era todo lo que valía una vida.'), 'bl'),
+          'Ocho días aquí y tres muertos: uno ahogado en el fango, otro quemado en una tienda calcinada, el tercero abatido a tiros a tres metros de mí. Sin nombre. Seis monedas de plata.'), 'tl'),
+        jc(t('I gave him the last rites and sat through the autopsy. The cynical little doctor weighed the heart in his palm and said that was all a life was worth.',
+          'Le di los últimos sacramentos y asistí a la autopsia. El médico, un hombrecillo cínico, sopesó el corazón en la palma y dijo que eso era todo lo que valía una vida.'), 'bl'),
         jc(t('A company skimmer is beyond my purse. With my three crates of equipment, I have booked passage up the river.',
           'Un deslizador de la compañía está fuera de mi alcance. Con mis tres cajas de equipo, he reservado pasaje río arriba.'), 'tl'),
       ],
@@ -81,8 +81,8 @@ async function journeySouth(g) {
       img: P('priest_p_river'), kb: 'right',
       captions: [
         tc(t('Day 41 — up the Kans', 'Día 41 — Kans arriba'), 'tl'),
-        jc(t('The Emporotic Girandole: an ancient towboat with five ragged barges lashed around her like children at their mother\'s skirts. My mattress is stained; lizard-things live in the walls.',
-          'La Emporotic Girandole: un viejo remolcador con cinco barcazas harapientas amarradas alrededor, como niños a las faldas de su madre. Mi colchón está manchado; en las paredes viven bichos como lagartos.'), 'bl'),
+        jc(t('The Emporotic Girandole: an ancient towboat with five ragged barges lashed to her flanks, like a brood clinging to its mother. My mattress is stained; lizard-things live in the walls.',
+          'La Emporotic Girandole: un viejo remolcador con cinco barcazas harapientas amarradas a los costados, como una prole aferrada a su madre. Mi colchón está manchado; en las paredes viven bichos parecidos a lagartos.'), 'bl'),
         jc(t('The jungle is a wall of chrome-yellow light. Every afternoon a deafening deluge; every night, meteors. Hyperion\'s orbit runs through debris.',
           'La selva es un muro de luz amarillo cromo. Cada tarde, un diluvio ensordecedor; cada noche, meteoros. La órbita de Hyperion atraviesa escombros.'), 'tl'),
         jc(t('Old Kady whittles and spits through the gap in his teeth. "No tesla trees down here, Padre. Only up on the Pinion." We pass Melton\'s Landing.',
