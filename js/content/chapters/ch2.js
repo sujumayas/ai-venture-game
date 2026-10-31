@@ -136,7 +136,7 @@ defineScene({
       } } },
     { id: 'bettik', x: 1200, y: 640, dir: 'left', when: (g) => g.f('c2_midnight'), on: {
       look: t('A. Bettik, our android guide. Hairless, blue-skinned, polite to a fault.', 'A. Bettik, nuestro guía androide. Sin pelo, de piel azul, de una cortesía impecable.'),
-      talk: t('"The Benares is ready when you are, M. Consul."', '«La Benares está lista cuando usted lo esté, M. Cónsul.»') } },
+      talk: async (g) => { await g.say('bettik', t('The Benares is ready when you are, M. Consul.', 'La Benares está lista cuando usted lo esté, M. Cónsul.')); } } },
   ],
   hotspots: [
     { id: 'rubble', name: t('Temple rubble', 'Escombros del templo'), rect: [420, 160, 900, 400], walk: false,
@@ -150,7 +150,8 @@ defineScene({
       on: { look: t('Blood red and black: the colours of the Church of the Final Atonement.', 'Rojo sangre y negro: los colores de la Iglesia de la Expiación Final.') } },
     { id: 'stairs', name: t('Grand stairs', 'Gran escalinata'), rect: [0, 300, 400, 520], walk: false,
       on: { look: t('Stairs up to a door that is no longer there.', 'Escaleras hacia una puerta que ya no existe.') } },
-    { id: 'skimmer', name: t('Skimmer', 'Deslizador'), rect: [1640, 460, 230, 140], exitDir: 'r', walkTo: [1650, 680],
+    { id: 'skimmer', name: t('Street to Cicero\'s', 'Calle hacia Cicero\'s'), rect: [1640, 460, 230, 140], exitDir: 'r', walkTo: [1650, 680],
+      on: { look: t('Theo\'s skimmer, parked by the kerb. Cicero\'s is just down this street.', 'El deslizador de Theo, aparcado junto a la acera. Cicero\'s está bajando esta misma calle.') },
       exit: async (g) => {
         if (g.f('c2_midnight')) { await g.say('player', t('No. Masteen is here. It\'s time to go to the river.', 'No. Masteen está aquí. Es hora de ir al río.')); return; }
         await g.goto('c2_ciceros', { x: 220, y: 700, dir: 'right' });
@@ -196,9 +197,9 @@ defineScene({
         ], 'c2_stan');
         if (g.f('d:c2_stan:room') && !g.f('c2_bettik')) await bettikArrives(g);
       } } },
-    { id: 'silenus', x: 1560, y: 690, dir: 'left', on: { look: t('Silenus at the window, reciting to the rain.', 'Silenus en la ventana, recitándole a la lluvia.'), talk: t('"Cicero\'s! Now this is a bar a poet can die in."', '«¡Cicero\'s! Este sí es un bar donde un poeta puede morir.»') } },
-    { id: 'kassad', x: 1450, y: 650, dir: 'left', on: { look: t('Kassad has his back to the wall and a view of the door. Old habits.', 'Kassad tiene la espalda contra la pared y la puerta a la vista. Viejas costumbres.'), talk: t('"Good food. Bad tactical position."', '«Buena comida. Mala posición táctica.»') } },
-    { id: 'lamia', x: 1100, y: 790, dir: 'left', on: { look: t('Lamia, eating with both hands.', 'Lamia, comiendo con las dos manos.'), talk: t('"Your friend downstairs pours an honest drink. Rare, in my experience."', '«Su amigo de abajo sirve una copa honrada. Algo raro, en mi experiencia.»') } },
+    { id: 'silenus', x: 1560, y: 690, dir: 'left', on: { look: t('Silenus at the window, reciting to the rain.', 'Silenus en la ventana, recitándole a la lluvia.'), talk: async (g) => { await g.say('silenus', t('Cicero\'s! Now this is a bar a poet can die in.', '¡Cicero\'s! Este sí es un bar donde un poeta puede morir.')); } } },
+    { id: 'kassad', x: 1450, y: 650, dir: 'left', on: { look: t('Kassad has his back to the wall and a view of the door. Old habits.', 'Kassad tiene la espalda contra la pared y la puerta a la vista. Viejas costumbres.'), talk: async (g) => { await g.say('kassad', t('Good food. Bad tactical position.', 'Buena comida. Mala posición táctica.')); } } },
+    { id: 'lamia', x: 1100, y: 790, dir: 'left', on: { look: t('Lamia, eating with both hands.', 'Lamia, comiendo con las dos manos.'), talk: async (g) => { await g.say('lamia', t('Your friend downstairs pours an honest drink. Rare, in my experience.', 'Su amigo de abajo sirve una copa honrada. Algo raro, en mi experiencia.')); } } },
     { id: 'hoyt', x: 1750, y: 760, dir: 'left', on: { look: t('Hoyt, awake now, pale and silent. He hasn\'t mentioned what happened on the tree. Neither have I.', 'Hoyt, despierto ya, pálido y callado. No ha mencionado lo ocurrido en el árbol. Yo tampoco.'), talk: t('"Thank you, Consul. For... the tree." He says no more.', '«Gracias, cónsul. Por... lo del árbol.» No dice más.') } },
     { id: 'bettik', x: 260, y: 700, dir: 'right', when: (g) => g.f('c2_bettik'), on: {
       look: t('An android: hairless, blue-skinned, blue-eyed, perfectly composed.', 'Un androide: sin pelo, de piel azul, ojos azules, perfectamente sereno.'),
@@ -245,7 +246,7 @@ defineScene({
       look: t('Kassad, at the bow, watching the mantas work.', 'Kassad, en la proa, observando trabajar a las mantas.'),
       talk: async (g) => {
         if (g.f('c2_after')) return kassadQuestions(g);
-        if (!g.f('c2_breakfast')) { await g.say('kassad', t('Good morning, Consul.', 'Buenos días, cónsul.')); return; }
+        if (!g.f('c2_breakfast')) { await g.say('kassad', t('Good morning, Consul. Finish your breakfast. Stories can wait until the others have eaten.', 'Buenos días, cónsul. Termine su desayuno. Las historias pueden esperar a que los demás hayan comido.')); return; }
         await g.say('player', t('Colonel. I believe you drew number two.', 'Coronel. Creo que sacó el número dos.'));
         await g.say('kassad', t('I did.', 'Así es.'));
         await g.narrate(t('Kassad sits. For a while he looks at the river. Then he begins, quietly, and he tells it as if it had happened to someone else.', 'Kassad se sienta. Durante un rato mira el río. Luego empieza, en voz baja, y lo cuenta como si le hubiera pasado a otro.'));
@@ -269,10 +270,10 @@ defineScene({
         await g.say('bettik', t('Androids are free of original sin, M. Consul. I am told that exempts us from the Shrike\'s attentions.', 'Los androides estamos libres del pecado original, M. Cónsul. Me dicen que eso nos exime de las atenciones del Alcaudón.'));
         await checkBreakfast(g);
       } } },
-    { id: 'hoyt', x: 760, y: 805, dir: 'right', on: { look: t('Hoyt, hunched over a cup of tea he isn\'t drinking.', 'Hoyt, encorvado sobre una taza de té que no se bebe.'), talk: t('"I slept, for once. Thank you for that, Consul."', '«He dormido, por una vez. Gracias por eso, cónsul.»') } },
-    { id: 'sol', x: 900, y: 790, dir: 'left', on: { look: t('Sol feeds Rachel from a bottle. She grips his finger.', 'Sol le da el biberón a Rachel. Ella le aprieta el dedo.'), talk: t('"Good morning. The river is beautiful. Rachel would have loved... she will love it."', '«Buenos días. El río es precioso. A Rachel le habría... le encantará.»') } },
-    { id: 'lamia', x: 330, y: 700, dir: 'right', on: { look: t('Lamia is eating as if she expects not to see food again.', 'Lamia come como si no esperara volver a ver comida.'), talk: t('"Pass the bread, Consul. And don\'t make conversation."', '«Páseme el pan, cónsul. Y no me dé conversación.»') } },
-    { id: 'masteen', x: 1280, y: 760, dir: 'left', on: { look: t('Masteen sits apart, his heavy luggage beside him.', 'Masteen se sienta aparte, con su pesado equipaje al lado.'), talk: t('"The river is a good place for stories, Consul."', '«El río es un buen lugar para las historias, cónsul.»') } },
+    { id: 'hoyt', x: 760, y: 805, dir: 'right', on: { look: t('Hoyt, hunched over a cup of tea he isn\'t drinking.', 'Hoyt, encorvado sobre una taza de té que no se bebe.'), talk: async (g) => { await g.say('hoyt', t('I slept, for once. Thank you for that, Consul.', 'He dormido, por una vez. Gracias por eso, cónsul.')); } } },
+    { id: 'sol', x: 900, y: 790, dir: 'left', on: { look: t('Sol feeds Rachel from a bottle. She grips his finger.', 'Sol le da el biberón a Rachel. Ella le aprieta el dedo.'), talk: async (g) => { await g.say('sol', t('Good morning. The river is beautiful. Rachel would have loved... she will love it.', 'Buenos días. El río es precioso. A Rachel le habría... le encantará.')); } } },
+    { id: 'lamia', x: 330, y: 700, dir: 'right', on: { look: t('Lamia is eating as if she expects not to see food again.', 'Lamia come como si no esperara volver a ver comida.'), talk: async (g) => { await g.say('lamia', t('Pass the bread, Consul. And don\'t make conversation.', 'Páseme el pan, cónsul. Y no me dé conversación.')); } } },
+    { id: 'masteen', x: 1280, y: 760, dir: 'left', on: { look: t('Masteen sits apart, his heavy luggage beside him.', 'Masteen se sienta aparte, con su pesado equipaje al lado.'), talk: async (g) => { await g.say('masteen', t('The river is a good place for stories, Consul.', 'El río es un buen lugar para las historias, cónsul.')); } } },
   ],
   hotspots: [
     { id: 'table', name: t('Breakfast table', 'Mesa del desayuno'), poly: [[400, 470], [820, 400], [1000, 520], [980, 740], [440, 760], [400, 600]], walk: false,

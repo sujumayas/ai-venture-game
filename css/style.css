@@ -82,11 +82,12 @@ button { font-family: inherit; }
 .verb:hover { color: var(--verb-hi); background: #2e2230; }
 .verb.active { color: #fff; background: #4a2b22; border-color: var(--accent); }
 #inventory { position: absolute; left: 950px; top: 54px; width: 900px; height: 190px; display: flex; gap: 8px; }
-#inv-slots { flex: 1; display: grid; grid-template-columns: repeat(6, 1fr); grid-template-rows: repeat(2, 1fr); gap: 8px; }
+#inv-slots { flex: 1; display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); grid-template-rows: repeat(2, minmax(0, 1fr)); gap: 8px; min-height: 0; }
 .inv-slot { background: #0e0a0f; border: 3px solid #3d2f28; border-radius: 6px; display: flex; align-items: center; justify-content: center; cursor: pointer; position: relative; }
 .inv-slot:hover { border-color: var(--accent); }
 .inv-slot.selected { border-color: var(--teal); background: #10292a; }
-.inv-slot img { max-width: 88%; max-height: 88%; filter: drop-shadow(0 3px 2px #000); }
+.inv-slot { min-height: 0; overflow: hidden; }
+.inv-slot img { max-width: 80%; max-height: 80%; object-fit: contain; filter: drop-shadow(0 3px 2px #000); }
 .inv-arrow { width: 54px; background: var(--ui-bg-2); border: 3px solid #3d2f28; color: var(--verb); font-size: 26px; cursor: pointer; border-radius: 6px; }
 .inv-arrow:disabled { opacity: 0.25; cursor: default; }
 #inventory .inv-arrow-col { display: flex; flex-direction: column; gap: 8px; }
@@ -184,7 +185,9 @@ button { font-family: inherit; }
 /* Ending credits */
 .credits-roll { position: absolute; left: 0; right: 0; top: 100%; text-align: center; animation: roll var(--dur, 60s) linear forwards; }
 .credits-roll h3 { font-family: 'Cinzel', serif; color: var(--accent); font-size: 40px; letter-spacing: 6px; margin: 60px 0 10px; }
-.credits-roll p { font-size: 32px; color: #eadcbc; margin: 6px 0; }
+.credits-roll { background: linear-gradient(90deg, transparent, rgba(5,4,8,0.82) 25%, rgba(5,4,8,0.82) 75%, transparent); padding: 0 200px; }
+.credits-roll p { font-size: 32px; color: #eadcbc; margin: 6px 0; text-shadow: 2px 2px 0 #000; }
+#card-layer .card-hint { background: rgba(5,4,8,0.85); padding: 4px 14px; z-index: 2; }
 @keyframes roll { to { transform: translateY(calc(-100% - 1100px)); } }
 
 /* caption variants for off-screen voices */

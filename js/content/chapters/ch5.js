@@ -64,7 +64,7 @@ defineScene({
 
 async function conclude(g) {
   await g.say('lamia', t('Well, Consul?', '¿Y bien, cónsul?'));
-  await g.say('player', t('No message. No body. We\'ve searched every corner of the wagon. He left his cube, and he would never have left that.', 'Ni mensaje. Ni cuerpo. Hemos registrado cada rincón del carro. Dejó su cubo, y nunca lo habría dejado.'));
+  await g.say('player', t('No message. No body. We\'ve searched every corner of the wagon. He left his cube, and he would never have left that.', 'Ningún mensaje. Ningún cuerpo. Hemos registrado cada rincón del carro. Dejó su cubo, y nunca lo habría dejado.'));
   await g.say('silenus', t('Isn\'t it obvious? The Shrike has started the harvest. One down, five and a baby to go.', '¿No es obvio? El Alcaudón ha empezado la cosecha. Uno menos; quedan cinco y un bebé.'));
   await g.say('lamia', t('So what do we know? We know nothing. Masteen is gone, and there\'s blood. That\'s all we know.', '¿Y qué sabemos? No sabemos nada. Masteen se ha ido, y hay sangre. Eso es todo lo que sabemos.'));
   await g.say('player', t('He drew number five. He would have been next.', 'Sacó el número cinco. Habría sido el siguiente.'));

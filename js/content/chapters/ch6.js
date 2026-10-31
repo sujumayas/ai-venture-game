@@ -88,7 +88,7 @@ async function seventh(g) {
       await g.choose([
         { id: 'a', text: t('"Like Father Hoyt, I can only tell my story by first telling someone else\'s."', '«Como el padre Hoyt, solo puedo contar mi historia contando antes la de otro.»') },
       ]);
-      await g.say('player', t('Like Father Hoyt, I can only tell my story by first telling someone else\'s. I brought a recording. Listen.', 'Como el padre Hoyt, solo puedo contar mi historia contando antes la de otro. He traído una grabación. Escuchen.'));
+      await g.say('player', t('Like Father Hoyt, I can only tell my story by first telling someone else\'s.', 'Como el padre Hoyt, solo puedo contar mi historia contando antes la de otro.'));
       g.set('c6_told');
       await g.startTale('consul');
     } },

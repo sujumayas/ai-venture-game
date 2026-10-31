@@ -65,6 +65,7 @@ export const UI = {
     'An unofficial, non-commercial fan adaptation of HYPERION by Dan Simmons. All rights to the novel belong to the author and his publishers.',
     'Adaptación no oficial y sin ánimo de lucro de HYPERION de Dan Simmons. Todos los derechos de la novela pertenecen al autor y sus editores.'),
   skip: t('Esc: skip', 'Esc: saltar'),
+  useHint: t('Now click what to use it on, or click the item again to use it by itself.', 'Ahora haz clic en aquello con lo que usarlo, o vuelve a hacer clic en el objeto para usarlo solo.'),
 };
 
 // Default responses when a verb has no specific handler

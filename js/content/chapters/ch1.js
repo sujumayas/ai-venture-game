@@ -444,7 +444,7 @@ defineScene({
     { id: 'out', name: t('Back to the tree', 'Volver al árbol'), rect: [130, 80, 300, 440], exitDir: 'l', walkTo: [300, 600],
       exit: async (g) => {
         if (!g.f('c1_harpsichord')) { await g.say('player', t('Is everyone aboard? Let me ask the colonel.', '¿Están todos a bordo? Preguntaré al coronel.')); return; }
-        await g.say('player', t('I\'ll fetch the priest myself. His pod is on a branch halfway up the tree.', 'Iré yo mismo a buscar al cura. Su cápsula está en una rama a media altura del árbol.'));
+        await g.say('player', t('I\'ll fetch the priest myself. His pod is on a branch halfway up the tree, across the rope bridge.', 'Iré yo mismo a buscar al cura. Su cápsula está en una rama a media altura del árbol, al otro lado del puente colgante.'));
         await g.goto('c1_walkway', { x: 760, y: 560, dir: 'left' });
       } },
     { id: 'holopit', name: t('Holo niche', 'Nicho holográfico'), poly: [[600, 560], [860, 490], [1100, 490], [1330, 560], [1360, 700], [1180, 790], [770, 790], [590, 700]], walk: false,

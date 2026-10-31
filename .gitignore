@@ -4,3 +4,4 @@ node_modules/
 *.log
 tests/out/
 assets/manifest.json.lock
+compendium/

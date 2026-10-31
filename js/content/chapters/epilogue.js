@@ -35,6 +35,11 @@ defineScene({
     { id: 'silenus', x: 1000, y: 800, dir: 'left', on: { look: t('Silenus, with his manuscript under his arm and nothing else.', 'Silenus, con su manuscrito bajo el brazo y nada más.'), talk: t('"The poem comes. Everything else stays."', '«El poema viene. Todo lo demás se queda.»') } },
   ],
   hotspots: [
+    { id: 'view', name: t('The view', 'La vista'), rect: [380, 100, 900, 380], walk: false,
+      on: { look: t('The moor, low hills and dunes, the ruins of the City of Poets, and beyond them the valley. The Tombs are glowing. They never glowed before.', 'El páramo, colinas bajas y dunas, las ruinas de la Ciudad de los Poetas y, más allá, el valle. Las Tumbas brillan. Nunca antes habían brillado.') } },
+    { id: 'door', name: t('The Keep', 'La Fortaleza'), rect: [60, 70, 280, 490], walk: false,
+      on: { look: t('Nothing left for us in there.', 'Ahí dentro ya no queda nada para nosotros.') } },
+    // luggage after the door: the two rects overlap and the luggage must stay clickable
     { id: 'luggage', name: t('Luggage', 'Equipaje'), rect: [0, 330, 640, 430], walkTo: [400, 700],
       on: {
         look: t('Trunks, cases, clothes, provisions: everything we dragged across a continent. We are leaving almost all of it.', 'Baúles, maletas, ropa, provisiones: todo lo que arrastramos a través de un continente. Lo dejamos casi todo.'),
@@ -45,10 +50,6 @@ defineScene({
         },
         open: async (g) => g.act('take', 'luggage'),
       } },
-    { id: 'view', name: t('The view', 'La vista'), rect: [380, 100, 900, 380], walk: false,
-      on: { look: t('The moor, low hills and dunes, the ruins of the City of Poets, and beyond them the valley. The Tombs are glowing. They never glowed before.', 'El páramo, colinas bajas y dunas, las ruinas de la Ciudad de los Poetas y, más allá, el valle. Las Tumbas brillan. Nunca antes habían brillado.') } },
-    { id: 'door', name: t('The Keep', 'La Fortaleza'), rect: [60, 70, 280, 490], walk: false,
-      on: { look: t('Nothing left for us in there.', 'Ahí dentro ya no queda nada para nosotros.') } },
     { id: 'stairs', name: t('The long stair', 'La larga escalera'), poly: [[1180, 700], [1420, 180], [1700, 180], [1760, 400], [1500, 819], [1250, 819]], walkTo: [1220, 780], exitDir: 'r',
       exit: async (g) => leave(g) },
   ],
@@ -168,6 +169,7 @@ async function credits(g) {
   await g.fade(true, 600);
   L.classList.add('hidden'); L.innerHTML = '';
   g.set('e_finished');
+  try { localStorage.removeItem('hyperion.save.auto'); } catch (e) { /* ignore */ }
   g.unlock();
   g.scene = null;
   await g.fade(false, 300);

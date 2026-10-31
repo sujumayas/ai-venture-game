@@ -87,7 +87,7 @@ defineTale({
   intro: async (g) => {
     await g.panels([
       { img: P('p_recorder'), kb: 'in', captions: [
-        conCap('Like Father Hoyt, I can only tell my story by first telling someone else\'s. So I brought this. It is very old.', 'Como el padre Hoyt, solo puedo contar mi historia contando antes la de otro. Por eso traje esto. Es muy antiguo.'),
+        conCap('My story begins with someone else\'s. So I brought this recording. It is very old.', 'Mi historia empieza con la de otro. Por eso traje esta grabación. Es muy antigua.'),
         conCap('The voice belongs to a young man named Merin Aspic. He recorded it on Maui-Covenant, a long time ago. Listen.', 'La voz es de un joven llamado Merin Aspic. Lo grabó en Maui-Pacto, hace mucho tiempo. Escuchen.'),
         { text: t('*click*', '*clic*'), pos: 'br' },
       ] },
@@ -514,14 +514,14 @@ defineScene({
         'item:consul_disc': async (g) => dolphinTalk(g),
       } },
     { id: 'jetty', name: t('Jetty', 'Embarcadero'), poly: [[680, 590], [1300, 530], [1312, 585], [720, 650]],
-      on: { look: t('A little wooden jetty running out into the lagoon. The dolphins come right up to the end of it.', 'Un pequeño embarcadero de madera que se adentra en la laguna. Los delfines llegan hasta su extremo.') } },
+      on: { look: t('A little wooden jetty running out into the lagoon. The dolphins come right up to the end of it. With Siri\'s disc at my throat, I could simply talk to them.', 'Un pequeño embarcadero de madera que se adentra en la laguna. Los delfines llegan hasta su extremo. Con el disco de Siri en la garganta, podría simplemente hablarles.') } },
     { id: 'baskets', name: t('Baskets', 'Cestas'), rect: [160, 370, 260, 180],
       on: { look: t('Woven fish baskets and a folded cloth. Someone left them for the morning catch.', 'Cestas de pesca trenzadas y una tela doblada. Alguien las dejó para la pesca de la mañana.'),
         open: t('Empty. The fish are still in the sea, and wise to stay there.', 'Vacías. Los peces siguen en el mar, y hacen bien en quedarse allí.') } },
-    { id: 'moon', name: t('Moon', 'Luna'), circle: [1140, 85, 50],
-      on: { look: t('Maui-Covenant\'s moon. Somewhere past it, in the dark, my ship is building the ring.', 'La luna de Maui-Pacto. En algún lugar más allá, en la oscuridad, mi nave construye el anillo.') } },
     { id: 'farisles', name: t('Distant isles', 'Islas lejanas'), rect: [1180, 100, 650, 150],
       on: { look: t('Other isles, sails dark against the stars, all drifting the same way. A whole country on the move.', 'Otras islas, con las velas oscuras contra las estrellas, todas a la deriva en la misma dirección. Un país entero en marcha.') } },
+    { id: 'moon', name: t('Moon', 'Luna'), circle: [1368, 98, 48],
+      on: { look: t('Maui-Covenant\'s moon. Somewhere past it, in the dark, my ship is building the ring.', 'La luna de Maui-Pacto. En algún lugar más allá, en la oscuridad, mi nave construye el anillo.') } },
     { id: 'back', name: t('Path to the festival', 'Camino a la fiesta'), rect: [0, 250, 210, 570], exitDir: 'l', walkTo: [280, 700],
       exit: async (g) => g.say('player', t('The drums are still going back there. Let them.', 'Allí atrás aún suenan los tambores. Que sigan.')) },
   ],

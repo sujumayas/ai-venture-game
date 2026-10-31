@@ -731,12 +731,12 @@ defineScene({
       } },
   ],
   hotspots: [
-    { id: 'page', name: t('Blank page', 'Página en blanco'), rect: [140, 520, 230, 80], walkTo: [540, 720], face: 'left',
+    { id: 'page', name: t('Blank page', 'Página en blanco'), rect: [170, 630, 200, 60], walkTo: [540, 720], face: 'left',
       on: {
         look: t('A sheet of paper, an inkwell, a pen. The page is perfectly blank. It has been blank for months. It is very good at it.', 'Una hoja de papel, un tintero, una pluma. La página está perfectamente en blanco. Lleva meses así. Se le da muy bien.'),
         use: async (g) => tryWrite(g), take: async (g) => tryWrite(g),
       } },
-    { id: 'wine', name: t('Wine bottle', 'Botella de vino'), rect: [370, 450, 70, 150], walkTo: [540, 720], face: 'left',
+    { id: 'wine', name: t('Wine bottle', 'Botella de vino'), rect: [355, 535, 60, 130], walkTo: [540, 720], face: 'left',
       on: {
         look: t('A bottle of the local red. Hyperion grows a grape that tastes faintly of ambition.', 'Una botella del tinto local. Hyperion cultiva una uva que sabe levemente a ambición.'),
         use: async (g) => {
@@ -864,7 +864,7 @@ defineScene({
       } },
     { id: 'shelves', name: t('Bookshelves', 'Estanterías'), rect: [1200, 0, 360, 330],
       on: { look: t('Every poet who ever finished anything. They look down at me in rows, like a jury.', 'Todos los poetas que alguna vez terminaron algo. Me miran desde arriba en filas, como un jurado.') } },
-    { id: 'armchair', name: t('Armchair', 'Sillón'), rect: [1160, 330, 230, 380],
+    { id: 'armchair', name: t('Armchair', 'Sillón'), rect: [1240, 320, 210, 340],
       on: { look: t('Where I sit when I can\'t write. The seat has a deep hoof-shaped dent.', 'Donde me siento cuando no puedo escribir. El asiento tiene una hendidura honda con forma de pezuña.') } },
     { id: 'rack', name: t('Wine rack', 'Botellero'), rect: [1440, 390, 290, 310],
       on: { look: t('Well stocked. Billy\'s androids refill it every week, on royal orders, along with the candles.', 'Bien surtido. Los androides de Billy lo rellenan cada semana, por orden real, junto con las velas.') } },

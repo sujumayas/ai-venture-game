@@ -152,6 +152,7 @@ export class Game {
       this.clearText();
       this.state.scene = id;
       this.scene = def;
+      this.hover = null; this.hoverItem = null; this.verb = null; $('sentence').textContent = ''; $('hover-label').style.display = 'none';
       const pl = REG.chars[this.state.player];
       const start = entry.x != null ? entry : (def.start || { x: 960, y: 700 });
       this.state.pos = { x: start.x, y: start.y, dir: start.dir || 'right' };
@@ -437,7 +438,7 @@ export class Game {
   async act(verb, tg, itemId) {
     if (typeof tg === 'string') tg = this.findTarget(tg);
     if (!tg) throw new Error('No such target');
-    this.verb = null; this.updateHover();
+    this.verb = null; this.talkingTo = tg.kind === 'actor' ? tg.id : null; this.updateHover();
     const d = tg.def;
     const handler = (d.on || {})[verb];
     // walking up to the target
@@ -535,9 +536,10 @@ export class Game {
     }
     if (this.verb === 'take' || this.verb === 'talk') { this.verb = null; this.run(pick(DEFAULTS.use)); return; }
     if (this.verb === 'open' && it.open) { this.verb = null; this.run(it.open); return; }
-    if (this.verb === 'use' && it.use) { this.verb = null; this.run(it.use); return; }
+    if (this.item === id && it.use) { this.item = null; this.renderInv(); this.run(it.use); return; }
     this.verb = null;
     this.item = this.item === id ? null : id;
+    if (this.item && it.use) this.toast(tr(UI.useHint));
     this.renderInv(); this.updateHover();
   }
 
@@ -614,8 +616,8 @@ export class Game {
   choose(options) {
     return new Promise((res) => {
       const list = $('choice-list'); list.innerHTML = '';
-      list.classList.toggle('many', options.length > 4 && options.length <= 6);
-      list.classList.toggle('lots', options.length > 6);
+      list.classList.toggle('many', options.length === 5);
+      list.classList.toggle('lots', options.length > 5);
       $('choices').classList.remove('hidden');
       $('verbs').classList.add('hidden'); $('inventory').classList.add('hidden'); $('sentence').textContent = '';
       const pa = REG.chars[this.state.player], pb = this.talkingTo && REG.chars[this.talkingTo];

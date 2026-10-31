@@ -172,7 +172,7 @@ defineScene({
       on: { look: t('A great fountain, dry for years. Sand has filled the basin where the water used to sing.', 'Una gran fuente, seca desde hace años. La arena ha llenado la taza donde antes cantaba el agua.') } },
     { id: 'statue', name: t('Fallen statue', 'Estatua caída'), rect: [1000, 470, 380, 170],
       on: { look: t('A marble poet with his lyre, toppled and half drowned in sand.', 'Un poeta de mármol con su lira, derribado y medio ahogado en arena.') } },
-    { id: 'arch', name: t('Broken arch', 'Arco roto'), rect: [1560, 80, 360, 480], exitDir: 'r', walkTo: [1820, 640],
+    { id: 'arch', name: t('Broken arch', 'Arco roto'), rect: [1500, 80, 380, 480], exitDir: 'r', walkTo: [1820, 640],
       exit: async (g) => {
         if (!g.f('soldier_ask_where')) {
           await g.say('player', t('I don\'t even know where I am. She does. I should ask her.', 'Ni siquiera sé dónde estoy. Ella sí. Debería preguntarle.'), { style: 'think' });
@@ -181,7 +181,7 @@ defineScene({
         await tell(g, t('She led him out through the broken arch, across the low hills, down into a valley of strange monuments.', 'Ella lo condujo a través del arco roto, por las colinas bajas, hasta un valle de extraños monumentos.'));
         await g.goto('soldier_tombs', { x: 200, y: 760, dir: 'right' });
       } },
-    { id: 'smoke', name: t('Smoke on the horizon', 'Humo en el horizonte'), rect: [1685, 240, 100, 130],
+    { id: 'smoke', name: t('Smoke on the horizon', 'Humo en el horizonte'), rect: [1708, 240, 45, 130],
       on: { look: t('A thin line of smoke, far away. Something else came down out there.', 'Una línea fina de humo, muy lejos. Algo más cayó por allí.') } },
   ],
   enter: async (g) => {

@@ -79,7 +79,10 @@ window.HYP = {
     } else game.act('item', id, item);
     return this.idle();
   },
-  inv(verb, item) { game.verb = verb === 'walk' ? null : verb; game.invClick(item, verb === 'look'); return this.idle(); },
+  inv(verb, item) {
+    if (verb === 'use') { const it = REG.items[item] || {}; game.verb = null; if (it.use) game.run(it.use); else game.invClick(item, false); return this.idle(); }
+    game.verb = verb === 'walk' ? null : verb; game.invClick(item, verb === 'look'); return this.idle();
+  },
   choose(id) { if (!game.choiceFn) throw new Error('No choice pending'); const o = game.choiceOpts.find((x) => x.id === id || x.text.en === id); if (!o) throw new Error('No option ' + id + ' in ' + game.choiceOpts.map((x) => x.id).join(',')); game.choiceFn(o.id); return this.idle(); },
   state() { return JSON.parse(JSON.stringify(game.state)); },
   errors() { return game.errors.slice(); },

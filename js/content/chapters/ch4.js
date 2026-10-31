@@ -89,7 +89,7 @@ defineScene({
       on: { look: async (g) => { await g.say('player', g.f('c4_bettik_gone') ? t('The dock is empty. The Benares is gone.', 'El muelle está vacío. La Benares se ha ido.') : t('The Benares, moored at the little dock for the last time.', 'La Benares, amarrada al pequeño muelle por última vez.')); } } },
     { id: 'wagon', name: t('Windwagon', 'Carro de viento'), rect: [1500, 380, 419, 300], exitDir: 'r', walkTo: [1450, 600], when: (g) => g.f('c4_arrived'),
       on: { look: t('The windwagon waits just beyond the firelight, out on the grass: lanterns swinging, sails furled, gangway down. Nobody aboard.', 'El carro de viento espera justo más allá del resplandor del fuego, sobre la hierba: faroles meciéndose, velas recogidas, la pasarela bajada. Nadie a bordo.') },
-      exit: async (g) => { await g.goto('c4_galley', { x: 1600, y: 760, dir: 'left' }); } },
+      exit: async (g) => { await g.goto('c4_galley', { x: 1380, y: 775, dir: 'left' }); } },
   ],
   enter: async (g) => {
     if (g.f('c4_intro')) return;
@@ -136,7 +136,7 @@ defineScene({
   bg: 'assets/bg/c4_galley.webp', ambience: 'grass',
   walk: [[250, 742], [700, 732], [1450, 702], [1500, 520], [1700, 520], [1800, 819], [200, 819]],
   scale: [520, 0.68, 819, 0.94],
-  start: { x: 1600, y: 760, dir: 'left' },
+  start: { x: 1380, y: 775, dir: 'left' },
   actors: [
     { id: 'sol', x: 1100, y: 790, dir: 'left', on: {
       look: t('Sol, with Rachel on his knee.', 'Sol, con Rachel sobre la rodilla.'),

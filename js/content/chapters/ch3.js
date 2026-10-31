@@ -24,7 +24,7 @@ defineScene({
   actors: [
     { id: 'lamia', x: 980, y: 585, dir: 'left', on: {
       look: t('Lamia, kicking through the ashes with her hands in her pockets.', 'Lamia, pateando la ceniza con las manos en los bolsillos.'),
-      talk: t('"Twenty thousand people lived here. Where are they? Where are the bodies?"', '«Aquí vivían veinte mil personas. ¿Dónde están? ¿Dónde están los cuerpos?»') } },
+      talk: async (g) => { await g.say('lamia', t('Twenty thousand people lived here. Where are they? Where are the bodies?', 'Aquí vivían veinte mil personas. ¿Dónde están? ¿Dónde están los cuerpos?')); } } },
     { id: 'bettik', x: 600, y: 580, dir: 'right', on: {
       look: t('A. Bettik stands at the end of the dock, as calm as ever.', 'A. Bettik está al final del muelle, tan sereno como siempre.'),
       talk: async (g) => {
@@ -35,7 +35,7 @@ defineScene({
       } } },
     { id: 'silenus', x: 1500, y: 600, dir: 'left', on: {
       look: t('Silenus stands before the shell of the River Front Inn, very still, for once without a drink.', 'Silenus está ante el armazón del River Front Inn, muy quieto y, por una vez, sin copa.'),
-      talk: t('"I drank here, once. With Billy. They had a fiddler who couldn\'t play and a cook who couldn\'t cook. Paradise."', '«Una vez bebí aquí. Con Billy. Tenían un violinista que no sabía tocar y un cocinero que no sabía cocinar. El paraíso.»') } },
+      talk: async (g) => { await g.say('silenus', t('I drank here, once. With Billy. They had a fiddler who couldn\'t play and a cook who couldn\'t cook. Paradise.', 'Una vez bebí aquí. Con Billy. Tenían un violinista que no sabía tocar y un cocinero que no sabía cocinar. El paraíso.')); } } },
   ],
   hotspots: [
     { id: 'customhouse', name: t('Customhouse', 'Aduana'), rect: [820, 60, 450, 460], walkTo: [1040, 560],
@@ -89,9 +89,9 @@ defineScene({
         await g.say('silenus', t('To understand me you must understand Hyperion. And to understand Hyperion you must understand a sad old king...', 'Para entenderme deben entender Hyperion. Y para entender Hyperion deben entender a un viejo rey triste...'));
         await g.startTale('poet');
       } } },
-    { id: 'sol', x: 900, y: 790, dir: 'left', on: { look: t('Sol, with Rachel asleep in the sling.', 'Sol, con Rachel dormida en el portabebés.'), talk: t('"Naiad will stay with me. All those empty houses."', '«Naiad se me quedará grabada. Todas esas casas vacías.»') } },
-    { id: 'kassad', x: 1200, y: 660, dir: 'left', on: { look: t('Kassad at the rail, watching the dark banks.', 'Kassad en la borda, vigilando las orillas oscuras.'), talk: t('"Nothing moving on either bank for forty kilometres. Nothing."', '«Nada se mueve en ninguna orilla en cuarenta kilómetros. Nada.»') } },
-    { id: 'hoyt', x: 330, y: 700, dir: 'right', on: { look: t('Hoyt, sallow in the lamplight.', 'Hoyt, cetrino a la luz de la lámpara.'), talk: t('"I\'m all right, Consul. For tonight."', '«Estoy bien, cónsul. Por esta noche.»') } },
+    { id: 'sol', x: 900, y: 790, dir: 'left', on: { look: t('Sol, with Rachel asleep in the sling.', 'Sol, con Rachel dormida en el portabebés.'), talk: async (g) => { await g.say('sol', t('Naiad will stay with me. All those empty houses.', 'Naiad se me quedará grabada. Todas esas casas vacías.')); } } },
+    { id: 'kassad', x: 1200, y: 660, dir: 'left', on: { look: t('Kassad at the rail, watching the dark banks.', 'Kassad en la borda, vigilando las orillas oscuras.'), talk: async (g) => { await g.say('kassad', t('Nothing moving on either bank for forty kilometres. Nothing.', 'Nada se mueve en ninguna orilla en cuarenta kilómetros. Nada.')); } } },
+    { id: 'hoyt', x: 330, y: 700, dir: 'right', on: { look: t('Hoyt, sallow in the lamplight.', 'Hoyt, cetrino a la luz de la lámpara.'), talk: async (g) => { await g.say('hoyt', t('I\'m all right, Consul. For tonight.', 'Estoy bien, cónsul. Por esta noche.')); } } },
   ],
   hotspots: [
     { id: 'table', name: t('Dinner table', 'Mesa de la cena'), poly: [[400, 470], [820, 400], [1000, 520], [980, 740], [440, 760], [400, 600]], walk: false,
