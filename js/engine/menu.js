@@ -13,7 +13,7 @@ export class Menu {
   get layer() { return $('menu-layer'); }
   show(html, overlay) {
     const l = this.layer; l.innerHTML = html; l.classList.remove('hidden'); l.classList.toggle('overlay', !!overlay);
-    l.style.backgroundImage = overlay ? '' : `url("${this.cfg.titleImg}")`;
+    l.style.backgroundImage = overlay ? '' : `url("${this.g.settings.grade === 'd' && this.cfg.titleImgD ? this.cfg.titleImgD : this.cfg.titleImg}")`;
     this.open = true;
     l.querySelectorAll('[data-act]').forEach((b) => b.addEventListener('click', (e) => { audio.ensure(); audio.sfx('click'); this.action(b.dataset.act, b.dataset.arg, e); }));
   }
@@ -64,6 +64,7 @@ export class Menu {
       <div class="menu-row"><span>${escapeHtml(tr(UI.textSpeed))}</span><span class="opts">${opt('speed', 0, UI.slow, s.textSpeed === 0)}${opt('speed', 1, UI.normal, s.textSpeed === 1)}${opt('speed', 2, UI.fast, s.textSpeed === 2)}</span></div>
       <div class="menu-row"><span>${escapeHtml(tr(UI.volume))}</span><span class="opts">${opt('sound', 1, UI.on_, s.sound)}${opt('sound', 0, UI.off_, !s.sound)}</span></div>
       <div class="menu-row"><span>${escapeHtml(tr(UI.musicLabel))}</span><span class="opts">${opt('music', 1, UI.on_, s.music !== false)}${opt('music', 0, UI.off_, s.music === false)}</span></div>
+      <div class="menu-row"><span>${escapeHtml(tr(UI.gradeLabel))}</span><span class="opts">${opt('grade', 'd', UI.gradeD, s.grade === 'd')}${opt('grade', 'a', UI.gradeA, s.grade !== 'd')}</span></div>
       <div class="menu-row"><span>${escapeHtml(tr(UI.reviewer))}</span><span class="opts">${opt('reviewer', 1, UI.on_, s.reviewer)}${opt('reviewer', 0, UI.off_, !s.reviewer)}</span></div>
       <p style="font-size:24px;opacity:.7">${escapeHtml(tr(t('Controls: left-click = walk / default action · right-click = look · Tab = show hotspots · Space/Enter = skip line · Esc = menu · keys L/P/U/T/O select verbs.', 'Controles: clic izquierdo = caminar / acción por defecto · clic derecho = mirar · Tab = mostrar zonas · Espacio/Intro = saltar línea · Esc = menú · teclas L/P/U/T/O eligen verbos.')))}</p>
       <div class="menu-actions">${this.btn('back', UI.back)}</div></div>`, prev !== 'title' && !!this.g.scene && this.prev !== 'title');
@@ -121,6 +122,7 @@ export class Menu {
       case 'lang': g.setLanguage(arg); this.refreshMode(); break;
       case 'speed': g.settings.textSpeed = +arg; g.saveSettings(); this.options(); break;
       case 'sound': g.settings.sound = arg === '1'; audio.setEnabled(g.settings.sound); g.saveSettings(); this.options(); break;
+      case 'grade': g.settings.grade = arg; document.body.classList.toggle('grade-d', arg === 'd'); g.saveSettings(); this.options(); break;
       case 'music': g.settings.music = arg === '1'; audio.setMusic(g.settings.music); g.saveSettings(); this.options(); break;
       case 'reviewer': g.settings.reviewer = arg === '1'; g.saveSettings(); this.options(); break;
     }

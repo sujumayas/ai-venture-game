@@ -223,6 +223,66 @@
   "job": "e4d6c295-e0d5-4d30-b35f-7039306368f7",
   "kind": "bg"
  },
+ "assets/cards/ch1.webp": {
+  "job": "04789e30-572a-4d45-b33e-1d5bbfe30b95",
+  "kind": "card"
+ },
+ "assets/cards/ch2.webp": {
+  "job": "58e28729-fdcd-41bf-bd7d-9ecc6a5ebe0b",
+  "kind": "card"
+ },
+ "assets/cards/ch3.webp": {
+  "job": "f2a055f2-3b53-4e32-95c2-9d611e8f4eb0",
+  "kind": "card"
+ },
+ "assets/cards/ch4.webp": {
+  "job": "d84896ce-39e1-49fa-a90c-9b436bf49610",
+  "kind": "card"
+ },
+ "assets/cards/ch5.webp": {
+  "job": "1e2425e6-331d-4b19-9fd3-e32a7445ca99",
+  "kind": "card"
+ },
+ "assets/cards/ch6.webp": {
+  "job": "e0919d24-a85c-4302-b2f6-a0a78b292e79",
+  "kind": "card"
+ },
+ "assets/cards/consul.webp": {
+  "job": "f0bb2fb2-4cff-4cc2-84f4-79877b9c0adc",
+  "kind": "card"
+ },
+ "assets/cards/detective.webp": {
+  "job": "74a84681-f5a7-48a7-b82c-1af2bd0de393",
+  "kind": "card"
+ },
+ "assets/cards/epilogue.webp": {
+  "job": "edf06411-e316-4dfb-8a26-f07fb89ddc6a",
+  "kind": "card"
+ },
+ "assets/cards/poet.webp": {
+  "job": "183a0525-b628-449d-a98b-bf1a87539a7b",
+  "kind": "card"
+ },
+ "assets/cards/priest.webp": {
+  "job": "77ea6992-4742-46b2-b025-142d329561c4",
+  "kind": "card"
+ },
+ "assets/cards/prologue.webp": {
+  "job": "15eeba28-1554-4f0a-9826-9f3bae898d64",
+  "kind": "card"
+ },
+ "assets/cards/scholar.webp": {
+  "job": "ddb7c4ff-3a96-49f3-a6b2-6cbbe2681bbb",
+  "kind": "card"
+ },
+ "assets/cards/soldier.webp": {
+  "job": "429c59de-a72c-47b6-bd11-70356728f13f",
+  "kind": "card"
+ },
+ "assets/cards/title.webp": {
+  "job": "ea4656dd-641e-4109-9bc9-18827c006653",
+  "kind": "card"
+ },
  "assets/chars/bettik.webp": {
   "job": "05af54d4-1c3d-4f29-8882-6af83787681e",
   "kind": "char"

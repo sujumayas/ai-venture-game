@@ -210,3 +210,16 @@ button { font-family: inherit; }
 .menu-panel h3 { font-family: 'Cinzel', serif; color: var(--accent); font-size: 32px; letter-spacing: 4px; margin: 26px 0 12px; }
 #choice-list.many li { font-size: 27px; line-height: 1.1; padding: 2px 10px; }
 #choice-list.lots li { font-size: 23px; line-height: 1.05; padding: 1px 10px; }
+
+/* ---------- "Midnight" grade (art style D): deep night blues, blood-red lows, high contrast, grain, halftone ---------- */
+.grade { position: absolute; inset: 0; pointer-events: none; display: none; overflow: hidden; }
+body.grade-d .grade { display: block; }
+.grade .tone { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(10, 30, 120, 0.55), rgba(10, 10, 60, 0.2) 55%, rgba(140, 0, 30, 0.45)); mix-blend-mode: color-burn; opacity: 0.6; }
+.grade .shade { position: absolute; inset: 0; background: radial-gradient(ellipse 80% 75% at 50% 45%, rgba(0,0,0,0) 40%, rgba(0, 0, 10, 0.7) 100%); }
+.grade .dots { position: absolute; inset: 0; background-image: radial-gradient(rgba(0,0,0,0.55) 0.9px, transparent 1.2px); background-size: 6px 6px; mix-blend-mode: multiply; opacity: 0.15; }
+.grade .grain { position: absolute; inset: -50px; background: url('../assets/ui/grain.png'); mix-blend-mode: overlay; opacity: 0.2; animation: grain 0.9s steps(3) infinite; }
+@keyframes grain { 0% { transform: translate(0,0); } 33% { transform: translate(-17px, 11px); } 66% { transform: translate(13px, -19px); } 100% { transform: translate(0,0); } }
+body.grade-d #bg, body.grade-d #panel-img { filter: contrast(1.35) saturate(1.5) brightness(0.82) hue-rotate(-8deg); }
+body.grade-d .actor img { filter: drop-shadow(0 6px 6px rgba(0,0,0,0.55)) drop-shadow(0 0 5px rgba(110, 150, 255, 0.35)) contrast(1.15) saturate(1.25) brightness(0.92); }
+body.grade-d #scene .grade { z-index: 3; }
+body.grade-d #panel-frame .grade { z-index: 2; }

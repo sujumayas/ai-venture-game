@@ -1,6 +1,17 @@
 # HYPERION — Art Direction & Generation Pipeline
 
 ## Look
+**Selected direction: style D ("Midnight")**, chosen by the project owner from `docs/style-options/board_A-B-C-D.jpg`.
+It is a gritty 1980s illustrated sci-fi magazine look: heavy inks, cross-hatching, deep ultramarine and blood-red
+night palette, neon accents, film grain and halftone.
+- Title and chapter/tale cards were redrawn in style D (`assets/cards/`).
+- All other art is graded live in the browser (`body.grade-d` in `css/style.css`): split-tone overlay, contrast and
+  saturation lift, vignette, halftone dots and animated grain.
+- Players can switch back to the original look under Options → Art style → Classic.
+- For new art, generate in the base style below and let the grade apply, or prompt directly for style D
+  (see the redraw prompt used for `assets/cards/`).
+
+### Base style (Classic)
 Vintage European science-fiction *bande dessinée* (1970s–80s) — clean confident ink linework, fine hatching,
 flat hand-painted gouache colour — fused with the brooding chiaroscuro, muscular drama and oil-paint lighting of
 classic dark-fantasy paperback cover art. Rich earthy palette (ochre, rust, lapis, jade, bone white, violet) with

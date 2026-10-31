@@ -22,6 +22,7 @@ tales, and you play **the protagonist of each tale** inside it.
 
 ## Features
 - SCUMM-style verbs (Look, Pick up, Use, Talk, Open, Walk), inventory and item combinations, dialogue trees.
+- Art direction "Midnight" (gritty 80s sci-fi magazine look; Options → Art style can switch to Classic).
 - Comic-book presentation: speech balloons, narration captions, full-screen comic panels with slow camera moves.
 - **English and Spanish**, switchable at any time (Options).
 - Every event follows the novel's order and outcome. Anything added only connects scenes so they can be played; each

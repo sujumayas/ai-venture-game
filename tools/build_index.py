@@ -3,7 +3,7 @@
 import os, json
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 out = []
-for d in ['bg', 'panels', 'chars', 'portraits', 'items']:
+for d in ['bg', 'panels', 'chars', 'portraits', 'items', 'cards']:
     for f in sorted(os.listdir(os.path.join(ROOT, 'assets', d))):
         if f.endswith('.webp'):
             out.append(f'assets/{d}/{f}')

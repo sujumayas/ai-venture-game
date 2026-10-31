@@ -9,6 +9,7 @@ const game = new Game();
 if (game.fast) audio.noMusic = true;
 game.init();
 const menu = new Menu(game, CONFIG);
+game.cardsD = CONFIG.cardsD;
 
 // Soundtrack: which track plays in which scene (by scene id prefix). Scenes may override with `music:`.
 const MUSIC = [
@@ -35,7 +36,7 @@ async function boot() {
 boot();
 
 // ---------------------------------------------------------------- background prefetch of the current chapter's art
-const PREFIX = { prologue: ['p_'], ch1: ['c1_', 'priest_'], ch2: ['c2_', 'soldier_'], ch3: ['c3_', 'poet_'], ch4: ['c4_', 'scholar_'], ch5: ['c5_', 'detective_'], ch6: ['c6_', 'consul_'], epilogue: ['e_'] };
+const PREFIX = { prologue: ['p_', 'prologue'], ch1: ['c1_', 'priest_'], ch2: ['c2_', 'soldier_'], ch3: ['c3_', 'poet_'], ch4: ['c4_', 'scholar_'], ch5: ['c5_', 'detective_'], ch6: ['c6_', 'consul_'], epilogue: ['e_'] };
 let manifest = null;
 const fetched = new Set();
 game.onChapter = async (id) => {

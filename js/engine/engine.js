@@ -23,7 +23,7 @@ function freshState() {
 
 const SETTINGS_KEY = 'hyperion.settings';
 function loadSettings() {
-  const def = { lang: (navigator.language || 'en').startsWith('es') ? 'es' : 'en', textSpeed: 1, sound: true, reached: [], reviewer: false };
+  const def = { lang: (navigator.language || 'en').startsWith('es') ? 'es' : 'en', textSpeed: 1, sound: true, reached: [], reviewer: false, grade: 'd' };
   try { return Object.assign(def, JSON.parse(localStorage.getItem(SETTINGS_KEY) || '{}')); } catch (e) { return def; }
 }
 
@@ -44,6 +44,7 @@ export class Game {
     this.imgCache = new Map();
     audio.enabled = this.settings.sound;
     audio.musicOn = this.settings.music !== false;
+    document.body.classList.toggle('grade-d', this.settings.grade === 'd');
   }
 
   // ------------------------------------------------------------------ setup
@@ -721,6 +722,7 @@ export class Game {
   /** Full-screen title card. */
   async card({ kicker, title, sub, img, ms }) {
     const el = $('card-layer');
+    if (this.settings.grade === 'd' && this.cardsD && this.cardsD[img]) img = this.cardsD[img];
     if (img) await this.loadImg(img);
     this.lock();
     try {
