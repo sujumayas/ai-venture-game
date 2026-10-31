@@ -1,0 +1,10 @@
+[["start","ch3"],
+ ["act","walk","barge"],
+ ["act","look","customhouse"],["act","look","inn"],["act","look","shrine"],["act","look","tower"],
+ ["act","talk","bettik"],
+ ["act","walk","barge"],["expect",{"scene":"c3_evening"}],
+ ["act","talk","silenus"],
+ ["endtale"],
+ ["expect",{"scene":"c3_evening","player":"consul"}],
+ ["act","talk","silenus"],
+ ["expect",{"chapter":"ch4"}]]

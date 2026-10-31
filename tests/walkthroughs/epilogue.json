@@ -1,0 +1,7 @@
+[["start","epilogue"],
+ ["act","walk","stairs"],
+ ["act","take","luggage"],
+ ["act","walk","stairs"],["expect",{"scene":"e_valley"}],
+ ["act","look","sphinx"],
+ ["act","talk","sol"],
+ ["expect",{"flag":"e_finished"}]]

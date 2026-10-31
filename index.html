@@ -1,34 +1,59 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Adventure Game</title>
-    <style>
-        body {
-            margin: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: #000;
-        }
-
-        #game-container {
-            
-        }
-    </style>
+  <meta charset="utf-8">
+  <title>HYPERION — A Pilgrimage in Seven Tales (fan adaptation)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="description" content="A non-commercial fan-made point-and-click adventure adaptation of Dan Simmons' novel Hyperion.">
+  <meta name="theme-color" content="#0b0a10">
+  <link rel="icon" href="assets/ui/favicon.png">
+  <meta property="og:title" content="HYPERION — A Pilgrimage in Seven Tales">
+  <meta property="og:description" content="A fan-made point-and-click adventure adaptation of Dan Simmons' Hyperion, in English and Spanish.">
+  <meta property="og:image" content="assets/ui/og.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="stylesheet" href="css/style.css">
 </head>
-
 <body>
-    <div id="game-container"></div>
-
-    <!-- Phaser library -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/phaser/3.55.2/phaser.min.js"></script>
-
-    <!-- Game JavaScript file -->
-    <script type="module" src="js/game.js"></script>
+  <div id="viewport">
+    <div id="stage" aria-label="Game stage">
+      <div id="scene">
+        <div id="bg"></div>
+        <div id="actors"></div>
+        <div id="fg"></div>
+        <div class="grade"><div class="tone"></div><div class="shade"></div><div class="dots"></div><div class="grain"></div></div>
+        <div id="debug-layer"></div>
+        <div id="balloons"></div>
+        <div id="captions"></div>
+        <div id="hover-label"></div>
+        <div id="toast"></div>
+      </div>
+      <div id="ui">
+        <div id="sentence"></div>
+        <div id="verbs"></div>
+        <div id="inventory">
+          <button id="inv-up" class="inv-arrow" aria-label="Scroll inventory up">&#9650;</button>
+          <div id="inv-slots"></div>
+          <button id="inv-down" class="inv-arrow" aria-label="Scroll inventory down">&#9660;</button>
+        </div>
+        <div id="choices" class="hidden">
+          <div id="choice-portrait-a" class="portrait"></div>
+          <ol id="choice-list"></ol>
+          <div id="choice-portrait-b" class="portrait"></div>
+        </div>
+        <button id="menu-btn" title="Menu (Esc)">&#9776;</button>
+      </div>
+      <div id="panel-layer" class="hidden">
+        <div id="panel-frame"><div id="panel-img"></div><div class="grade"><div class="tone"></div><div class="shade"></div><div class="dots"></div><div class="grain"></div></div></div>
+        <div id="panel-captions"></div>
+        <div id="panel-hint"></div>
+      </div>
+      <div id="card-layer" class="hidden"></div>
+      <div id="fade"></div>
+      <div id="menu-layer" class="hidden"></div>
+      <div id="loading"><div class="loading-title">HYPERION</div><div class="loading-bar"><div id="loading-fill"></div></div></div>
+    </div>
+  </div>
+  <noscript>This game requires JavaScript.</noscript>
+  <script type="module" src="js/main.js"></script>
 </body>
-
 </html>

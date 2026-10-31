@@ -1,2 +1,7 @@
-assets/images/Backups
-assets/images/Backups/*
+node_modules/
+.DS_Store
+/tmp/
+*.log
+tests/out/
+assets/manifest.json.lock
+compendium/

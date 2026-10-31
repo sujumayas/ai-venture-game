@@ -1,0 +1,5 @@
+[["start","ch6"],
+ ["act","look","window"],
+ ["act","talk","sol"],["choose","rachel"],["choose","child"],["choose","dure"],["choose","keats"],["choose","ship"],["choose","go"],["choose","a"],
+ ["endtale"],
+ ["expect",{"chapter":"epilogue","scene":"e_dawn"}]]

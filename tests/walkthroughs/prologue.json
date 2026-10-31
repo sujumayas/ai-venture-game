@@ -1,0 +1,8 @@
+[["start","prologue"],
+ ["act","look","piano"],["act","use","piano"],
+ ["act","take","decanter"],["inv","use","p_scotch"],
+ ["act","walk","hatch"],["expect",{"scene":"p_lounge"}],
+ ["act","use","navconsole"],
+ ["act","use","holopit"],["choose","no"],
+ ["act","use","navconsole"],
+ ["expect",{"chapter":"ch1","scene":"c1_pod"}]]

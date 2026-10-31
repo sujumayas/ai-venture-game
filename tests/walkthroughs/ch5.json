@@ -1,0 +1,12 @@
+[["start","ch5"],
+ ["act","talk","lamia"],
+ ["act","look","bunk"],["act","look","stains"],["act","look","cube"],["act","look","porthole"],
+ ["act","talk","lamia"],["expect",{"scene":"c5_rest"}],
+ ["act","talk","kassad"],
+ ["act","talk","silenus"],["act","talk","sol"],["act","talk","hoyt"],["act","talk","lamia"],
+ ["act","talk","kassad"],["expect",{"scene":"c5_tramcar"}],
+ ["act","talk","lamia"],
+ ["endtale"],
+ ["expect",{"scene":"c5_tramcar","player":"consul"}],
+ ["act","talk","lamia"],
+ ["expect",{"chapter":"ch6","scene":"c6_hall"}]]

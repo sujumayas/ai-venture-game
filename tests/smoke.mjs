@@ -1,0 +1,32 @@
+// Smoke test: load the game, start the test chapter, exercise verbs, dialogue, panels.
+import { createRequire } from 'module'; const require = createRequire(import.meta.url); const { chromium } = require('playwright');
+const base = process.env.BASE || 'http://localhost:8123/';
+const browser = await chromium.launch();
+const page = await browser.newPage({ viewport: { width: 1280, height: 720 } });
+const errs = [];
+page.on('pageerror', (e) => errs.push(e.message));
+page.on('console', (m) => { if (m.type() === 'error') errs.push(m.text()); });
+await page.goto(base + '?fast&chapter=test');
+await page.waitForFunction(() => window.HYP && HYP.game.state.scene === 'test', null, { timeout: 15000 });
+let r = await page.evaluate(() => HYP.idle());
+console.log('idle', r);
+console.log(await page.evaluate(() => HYP.targets()));
+r = await page.evaluate(() => HYP.act('use', 'piano')); console.log('use piano', r);
+r = await page.evaluate(() => HYP.act('talk', 'consul2')); console.log('talk', r);
+r = await page.evaluate(() => HYP.choose('a')); console.log(r);
+r = await page.evaluate(() => HYP.choose('p')); console.log(r);
+r = await page.evaluate(() => HYP.choose('bye')); console.log(r);
+await page.screenshot({ path: '/tmp/smoke1.png' });
+// real-time mode screenshot with a balloon
+await page.goto(base + '?chapter=test&nocard');
+await page.waitForFunction(() => window.HYP && HYP.game.state.scene === 'test' && !HYP.game.busy, null, { timeout: 15000 });
+await page.evaluate(() => { HYP.game.act('look', 'piano'); });
+await page.waitForTimeout(600);
+await page.mouse.move(600, 150);
+await page.screenshot({ path: '/tmp/smoke2.png' });
+await page.waitForTimeout(3000);
+await page.evaluate(() => { HYP.game.act('talk', 'consul2'); });
+await page.waitForTimeout(3500);
+await page.screenshot({ path: '/tmp/smoke3.png' });
+console.log('errors', errs, await page.evaluate(() => HYP.errors()));
+await browser.close();
