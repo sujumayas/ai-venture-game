@@ -34,16 +34,16 @@ defineScene({
     { id: 'bettik', x: 420, y: 470, dir: 'right', when: (g) => !g.f('c4_bettik_gone'), on: {
       look: t('A. Bettik, waiting to say goodbye. The Benares is moored at the dock below.', 'A. Bettik, esperando para despedirse. La Benares está amarrada en el muelle de abajo.'),
       talk: async (g) => {
-        await g.say('bettik', t('This is as far as the river goes, M. Consul. The windwagon should come for you across the grass.', 'Hasta aquí llega el río, M. Cónsul. El carro de viento debería venir a por ustedes a través de la hierba.'));
+        await g.say('bettik', t('This is as far as the river goes, M. Consul. The windwagon should come for you across the grass.', 'Hasta aquí llega el río, M. Cónsul. El carro de viento debería venir a buscarlos a través de la hierba.'));
         await g.say('player', t('And you? Back to Keats?', '¿Y usted? ¿De vuelta a Keats?'));
         await g.say('bettik', t('My crew and I are free now to follow our own purposes. Our own pilgrimages, perhaps. Hyperion is a large world.', 'Mi tripulación y yo somos libres ahora de seguir nuestros propios propósitos. Nuestras propias peregrinaciones, quizá. Hyperion es un mundo grande.'));
         await g.say('bettik', t('Good luck to you all.', 'Buena suerte a todos.'));
         g.set('c4_bettik_gone'); g.refresh();
-        await g.narrate(t('The Benares slips back downriver. The pilgrims are alone on the edge of the Sea of Grass. The wind hisses through it like surf.', 'La Benares se desliza río abajo. Los peregrinos están solos al borde del Mar de Hierba. El viento silba a través de ella como la resaca.'));
+        await g.narrate(t('The Benares slips back downriver. The pilgrims are alone on the edge of the Sea of Grass. The wind hisses through it like surf.', 'La Benares se desliza río abajo. Los peregrinos están solos al borde del Mar de Hierba. El viento silba entre ella como el oleaje.'));
         await g.say('kassad', t('No windwagon. It\'ll be dark soon. It needs something to steer by.', 'Ni rastro del carro. Pronto oscurecerá. Necesitará algo por lo que guiarse.'));
       } } },
     { id: 'silenus', x: 600, y: 640, dir: 'right', on: {
-      look: t('Silenus is sitting on his luggage, guarding a battered case of manuscript as if it were a child.', 'Silenus está sentado sobre su equipaje, guardando un maltrecho maletín de manuscritos como si fuera un niño.'),
+      look: t('Silenus is sitting on his luggage, guarding a battered manuscript case as if it were a child.', 'Silenus está sentado sobre su equipaje, guardando el maltrecho maletín de su manuscrito como si fuera un niño.'),
       talk: async (g) => {
         if (!g.f('c4_bettik_gone')) { await g.say('silenus', t('Say goodbye to the blue man first. Manners, Consul.', 'Despídase primero del hombre azul. Modales, cónsul.')); return; }
         if (!g.f('c4_bigfire')) { await g.say('silenus', t('Feed the fire, Consul. If the wagon can\'t find us, we\'ll have to walk, and I don\'t walk.', 'Alimente el fuego, cónsul. Si el carro no nos encuentra tendremos que caminar, y yo no camino.')); return; }
@@ -79,12 +79,12 @@ defineScene({
         open: t('Doors swing open on empty rooms. No one left a note.', 'Las puertas se abren a habitaciones vacías. Nadie dejó una nota.'),
       } },
     { id: 'luggage', name: t('Luggage', 'Equipaje'), rect: [600, 390, 420, 170], walk: false,
-      on: { look: t('All our luggage in a heap: trunks, duffels, Silenus\'s manuscript case, Kassad\'s long crates.', 'Todo nuestro equipaje amontonado: baúles, bolsas, el maletín de manuscritos de Silenus, las largas cajas de Kassad.') } },
+      on: { look: t('All our luggage in a heap: trunks, duffels, Silenus\'s manuscript case, Kassad\'s long crates.', 'Todo nuestro equipaje amontonado: baúles, bolsas, el maletín del manuscrito de Silenus, las largas cajas de Kassad.') } },
     { id: 'cube', name: t('Masteen\'s cube', 'El cubo de Masteen'), rect: [1110, 380, 210, 130], walk: false,
       on: { look: t('A heavy cube of dark carbon: a Möbius cube, a containment box for things too dangerous to touch. Masteen won\'t say what is inside.', 'Un pesado cubo de carbono oscuro: un cubo de Möbius, una caja de contención para cosas demasiado peligrosas para tocarlas. Masteen no dice qué hay dentro.'),
         take: t('It isn\'t mine, and I suspect it would not let me.', 'No es mío, y sospecho que no me dejaría.') } },
     { id: 'grass', name: t('Sea of Grass', 'Mar de Hierba'), rect: [1300, 180, 619, 640], walk: false,
-      on: { look: t('Several billion acres of grass, every blade the same height, taller than a man, rippling to every horizon. Too sharp to walk through. And grass serpents live in it.', 'Varios miles de millones de acres de hierba, todas las briznas a la misma altura, más altas que un hombre, ondulando hasta cada horizonte. Demasiado afilada para atravesarla. Y en ella viven serpientes de hierba.') } },
+      on: { look: t('Billions of acres of grass, every blade the same height and taller than a man, to every horizon. Too sharp to walk through. Grass serpents live in it.', 'Miles de millones de acres de hierba, toda de la misma altura, más alta que un hombre, hasta el horizonte. Demasiado afilada para cruzarla a pie. En ella viven serpientes.') } },
     { id: 'dock', name: t('River dock', 'Muelle del río'), rect: [60, 430, 360, 200], walk: false,
       on: { look: async (g) => { await g.say('player', g.f('c4_bettik_gone') ? t('The dock is empty. The Benares is gone.', 'El muelle está vacío. La Benares se ha ido.') : t('The Benares, moored at the little dock for the last time.', 'La Benares, amarrada al pequeño muelle por última vez.')); } } },
     { id: 'wagon', name: t('Windwagon', 'Carro de viento'), rect: [1500, 380, 419, 300], exitDir: 'r', walkTo: [1450, 600], when: (g) => g.f('c4_arrived'),
@@ -115,13 +115,13 @@ async function luggage(g) {
   await g.say('silenus', t('And our detective brought her charming personality and a gun. Which of those will kill the Shrike, I wonder?', 'Y nuestra detective trajo su encantadora personalidad y una pistola. ¿Cuál de las dos matará al Alcaudón, me pregunto?'));
   g.sfx('click');
   await g.say('lamia', t('Say one more word, poet.', 'Diga una palabra más, poeta.'), { style: 'shout' });
-  await g.narrate(t('Lamia\'s weapon is out and pointed at Silenus\'s face. Nobody saw her draw.', 'El arma de Lamia está fuera y apunta a la cara de Silenus. Nadie la vio desenfundar.'));
+  await g.panels([{ img: 'assets/panels/c4_gun.webp', kb: 'in', sfxSound: 'click', captions: [t('Lamia\'s weapon is out and pointed at Silenus\'s face. Nobody saw her draw.', 'El arma de Lamia está fuera y apunta a la cara de Silenus. Nadie la vio desenfundar.')] }]);
   await g.say('sol', t('M. Lamia. Please. There is a child present.', 'M. Lamia. Por favor. Hay una niña delante.'));
   await g.narrate(t('A long moment. The weapon goes away. Silenus, for once, says nothing at all.', 'Un largo momento. El arma desaparece. Silenus, por una vez, no dice nada en absoluto.'));
   await g.wait(600);
   await g.panels([{ img: 'assets/panels/c4_windwagon.webp', kb: 'in', captions: [
     t('Full dark. Then, out on the grass, lanterns: the windwagon rolls toward the bonfire on its single great wheel, sails bellied in the wind.', 'Noche cerrada. Entonces, sobre la hierba, faroles: el carro de viento rueda hacia la hoguera sobre su única gran rueda, con las velas hinchadas por el viento.'),
-    t('There is no one aboard. It has come for them on its own.', 'No hay nadie a bordo. Ha venido a por ellos por sí solo.'),
+    t('There is no one aboard. It has come for them on its own.', 'No hay nadie a bordo. Ha venido a buscarlos por sí solo.'),
   ] }]);
   g.set('c4_arrived');
   await g.say('kassad', t('No crew. Automated. Everyone aboard.', 'Sin tripulación. Automático. Todos a bordo.'));
@@ -138,7 +138,7 @@ defineScene({
     { id: 'sol', x: 1100, y: 790, dir: 'left', on: {
       look: t('Sol, with Rachel on his knee.', 'Sol, con Rachel sobre la rodilla.'),
       talk: async (g) => {
-        if (!g.f('c4_dinner')) { await g.say('sol', t('Something smells promising, Consul. You cook?', 'Algo huele prometedor, cónsul. ¿Usted cocina?')); return; }
+        if (!g.f('c4_dinner')) { await g.say('sol', t('Something smells promising, Consul. You cook?', 'Eso huele de maravilla, cónsul. ¿Usted cocina?')); return; }
         await g.say('sol', t('A good meal. Thank you. I suppose it\'s my turn.', 'Una buena comida. Gracias. Supongo que me toca.'));
         await g.say('sol', t('I\'m not a storyteller. I\'m a scholar. But I\'ll tell you about my daughter.', 'No soy narrador. Soy un estudioso. Pero les hablaré de mi hija.'));
         await g.startTale('scholar');
@@ -192,7 +192,7 @@ defineScene({
         await g.say('kassad', t('You have the second watch. Take this.', 'Usted tiene la segunda guardia. Tome esto.'));
         g.give('c4_deathwand');
         await g.say('player', t('A deathwand. I haven\'t held one since Bressia.', 'Una varita mortal. No sostenía una desde Bressia.'), { style: 'think' });
-        await g.narrate(t('The others go below. The Consul keeps watch alone on the deck, the weapon in his lap, the grass hissing all around, until dawn.', 'Los demás bajan. El Cónsul hace guardia solo en cubierta, con el arma en el regazo y la hierba silbando alrededor, hasta el amanecer.'));
+        await g.narrate(t('The others go below. The Consul keeps his watch alone on the deck, the weapon in his lap, the grass hissing all around him in the dark.', 'Los demás bajan. El Cónsul hace su guardia solo en cubierta, con el arma en el regazo y la hierba silbando a su alrededor en la oscuridad.'));
         await g.nextChapter();
       } } },
     { id: 'masteen', x: 1640, y: 805, dir: 'left', when: (g) => !g.f('c4_masteen_below'), on: {

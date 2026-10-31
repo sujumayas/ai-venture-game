@@ -869,7 +869,7 @@ defineScene({
 async function gladstoneAndPrep(g) {
   await panels(g, [
     { img: P('p_gladstone'), kb: 'in', captions: [
-      { text: t('Before we broke any laws, I tried the front door. Meina Gladstone, CEO of the Senate, once my father\'s friend and protégée, gave us ten minutes in Government House on TC².', 'Antes de violar ninguna ley probé la puerta principal. Meina Gladstone, presidenta del Senado, amiga y protegida de mi padre, nos concedió diez minutos en la Casa de Gobierno de TC².'), who: LAMIA },
+      { text: t('Before we broke any laws, I tried the front door. Meina Gladstone, CEO of the Senate, once my father\'s friend and protégée, gave us ten minutes in Government House on TC².', 'Antes de violar ninguna ley probé la puerta principal. Meina Gladstone, Directora Ejecutiva del Senado, amiga y protegida de mi padre, nos concedió diez minutos en la Casa de Gobierno de TC².'), who: LAMIA },
       { text: t('Hyperion is a mystery even to the Core. The Time Tombs make it so. That is all I can tell you, Brawne.', 'Hyperion es un misterio incluso para el Núcleo. Por culpa de las Tumbas del Tiempo. Es todo lo que puedo decirte, Brawne.'), who: 'Meina Gladstone', pos: 'tr' },
       { text: t('She had sad brown eyes and a very old face, and she answered every question with a better question. I left knowing she knew more than she had said.', 'Tenía unos tristes ojos marrones y una cara muy vieja, y respondía a cada pregunta con otra mejor. Salí sabiendo que sabía más de lo que había dicho.'), who: LAMIA },
     ] },

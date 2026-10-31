@@ -83,7 +83,7 @@ async function seventh(g) {
       await g.say('player', t('...', '...'));
     } },
     { id: 'go', text: t('All right. We go on regardless.', 'De acuerdo. Seguimos de todos modos.'), exit: true, when: (g) => g.f('d:c6_seventh:ship'), run: async (g) => {
-      await g.say('silenus', t('Then you owe us a story, Consul. Number seven. Last but not least.', 'Entonces nos debe una historia, cónsul. El número siete. El último, pero no el menos.'));
+      await g.say('silenus', t('Then you owe us a story, Consul. Number seven. Last but not least.', 'Entonces nos debe una historia, cónsul. El número siete. El último, pero no por ello el menos importante.'));
       g.talkingTo = 'silenus';
       await g.choose([
         { id: 'a', text: t('"Like Father Hoyt, I can only tell my story by first telling someone else\'s."', '«Como el padre Hoyt, solo puedo contar mi historia contando antes la de otro.»') },
@@ -97,8 +97,8 @@ async function seventh(g) {
 
 async function judgement(g) {
   g.set('c6_judged');
-  await g.narrate(t('The recorder clicks off. The fire has burned low. Outside, the sky over the Tombs flickers with the war the Consul started.', 'La grabadora se apaga con un clic. El fuego se ha consumido. Fuera, el cielo sobre las Tumbas parpadea con la guerra que empezó el Cónsul.'));
-  await g.say('lamia', t('So you\'re the spy. Gladstone\'s Ouster agent. Sitting at our table the whole way.', 'Así que usted es el espía. El agente éxter de Gladstone. Sentado a nuestra mesa todo el camino.'));
+  await g.panels([{ img: 'assets/panels/c6_confession.webp', kb: 'in', captions: [t('The recorder clicks off. The fire has burned low. Outside, the sky over the Tombs flickers with the war the Consul helped to bring.', 'La grabadora se apaga con un clic. El fuego se ha consumido. Fuera, el cielo sobre las Tumbas parpadea con la guerra que el Cónsul ayudó a desatar.')] }]);
+  await g.say('lamia', t('So you\'re the spy. The Ouster agent among us. Sitting at our table the whole way.', 'Así que el espía es usted. El agente éxter que viajaba entre nosotros. Sentado a nuestra mesa todo el camino.'));
   await g.say('kassad', t('Het Masteen. Did you kill him?', 'Het Masteen. ¿Lo mató usted?'));
   await g.say('player', t('No. And I\'ll tell you something else: he watched his treeship burn without a sound. Far too calmly. Something about Masteen is not what it seems.', 'No. Y le diré algo más: vio arder su nave árbol sin un sonido. Con demasiada calma. Algo en Masteen no es lo que parece.'));
   await g.say('silenus', t('He betrayed the Hegemony, the Ousters, and us. I say we execute him and save the Shrike the trouble.', 'Traicionó a la Hegemonía, a los éxters y a nosotros. Digo que lo ejecutemos y le ahorremos la molestia al Alcaudón.'));

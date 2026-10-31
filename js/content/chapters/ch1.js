@@ -30,6 +30,11 @@ defineChapter({
   sub: t('Aboard the Templar treeship Yggdrasill, five hours out from Hyperion', 'A bordo de la nave árbol templaria Yggdrasill, a cinco horas de Hyperion'),
   cardImg: 'assets/panels/c1_treeship.webp', thumb: 'assets/bg/c1_dining.webp',
   player: 'consul', inv: ['c1_tricorne'], start: 'c1_pod', startPos: { x: 860, y: 760, dir: 'right' },
+  intro: async (g) => {
+    await g.panels([{ img: 'assets/panels/c1_docking.webp', kb: 'in', captions: [
+      t('At the rendezvous, the treeship takes the ebony ship into one of the great spheres clustered at the base of its trunk. The Consul sleeps through it all, in fugue.', 'En el punto de encuentro, la nave árbol acoge a la nave de ébano en una de las grandes esferas agrupadas en la base de su tronco. El Cónsul lo duerme todo, en fuga.'),
+    ] }]);
+  },
   afterTale: async (g) => { g.set('c1_after'); await g.goto('c1_dining', { x: 1150, y: 790, dir: 'right' }); },
 });
 
@@ -351,7 +356,7 @@ defineScene({
           if (g.f('c1_needhat') && !g.f('c1_lots')) { await g.say('masteen', t('Master Silenus is waiting for your hat, Consul.', 'El señor Silenus espera su sombrero, cónsul.')); return; }
           if (!g.f('c1_sat')) {
             g.set('c1_sat');
-            await g.narrate(t('They sit. The Consul takes the place at the captain\'s left. Crew clones bring wine, roast beef and boiled sky squid. Lamia eats the last of the chocolate cheesecake.', 'Se sientan. El Cónsul ocupa el lugar a la izquierda del capitán. Los clones traen vino, rosbif y calamar celeste hervido. Lamia se come lo que queda de la tarta de queso con chocolate.'));
+            await g.panels([{ img: 'assets/panels/c1_dinner.webp', kb: 'in', captions: [t('They sit. The Consul takes the place at the captain\'s left. Crew clones bring wine, roast beef and boiled sky squid. Lamia eats the last of the chocolate cheesecake.', 'Se sientan. El Cónsul ocupa el lugar a la izquierda del capitán. Los clones traen vino, rosbif y calamar celeste hervido. Lamia se come lo que queda de la tarta de queso con chocolate.')] }]);
           }
           await g.dialog('masteen', [...table, { id: 'end', text: t('(Listen to the others.)', '(Escuchar a los demás.)'), exit: true }], 'c1_table');
           const asked = table.filter((o) => g.f('d:c1_table:' + o.id)).length;

@@ -6,7 +6,7 @@ import { audio } from '../../engine/audio.js';
 
 defineItems({
   e_comlog: { name: t('Siri\'s comlog', 'El comlog de Siri'), icon: 'assets/items/e_comlog.webp',
-    look: t('My grandmother\'s comlog, rebuilt by the Ousters. It can still call my ship. I have not decided whether I will.', 'El comlog de mi abuela, reconstruido por los éxters. Aún puede llamar a mi nave. No he decidido si lo haré.') },
+    look: t('My grandmother\'s comlog, modified by the Ousters. It can still call my ship. I have not decided whether I will.', 'El comlog de mi abuela, modificado por los éxters. Aún puede llamar a mi nave. No he decidido si lo haré.') },
 });
 
 defineChapter({
@@ -56,7 +56,7 @@ defineScene({
     if (g.f('e_intro')) return;
     g.set('e_intro');
     audio.ensure();
-    await g.narrate(t('The Consul wakes to music: Father Hoyt is playing a balalaika on the terrace, in the first light.', 'El Cónsul despierta con música: el padre Hoyt toca una balalaika en la terraza, con la primera luz.'));
+    await g.panels([{ img: 'assets/panels/e_balalaika.webp', kb: 'in', captions: [t('The Consul wakes to music: Father Hoyt is playing a balalaika on the terrace, in the first light.', 'El Cónsul despierta con música: el padre Hoyt toca una balalaika en la terraza, con la primera luz.')] }]);
     for (const n of [392, 440, 494, 392, 330, 294]) { audio.pianoNote(n, 1.2, 0.05); await g.wait(260); }
     await g.narrate(t('One by one the others come out. It is early. Nobody suggests waiting.', 'Uno a uno salen los demás. Es temprano. Nadie propone esperar.'));
   },
@@ -122,11 +122,11 @@ async function song(g) {
   if (g.f('e_song')) return;
   g.set('e_song');
   await g.narrate(t('Then Sol Weintraub begins to hum to his daughter. Then to sing, softly: a very old song from a very old flat film, about going off to see a wizard.', 'Entonces Sol Weintraub empieza a tararearle a su hija. Luego a cantar, en voz baja: una canción muy antigua de una película plana muy antigua, sobre ir a ver a un mago.'));
-  await g.say('silenus', t('Oh, for... You can\'t be serious.', 'Oh, por... No puede hablar en serio.'));
+  await g.say('silenus', t('Oh, for... You can\'t be serious.', 'Ay, por... No puede hablar en serio.'));
   await g.narrate(t('He is. And after a moment, absurdly, Silenus joins in. Then Hoyt. Then Lamia, Kassad, and the Consul.', 'Habla en serio. Y al cabo de un momento, absurdamente, Silenus se le une. Luego Hoyt. Luego Lamia, Kassad y el Cónsul.'));
   await g.panels([
     { img: 'assets/panels/e_song.webp', kb: 'in', captions: [
-      t('They link arms. Six pilgrims and a child, walking side by side down into the valley, singing, toward the glowing Tombs and whatever waits there.', 'Se toman del brazo. Seis peregrinos y una niña, caminando lado a lado hacia el fondo del valle, cantando, hacia las Tumbas que brillan y lo que sea que allí espera.'),
+      t('They link arms. Six pilgrims and a child, walking side by side down into the valley, singing, toward the glowing Tombs and whatever waits there.', 'Entrelazan los brazos. Seis peregrinos y una niña, caminando hombro con hombro hacia el fondo del valle, cantando, hacia las Tumbas que brillan y lo que sea que allí espera.'),
       { text: t('THE END of Hyperion.', 'FIN de Hyperion.'), pos: 'bc', style: 'time' },
     ] },
   ]);

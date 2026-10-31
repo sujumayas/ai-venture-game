@@ -32,6 +32,7 @@ defineScene({
       talk: async (g) => {
         await g.dialog('silenus', [
           { id: 'billy', text: t('Do you recognise the face on the hill?', '¿Reconoce la cara de la colina?'), run: async (g) => {
+            await g.panels([{ img: 'assets/panels/c2_yorick.webp', kb: 'in', ms: 2500 }]);
             await g.say('silenus', t('Recognise him? I knew him. Alas, poor Billy! I knew him, Horatio: a fellow of infinite sadness.', '¿Reconocerlo? Lo conocí. ¡Ay, pobre Billy! Lo conocí, Horacio: un hombre de una tristeza infinita.'));
             await g.say('silenus', t('They carved him out of the mountain like a rough draft. He would have hated it. He hated drafts.', 'Lo tallaron en la montaña como un borrador. Lo habría odiado. Odiaba los borradores.'));
           } },
@@ -49,7 +50,7 @@ defineScene({
       talk: async (g) => { g.sfx('baby'); await g.say('sol', t('She doesn\'t like landings. Neither do I.', 'No le gustan los aterrizajes. A mí tampoco.')); } } },
     { id: 'lamia', x: 700, y: 760, dir: 'right', on: {
       look: t('Lamia watches the crowd at the fence with professional interest.', 'Lamia observa a la multitud de la valla con interés profesional.'),
-      talk: async (g) => { await g.say('lamia', t('Half a city trying to leave, and here we are walking in. Remind me why I signed up for this.', 'Media ciudad intentando irse, y nosotros entrando. Recuérdeme por qué me apunté a esto.')); } } },
+      talk: async (g) => { await g.say('lamia', t('Half a city trying to leave, and here we are walking in. Remind me why I signed up for this.', 'Media ciudad intentando irse, y nosotros entrando. Recuérdeme por qué me metí en esto.')); } } },
     { id: 'c2_theo', x: 1560, y: 740, dir: 'left', when: (g) => g.f('c2_theo_here'), on: {
       look: t('Theo Lane. My aide, once: young, earnest, always polishing those antique spectacles. Eight years older now. Governor-General.', 'Theo Lane. Mi ayudante, en otro tiempo: joven, serio, siempre limpiando esas gafas antiguas. Ocho años mayor ahora. Gobernador general.'),
       talk: async (g) => theoTalk(g) } },
@@ -69,7 +70,7 @@ defineScene({
     { id: 'lift', name: t('Lift to the field', 'Elevador a la pista'), rect: [1700, 600, 219, 219], exitDir: 'd', walkTo: [1650, 790],
       exit: async (g) => {
         if (!g.f('c2_theo_done')) { await g.say('player', t('Someone is coming up to meet us. I\'ll wait.', 'Alguien sube a recibirnos. Esperaré.')); return; }
-        await g.panels([{ img: 'assets/panels/c2_landing.webp', kb: 'left', captions: [
+        await g.panels([{ img: 'assets/panels/c2_streets.webp', kb: 'left', captions: [
           t('A skimmer carries them south through the refugee streets, past the Old City\'s polished stone and into Jacktown, the old quarter of saloons and warehouses by the river.', 'Un deslizador los lleva hacia el sur por las calles de refugiados, deja atrás la piedra pulida de la Ciudad Vieja y entra en Jacktown, el viejo barrio de tabernas y almacenes junto al río.'),
         ] }]);
         await g.goto('c2_temple', { x: 1500, y: 700, dir: 'left' });
@@ -80,7 +81,7 @@ defineScene({
     g.set('c2_intro');
     await g.panels([{ img: 'assets/panels/c2_landing.webp', kb: 'in', sfxSound: 'explosion', captions: [
       t('A warm, rainy evening at Keats. A double sonic boom, and the ebony ship drops through the clouds on a column of fusion flame.', 'Una tarde cálida y lluviosa en Keats. Un doble estampido sónico, y la nave de ébano cae entre las nubes sobre una columna de fuego de fusión.'),
-      t('Ruby landing beams guide it into a blast pit. Water jets hiss against the hull. A balcony extends, and five pilgrims step out into the rain.', 'Haces de aterrizaje color rubí la guían hasta un foso de impacto. Chorros de agua sisean contra el casco. Se despliega un balcón, y cinco peregrinos salen a la lluvia.'),
+      t('Ruby landing beams guide it into a blast pit. Water jets hiss against the hull. A balcony extends, and five pilgrims step out into the rain.', 'Haces de aterrizaje color rubí la guían hasta un foso de aterrizaje. Chorros de agua sisean contra el casco. Se despliega un balcón, y cinco peregrinos salen a la lluvia.'),
     ] }]);
     await g.say('player', t('Eight local years. Hyperion. I swore I would not come back.', 'Ocho años locales. Hyperion. Juré que no volvería.'), { style: 'think' });
     await g.wait(400);
@@ -95,7 +96,7 @@ async function theoTalk(g) {
       await g.say('c2_theo', t('Hyperion has been brought into the Hegemony Protectorate. Keats is swollen with refugees: millions, from every town in the north.', 'Hyperion ha sido incorporado al Protectorado de la Hegemonía. Keats está desbordada de refugiados: millones, de todos los pueblos del norte.'));
     } },
     { id: 'shrike', text: t('And the Shrike?', '¿Y el Alcaudón?'), run: async (g) => {
-      await g.say('c2_theo', t('Seen farther from the Tombs every week. South of the Bridle Range now. Whole settlements gone silent.', 'Lo ven cada semana más lejos de las Tumbas. Ya al sur de la cordillera de la Brida. Asentamientos enteros que han enmudecido.'));
+      await g.say('c2_theo', t('Seen farther from the Tombs every week. As far south as the Bridle Range now. Whole settlements gone silent.', 'Lo ven cada semana más lejos de las Tumbas. Ya llega hasta la cordillera de la Brida. Asentamientos enteros han enmudecido.'));
       await g.say('c2_theo', t('And the Ousters are coming. War is coming, Consul. Here.', 'Y vienen los éxters. Viene la guerra, cónsul. Aquí.'));
     } },
     { id: 'offer', text: t('Why do you wish I hadn\'t come?', '¿Por qué desearías que no hubiera venido?'), run: async (g) => {
@@ -141,7 +142,7 @@ defineScene({
     { id: 'rubble', name: t('Temple rubble', 'Escombros del templo'), rect: [420, 160, 900, 400], walk: false,
       on: { look: async (g) => {
         await g.say('player', t('The great Shrike Temple filled three city blocks. Its spire stood a hundred and fifty metres tall.', 'El gran Templo del Alcaudón ocupaba tres manzanas. Su aguja medía ciento cincuenta metros.'));
-        await g.say('player', t('Rioters brought it down with shaped plasma charges. The city blamed the Church for the Shrike. The Church blamed the city.', 'Los alborotadores lo derribaron con cargas de plasma dirigidas. La ciudad culpó a la Iglesia del Alcaudón. La Iglesia culpó a la ciudad.'));
+        await g.say('player', t('Rioters brought it down with shaped plasma charges. The city blamed the Church for the Shrike. The Church blamed the city.', 'Los alborotadores lo derribaron con cargas huecas de plasma. La ciudad culpó a la Iglesia del Alcaudón. La Iglesia culpó a la ciudad.'));
       } } },
     { id: 'spire', name: t('Broken spire', 'Aguja rota'), poly: [[860, 380], [1060, 20], [1110, 60], [980, 450]], walk: false,
       on: { look: t('The spire was sharpened like a blade. It still is, even lying on its side.', 'La aguja estaba afilada como una hoja. Aún lo está, incluso tumbada.') } },
@@ -177,7 +178,7 @@ defineScene({
   start: { x: 220, y: 700, dir: 'right' },
   actors: [
     { id: 'c2_stan', x: 1300, y: 700, dir: 'left', on: {
-      look: t('Stan Leweski. Cicero\'s has been in his family for generations. So, it sometimes felt, was I.', 'Stan Leweski. Cicero\'s es de su familia desde hace generaciones. Y yo, a veces lo parecía, también.'),
+      look: t('Stan Leweski. Cicero\'s has been in his family for generations. So, it sometimes felt, was I.', 'Stan Leweski. Cicero\'s es de su familia desde hace generaciones. A veces parecía que yo también.'),
       talk: async (g) => {
         await g.dialog('c2_stan', [
           { id: 'hello', text: t('Hello, Stan.', 'Hola, Stan.'), run: async (g) => {
@@ -198,7 +199,7 @@ defineScene({
     { id: 'silenus', x: 1560, y: 690, dir: 'left', on: { look: t('Silenus at the window, reciting to the rain.', 'Silenus en la ventana, recitándole a la lluvia.'), talk: t('"Cicero\'s! Now this is a bar a poet can die in."', '«¡Cicero\'s! Este sí es un bar donde un poeta puede morir.»') } },
     { id: 'kassad', x: 1450, y: 650, dir: 'left', on: { look: t('Kassad has his back to the wall and a view of the door. Old habits.', 'Kassad tiene la espalda contra la pared y la puerta a la vista. Viejas costumbres.'), talk: t('"Good food. Bad tactical position."', '«Buena comida. Mala posición táctica.»') } },
     { id: 'lamia', x: 1100, y: 790, dir: 'left', on: { look: t('Lamia, eating with both hands.', 'Lamia, comiendo con las dos manos.'), talk: t('"Your friend downstairs pours an honest drink. Rare, in my experience."', '«Su amigo de abajo sirve una copa honrada. Algo raro, en mi experiencia.»') } },
-    { id: 'hoyt', x: 1750, y: 760, dir: 'left', on: { look: t('Hoyt, awake now, pale and silent. He hasn\'t mentioned last night. Neither have I.', 'Hoyt, despierto ya, pálido y callado. No ha mencionado lo de anoche. Yo tampoco.'), talk: t('"Thank you, Consul. For... the tree." He says no more.', '«Gracias, cónsul. Por... lo del árbol.» No dice más.') } },
+    { id: 'hoyt', x: 1750, y: 760, dir: 'left', on: { look: t('Hoyt, awake now, pale and silent. He hasn\'t mentioned what happened on the tree. Neither have I.', 'Hoyt, despierto ya, pálido y callado. No ha mencionado lo ocurrido en el árbol. Yo tampoco.'), talk: t('"Thank you, Consul. For... the tree." He says no more.', '«Gracias, cónsul. Por... lo del árbol.» No dice más.') } },
     { id: 'bettik', x: 260, y: 700, dir: 'right', when: (g) => g.f('c2_bettik'), on: {
       look: t('An android: hairless, blue-skinned, blue-eyed, perfectly composed.', 'Un androide: sin pelo, de piel azul, ojos azules, perfectamente sereno.'),
       talk: async (g) => {
@@ -256,7 +257,7 @@ defineScene({
         if (g.f('c2_after')) { await g.say('silenus', t('Well. That was cheerful. Is there any more coffee? With something in it?', 'Bueno. Qué alegre. ¿Queda café? ¿Con algo dentro?')); return; }
         g.set('c2_age');
         await g.say('player', t('How old are you, really, Silenus?', '¿Cuántos años tiene de verdad, Silenus?'));
-        await g.say('silenus', t('Old enough to remember Old Earth. Its oceans, its cities. The day it began to die. Next question.', 'Lo bastante para recordar la vieja Tierra. Sus océanos, sus ciudades. El día en que empezó a morir. Siguiente pregunta.'));
+        await g.say('silenus', t('Old enough to remember Old Earth. Its oceans, its cities. The day it began to die. Next question.', 'Lo bastante para recordar la Vieja Tierra. Sus océanos, sus ciudades. El día en que empezó a morir. Siguiente pregunta.'));
         await checkBreakfast(g);
       } } },
     { id: 'bettik', x: 1060, y: 700, dir: 'left', on: {
@@ -278,9 +279,9 @@ defineScene({
       on: { look: t('Breakfast under the awning: coffee, bread, fruit from the jungle. The android crew serve and vanish.', 'Desayuno bajo el toldo: café, pan, fruta de la selva. La tripulación androide sirve y desaparece.'),
         use: t('Coffee. Strong. Hyperion coffee was always the one good thing about Hyperion mornings.', 'Café. Fuerte. El café de Hyperion fue siempre lo único bueno de las mañanas de Hyperion.') } },
     { id: 'mantas', name: t('River mantas', 'Mantas de río'), rect: [1200, 300, 719, 300], walk: false,
-      on: { look: t('Great river mantas in harness, wings rolling under the green water. The crew rotates them from holding pens so they never tire.', 'Grandes mantas de río enjaezadas, con las alas ondulando bajo el agua verde. La tripulación las rota desde unos corrales para que nunca se cansen.') } },
+      on: { look: t('Great river mantas in harness, wings rolling under the green water. The crew rotates them from holding pens so they never tire.', 'Grandes mantas de río enjaezadas, con las alas ondulando bajo el agua verde. La tripulación las va relevando con otras de los corrales para que nunca se cansen.') } },
     { id: 'jungle', name: t('Riverbank', 'Ribera'), rect: [800, 60, 1119, 220], walk: false,
-      on: { look: t('Chrome-yellow jungle on both banks, saffron and ochre and butter-gold. From a distance Hyperion is all colour. Up close it dissolves.', 'Selva amarillo cromo en ambas orillas, azafrán, ocre y oro mantequilla. De lejos Hyperion es todo color. De cerca se disuelve.') } },
+      on: { look: t('Chrome-yellow jungle on both banks, saffron and ochre and butter-gold. From a distance Hyperion is all colour. Up close it dissolves.', 'Selva amarillo cromo en ambas orillas, azafrán, ocre y amarillo mantequilla. De lejos Hyperion es todo color. De cerca se disuelve.') } },
     { id: 'cabin', name: t('Cabins', 'Camarotes'), rect: [30, 180, 230, 280], walk: false,
       on: { look: t('Small cabins below deck. Mine smells of river and old varnish.', 'Pequeños camarotes bajo cubierta. El mío huele a río y a barniz viejo.') } },
   ],

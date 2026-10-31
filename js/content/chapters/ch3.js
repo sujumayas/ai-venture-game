@@ -8,7 +8,7 @@ defineChapter({
   title: t('Naiad', 'Naiad'),
   short: t('III: Naiad', 'III: Naiad'),
   sub: t('Upriver on the Hoolie, where the towns have gone silent', 'Hoolie arriba, donde los pueblos han enmudecido'),
-  cardImg: 'assets/bg/c3_naiad.webp', thumb: 'assets/bg/c3_naiad.webp',
+  cardImg: 'assets/panels/c3_deadtowns.webp', thumb: 'assets/bg/c3_naiad.webp',
   player: 'consul', inv: [], start: 'c3_naiad', startPos: { x: 420, y: 580, dir: 'right' },
   afterTale: async (g) => { g.set('c3_after'); await g.goto('c3_evening', { x: 300, y: 760, dir: 'right' }); },
 });
@@ -39,13 +39,13 @@ defineScene({
   ],
   hotspots: [
     { id: 'customhouse', name: t('Customhouse', 'Aduana'), rect: [820, 60, 450, 460], walkTo: [1040, 560],
-      on: { look: async (g) => { g.set('c3_customhouse'); await g.say('player', t('The Customhouse. I signed transit papers here once, on a tour of the river ports. Its doors are charcoal.', 'La Aduana. Una vez firmé aquí papeles de tránsito, en una gira por los puertos del río. Sus puertas son carbón.')); await sumUp(g); } } },
+      on: { look: async (g) => { g.set('c3_customhouse'); await g.say('player', t('The Customhouse. I signed transit papers here once, on a tour of the river ports. Its doors are charcoal.', 'La Aduana. Una vez firmé aquí papeles de tránsito, en una gira por los puertos del río. Sus puertas son ya carbón.')); await sumUp(g); } } },
     { id: 'inn', name: t('River Front Inn', 'Posada River Front'), rect: [380, 180, 330, 340], walkTo: [560, 560],
       on: { look: async (g) => { g.set('c3_inn'); await g.say('player', t('The River Front Inn: a famous boarding house from Sad King Billy\'s day. The poets drank here on their way north. Roofless now.', 'El River Front Inn: una famosa casa de huéspedes de los tiempos del rey Billy el Triste. Los poetas bebían aquí camino del norte. Ahora sin techo.')); await sumUp(g); } } },
     { id: 'shrine', name: t('Riverfront temple', 'Templo ribereño'), rect: [1290, 190, 250, 330], walkTo: [1400, 570],
       on: { look: async (g) => { g.set('c3_shrine'); await g.say('player', t('A small Shrike temple. Burned like everything else. Whoever did this did not discriminate between the faithful and the rest.', 'Un pequeño templo del Alcaudón. Quemado como todo lo demás. Quien hizo esto no distinguió entre los fieles y los demás.')); await sumUp(g); } } },
     { id: 'tower', name: t('Airship terminal', 'Terminal de dirigibles'), rect: [1600, 20, 230, 500], walkTo: [1700, 570],
-      on: { look: async (g) => { g.set('c3_tower'); await g.say('player', t('The mooring tower of the airship terminal, black and buckled. The weekly airship south used to tie up here.', 'La torre de amarre de la terminal de dirigibles, negra y retorcida. Aquí amarraba el dirigible semanal al sur.')); await sumUp(g); } } },
+      on: { look: async (g) => { g.set('c3_tower'); await g.say('player', t('The mooring tower of the airship terminal, black and buckled. The weekly airship south used to tie up here.', 'La torre de amarre de la terminal de dirigibles, negra y retorcida. Aquí amarraba el dirigible semanal que iba al sur.')); await sumUp(g); } } },
     { id: 'ash', name: t('Ash', 'Ceniza'), rect: [700, 480, 900, 70], walk: false,
       on: { look: t('Ash, ankle-deep in places. No bodies. Nothing at all.', 'Ceniza, hasta el tobillo en algunos sitios. Ni un cuerpo. Nada en absoluto.'), take: t('I don\'t want to carry any of this with me.', 'No quiero llevarme nada de esto.') } },
     { id: 'barge', name: t('The Benares', 'La Benares'), rect: [0, 330, 300, 360], exitDir: 'l', walkTo: [380, 580],
@@ -77,7 +77,7 @@ defineScene({
   start: { x: 300, y: 760, dir: 'right' },
   actors: [
     { id: 'silenus', x: 700, y: 800, dir: 'right', on: {
-      look: t('Silenus has stopped drinking. That alone is alarming.', 'Silenus ha dejado de beber. Eso solo ya es alarmante.'),
+      look: t('Silenus has stopped drinking. That alone is alarming.', 'Silenus ha dejado de beber. Eso, por sí solo, ya es alarmante.'),
       talk: async (g) => {
         if (g.f('c3_after')) {
           await g.say('silenus', t('Don\'t look at me like that, Consul. I warned you all it was a profane story. Life is profane.', 'No me mire así, cónsul. Les advertí que era una historia profana. La vida es profana.'));
@@ -89,7 +89,7 @@ defineScene({
         await g.say('silenus', t('To understand me you must understand Hyperion. And to understand Hyperion you must understand a sad old king...', 'Para entenderme deben entender Hyperion. Y para entender Hyperion deben entender a un viejo rey triste...'));
         await g.startTale('poet');
       } } },
-    { id: 'sol', x: 900, y: 790, dir: 'left', on: { look: t('Sol, with Rachel asleep in the sling.', 'Sol, con Rachel dormida en el cabestrillo.'), talk: t('"Naiad will stay with me. All those empty houses."', '«Naiad se me quedará grabada. Todas esas casas vacías.»') } },
+    { id: 'sol', x: 900, y: 790, dir: 'left', on: { look: t('Sol, with Rachel asleep in the sling.', 'Sol, con Rachel dormida en el portabebés.'), talk: t('"Naiad will stay with me. All those empty houses."', '«Naiad se me quedará grabada. Todas esas casas vacías.»') } },
     { id: 'kassad', x: 1200, y: 660, dir: 'left', on: { look: t('Kassad at the rail, watching the dark banks.', 'Kassad en la borda, vigilando las orillas oscuras.'), talk: t('"Nothing moving on either bank for forty kilometres. Nothing."', '«Nada se mueve en ninguna orilla en cuarenta kilómetros. Nada.»') } },
     { id: 'hoyt', x: 330, y: 700, dir: 'right', on: { look: t('Hoyt, sallow in the lamplight.', 'Hoyt, cetrino a la luz de la lámpara.'), talk: t('"I\'m all right, Consul. For tonight."', '«Estoy bien, cónsul. Por esta noche.»') } },
   ],
@@ -102,6 +102,7 @@ defineScene({
   enter: async (g) => {
     if (g.f('c3_eve_intro') || g.f('c3_after')) return;
     g.set('c3_eve_intro');
+    await g.panels([{ img: 'assets/panels/c3_deadtowns.webp', kb: 'left', captions: [t('Upriver of Naiad: Betty\'s Ford, Cave Point, the river inns. Every town they pass is dark and empty.', 'Río arriba de Naiad: Betty\'s Ford, Cave Point, las posadas del río. Todos los pueblos que dejan atrás están oscuros y vacíos.')] }]);
     await g.narrate(t('Evening. The Benares pushes on upriver past dead towns. At dinner, Martin Silenus taps his glass.', 'Anochecer. La Benares sigue río arriba dejando atrás pueblos muertos. En la cena, Martin Silenus da unos golpecitos a su copa.'), { style: 'time' });
   },
 });

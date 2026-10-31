@@ -23,8 +23,8 @@ export const ABOUT = t(
   Los sucesos siguen el orden del libro, y lo añadido solo enlaza las escenas para que puedan jugarse.</p>
   <p>Estructura: un Prólogo, los relatos de los seis peregrinos (el Sacerdote, el Soldado, el Poeta, el Erudito, la Detective
   y el Cónsul), con el Cónsul como guía entre relatos, y el descenso final hacia las Tumbas del Tiempo.</p>
-  <p><b>Aviso de contenido:</b> la novela trata violencia, duelo, horror corporal, temas religiosos y relaciones adultas.
-  Están presentes pero sugeridos, no mostrados de forma explícita.</p>
+  <p><b>Aviso de contenido:</b> la novela aborda la violencia, el duelo, el horror corporal, temas religiosos y relaciones adultas.
+  Están presentes, pero sugeridos, no mostrados de forma explícita.</p>
   <p><b>Créditos.</b> Diseño, guion y código: proyecto de fans. Ilustraciones generadas con modelos de Higgsfield, con dirección
   de arte inspirada en el cómic europeo clásico de ciencia ficción y las portadas de fantasía oscura. Tipografías: Patrick Hand,
   Cinzel, Bangers (SIL Open Font License). Música y sonido sintetizados en el navegador; el piano del Cónsul toca el inicio del

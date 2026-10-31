@@ -50,7 +50,9 @@ defineScene({
           if (g.f('p_played')) { await g.say('player', t('Later. The fatline will not wait, and neither, I suspect, will the Hegemony.', 'Luego. La línea densa no esperará, y sospecho que la Hegemonía tampoco.')); return; }
           await g.say('player', t('Rachmaninoff. The Prelude in C-sharp minor.', 'Rachmaninov. El Preludio en do sostenido menor.'));
           const ms = audio.rachmaninoff();
-          await g.narrate(t('The three falling notes ring out over the swamp, and the great green saurians below stir in the dusk and bellow back.', 'Las tres notas descendentes resuenan sobre el pantano, y los grandes saurios verdes se agitan en el crepúsculo y responden con un bramido.'), { ms: Math.min(ms, 7000) });
+          await g.panels([{ img: 'assets/panels/p_piano.webp', kb: 'in', ms: 7000, captions: [
+            t('The three falling notes ring out over the swamp, and the great green saurians below stir in the dusk and bellow back.', 'Las tres notas descendentes resuenan sobre el pantano, y los grandes saurios verdes se agitan en el crepúsculo y responden con un bramido.'),
+          ] }]);
           g.sfx('thunder'); g.shake(600);
           await g.narrate(t('One of the beasts blunders into the ship\'s containment field. Blue light, a startled roar, a splash. The music goes on.', 'Una de las bestias choca contra el campo de contención de la nave. Luz azul, un rugido de sorpresa, un chapoteo. La música sigue.'), { ms: 6000 });
           await g.wait(1200);
@@ -212,7 +214,7 @@ async function finale(g) {
       { text: t('And a gaze of a hundred facets, ruby and blood.', 'Y una mirada de cien facetas, rubí y sangre.'), style: 'journal' },
     ] },
     { img: 'assets/panels/p_liftoff.webp', kb: 'in', sfxSound: 'explosion', captions: [
-      t('An hour before dawn, the ebony ship rises from the swamp on a column of blue plasma and climbs toward the stars.', 'Una hora antes del amanecer, la nave de ébano se eleva del pantano sobre una columna de plasma azul y asciende hacia las estrellas.'),
+      t('An hour before dawn, the ebony ship lifts out of the swamp on a pillar of blue plasma and climbs toward the stars.', 'Una hora antes del amanecer, la nave de ébano se eleva del pantano sobre un pilar de plasma azul y asciende hacia las estrellas.'),
       t('Behind it, the saurians bellow at the empty sky.', 'Tras ella, los saurios braman al cielo vacío.'),
     ] },
   ]);

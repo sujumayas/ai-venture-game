@@ -525,7 +525,7 @@ async function dreamVoice(g) {
       { id: 'absurd', text: t('This is absurd. I\'m dreaming my own lecture notes.', 'Esto es absurdo. Estoy soñando con mis propios apuntes de clase.'), exit: true },
     ]);
     await g.flash('white');
-    await tell(g, 'He woke beside Sarai in the dark and almost laughed: a scholar so steeped in old books that he dreamed in footnotes. He did not tell her.', 'Despertó junto a Sarai en la oscuridad y casi se rió: un erudito tan empapado de libros viejos que soñaba con notas al pie. No se lo contó.');
+    await tell(g, 'He woke beside Sarai in the dark and almost laughed: a scholar so steeped in old books that he dreamed in footnotes. He did not tell her.', 'Despertó junto a Sarai en la oscuridad y casi se rio: un erudito tan empapado de libros viejos que soñaba con notas al pie. No se lo contó.');
     await g.panels([
       { img: P('scholar_p_accident'), kb: 'in', captions: [
         t('On Hyperion, one night, Rachel was working late and alone inside the Sphinx.', 'En Hyperion, una noche, Rachel trabajaba hasta tarde y sola dentro de la Esfinge.'),

@@ -173,7 +173,7 @@ defineScene({
       g.set('consul_hill_intro');
       await stamp(g, 'Maui-Covenant. The Equatorial Archipelago. The day the farcaster opens.', 'Maui-Pacto. El Archipiélago Ecuatorial. El día en que se abre el teleyector.');
       await rec(g, 'It is a perfect day. The sky is clean, the sea is calm, the isles are sailing. I hate it for being perfect.', 'Es un día perfecto. El cielo limpio, el mar en calma, las islas navegando. Lo odio por ser perfecto.');
-      await rec(g, 'I left my son and his children at the foot of the hill and climbed alone. Donel insisted on coming the last part with me.', 'Dejé a mi hijo y a sus hijos al pie de la colina y subí solo. Donel insistió en acompañarme el último tramo.');
+      await rec(g, 'I left the family at the foot of the hill and meant to climb alone. Donel, my son, would not hear of it. He came the last part with me.', 'Dejé a la familia al pie de la colina con la intención de subir solo. Donel, mi hijo, no quiso ni oír hablar de ello. Me acompañó el último tramo.');
       await rec(g, 'At the top is Siri\'s tomb. The last time I stood on this hilltop, she was standing beside me.', 'En la cima está la tumba de Siri. La última vez que estuve en esta colina, ella estaba a mi lado.');
       await g.say('consul_donel', t('She asked that you go in when you were ready. Not before.', 'Pidió que entraras cuando estuvieras listo. No antes.'));
       return;
@@ -182,7 +182,7 @@ defineScene({
       g.set('consul_back1');
       await stamp(g, 'Now. The hilltop.', 'Ahora. La cima de la colina.');
       await rec(g, 'That first night she brought me here, to this hill, on Mike\'s mat. She talked till dawn about her world. I barely heard. I kept thinking of Mike.', 'Aquella primera noche me trajo aquí, a esta colina, en la alfombra de Mike. Habló hasta el amanecer sobre su mundo. Apenas la oí. No dejaba de pensar en Mike.');
-      await rec(g, 'Down in the harbour, I came and went six times after that. Six leaves. Sixty years, for her.', 'En el puerto de abajo llegué y me fui seis veces más. Seis permisos. Sesenta años, para ella.');
+      await rec(g, 'Down in the harbour, I came and went six times after that. Six leaves. More than half a century, for her.', 'En el puerto de abajo llegué y me fui seis veces más. Seis permisos. Más de medio siglo, para ella.');
       return;
     }
     if (g.f('consul_mem2') && !g.f('consul_back2')) {
@@ -204,11 +204,11 @@ async function donelTalk(g) {
   await g.dialog('consul_donel', [
     { id: 'how', text: t('How are you, Donel?', '¿Cómo estás, Donel?'), run: async (g) => {
       await g.say('consul_donel', t('Busy. The Council meets the Hegemony delegation tomorrow. Everyone wants to be seen at the opening.', 'Ocupado. Mañana el Consejo se reúne con la delegación de la Hegemonía. Todos quieren que los vean en la inauguración.'));
-      await g.say('consul_donel', t('Mother would have hated it. You know that.', 'A madre le habría horrorizado. Lo sabes.'));
+      await g.say('consul_donel', t('Mother would have hated it. You know that.', 'A mi madre le habría horrorizado. Lo sabes.'));
     } },
     { id: 'strange', text: t('It\'s strange. You\'re older than me.', 'Es extraño. Eres mayor que yo.'), run: async (g) => {
-      await g.say('consul_donel', t('I stopped finding it strange at twelve. You came home looking like my cousin\'s friend.', 'Dejé de encontrarlo extraño a los doce. Volviste a casa con pinta de amigo de mi primo.'));
-      await g.say('consul_donel', t('She never stopped finding it beautiful. I never understood that.', 'Ella nunca dejó de encontrarlo hermoso. Yo nunca lo entendí.'));
+      await g.say('consul_donel', t('I stopped finding it strange at twelve. You came home looking like my cousin\'s friend.', 'Dejó de parecerme extraño a los doce. Volviste a casa con pinta de amigo de mi primo.'));
+      await g.say('consul_donel', t('She never stopped finding it beautiful. I never understood that.', 'A ella nunca dejó de parecerle hermoso. Yo nunca lo entendí.'));
     } },
     { id: 'when', text: t('When can I go in?', '¿Cuándo puedo entrar?'), run: async (g) => {
       if (!g.f('consul_mem1')) {
@@ -361,7 +361,7 @@ async function matFlight(g) {
   await g.walkTo(900, 660);
   g.face('player', 'right');
   g.sfx('whoosh');
-  await g.say('player', t('I unroll the mat. It lies there like a rug in someone\'s parlour. Mike sits cross-legged at the back.', 'Desenrollo la alfombra. Parece un tapete en el salón de alguien. Mike se sienta con las piernas cruzadas detrás.'));
+  await g.say('player', t('I unroll the mat. It lies there like a rug in someone\'s parlour. Mike sits cross-legged at the back.', 'Desenrollo la alfombra. Parece una alfombra cualquiera en el salón de alguien. Mike se sienta con las piernas cruzadas detrás.'));
   await g.walk('consul_mike', 1000, 660);
   let lifted = false;
   for (;;) {
@@ -471,8 +471,8 @@ async function siriTalk(g) {
       g.set('consul_ask_dolphins');
     } },
     { id: 'people', text: t('Your people don\'t seem pleased to see us.', 'Tu gente no parece contenta de vernos.'), run: async (g) => {
-      await g.say('consul_siri', t('We came here under the Covenant: to live with this world, not on top of it. Your ring in the sky frightens people.', 'Vinimos aquí bajo el Pacto: para vivir con este mundo, no encima de él. Vuestro anillo en el cielo asusta a la gente.'));
-      await g.say('consul_siri', t('My cousin Bertol says you\'re locusts. Stay away from Bertol tonight.', 'Mi primo Bertol dice que sois langostas. Esta noche mantente lejos de Bertol.'));
+      await g.say('consul_siri', t('We came here under the Covenant: to live with this world, not on top of it. Your ring in the sky frightens people.', 'Vinimos aquí bajo el Pacto: para vivir con este mundo, no encima de él. Ese anillo suyo en el cielo asusta a la gente.'));
+      await g.say('consul_siri', t('My cousin Bertol says you\'re locusts. Stay away from Bertol tonight.', 'Mi primo Bertol dice que ustedes son langostas. Esta noche mantente lejos de Bertol.'));
     } },
     { id: 'why', text: t('Why were you watching me?', '¿Por qué me mirabas?'), run: async (g) => {
       await g.say('consul_siri', t('Because you look at everything as if you\'ve never seen it before. It\'s nice. Nobody here does that any more.', 'Porque lo miras todo como si nunca lo hubieras visto. Es bonito. Aquí ya nadie hace eso.'));
@@ -555,17 +555,17 @@ async function dolphinTalk(g) {
     await g.say('consul_dolphins', t('Merin. Sky-man. Siri-friend. Swim?', 'Merin. Hombre-cielo. Amigo-de-Siri. ¿Nadar?'));
   }
   await g.dialog('consul_dolphins', [
-    { id: 'who', text: t('Who are you?', '¿Quiénes sois?'), run: async (g) => {
+    { id: 'who', text: t('Who are you?', '¿Quiénes son ustedes?'), run: async (g) => {
       await g.say('consul_dolphins', t('We are us. Old-sea-born, new-sea-glad. Many-many in warm water.', 'Somos nosotros. Nacidos-en-mar-viejo, felices-en-mar-nuevo. Muchos-muchos en agua tibia.'));
     } },
-    { id: 'isles', text: t('Siri says you herd the isles.', 'Siri dice que arreáis las islas.'), run: async (g) => {
+    { id: 'isles', text: t('Siri says you herd the isles.', 'Siri dice que ustedes arrean las islas.'), run: async (g) => {
       await g.say('consul_dolphins', t('Isles slow. Isles foolish. We push, we guide. Summer: warm-place. Winter: cool-place. Good work. Good play.', 'Islas lentas. Islas tontas. Empujamos, guiamos. Verano: lugar-tibio. Invierno: lugar-fresco. Buen trabajo. Buen juego.'));
     } },
-    { id: 'sky', text: t('What do you think of the ring in the sky?', '¿Qué pensáis del anillo del cielo?'), run: async (g) => {
+    { id: 'sky', text: t('What do you think of the ring in the sky?', '¿Qué piensan del anillo del cielo?'), run: async (g) => {
       await g.say('consul_dolphins', t('Sky-ring new. Sky-ring loud in deep water. Many-many coming? Sea big. Not so big.', 'Anillo-cielo nuevo. Anillo-cielo ruidoso en agua profunda. ¿Muchos-muchos vienen? Mar grande. No tan grande.'));
       await g.say('player', t('I didn\'t have an answer for them. I should have.', 'No tuve respuesta para ellos. Debí tenerla.'), { style: 'think' });
     } },
-    { id: 'siri', text: t('What do you think of Siri?', '¿Qué pensáis de Siri?'), run: async (g) => {
+    { id: 'siri', text: t('What do you think of Siri?', '¿Qué piensan de Siri?'), run: async (g) => {
       await g.say('consul_dolphins', t('Siri swims well. Siri laughs well. Merin swims? Merin laughs?', 'Siri nada bien. Siri ríe bien. ¿Merin nada? ¿Merin ríe?'));
       g.set('consul_dolphins_done');
     } },
@@ -633,7 +633,7 @@ defineScene({
     { id: 'mat', name: t('Tapestry', 'Tapiz'), rect: [750, 20, 610, 480],
       on: { look: async (g) => {
         await g.say('player', t('Mike\'s mat. She hung it on the wall like a holy banner. The flight threads still glint. Somebody has mended the torn corner.', 'La alfombra de Mike. La colgó en la pared como un estandarte sagrado. Los hilos de vuelo aún brillan. Alguien ha zurcido la esquina rota.'));
-        await g.say('consul_siri_old', t('I fly it sometimes, when no one\'s looking. Seventy years old and still a criminal.', 'A veces la vuelo, cuando nadie mira. Setenta años y todavía una delincuente.'));
+        await g.say('consul_siri_old', t('I take it down sometimes, when no one\'s looking, and sit on it by the sea. Seventy years old and still a girl at a festival.', 'A veces la descuelgo, cuando nadie mira, y me siento en ella junto al mar. Setenta años y sigo siendo una chica en una fiesta.'));
       }, take: t('It\'s hers now. It\'s been hers for fifty years.', 'Ahora es suya. Lo es desde hace cincuenta años.') } },
     { id: 'skimmer', name: t('Old skimmer', 'Viejo deslizador'), rect: [160, 370, 240, 120],
       on: { look: t('An ancient family Vikken skimmer, patched and repainted. In seventy years, it is the only thing Siri has ever flown.', 'Un antiquísimo deslizador Vikken familiar, remendado y repintado. En setenta años, es lo único que Siri ha pilotado.') } },
@@ -679,7 +679,7 @@ async function siriOldTalk(g) {
       await g.say('consul_siri_old', t('Every time. And every time you came down that ramp, it was worth it. Don\'t make me say it twice.', 'Cada vez. Y cada vez que bajabas por esa rampa, valía la pena. No me hagas decirlo dos veces.'));
     } },
     { id: 'farcaster', text: t('You said you had a question.', 'Dijiste que tenías una pregunta.'), when: (g) => !g.f('consul_fc_done'), run: async (g) => {
-      await g.say('consul_siri_old', t('Your ring is nearly finished. When it opens, Merin, what will it mean for us? Tell me the truth. You always have.', 'Vuestro anillo está casi terminado. Cuando se abra, Merin, ¿qué significará para nosotros? Dime la verdad. Siempre me la has dicho.'));
+      await g.say('consul_siri_old', t('Your ring is nearly finished. When it opens, Merin, what will it mean for us? Tell me the truth. You always have.', 'Ese anillo de ustedes está casi terminado. Cuando se abra, Merin, ¿qué significará para nosotros? Dime la verdad. Siempre me la has dicho.'));
       await farcasterTalk(g);
       if (g.f('consul_fc_done')) g.endDialog();
     } },
@@ -694,16 +694,16 @@ async function farcasterTalk(g) {
       g.set('consul_fc_tourists');
       await g.say('player', t('Anyone in the Web will be able to step through a door and stand on your beach. Billions of people, Siri.', 'Cualquiera de la Red podrá cruzar una puerta y plantarse en tu playa. Miles de millones de personas, Siri.'));
     } },
-    { id: 'oil', text: t('Your oil.', 'Vuestro petróleo.'), once: true, run: async (g) => {
+    { id: 'oil', text: t('Your oil.', 'El petróleo de tu mundo.'), once: true, run: async (g) => {
       g.set('consul_fc_oil');
-      await g.say('player', t('Your seas have oil under them. The Web needs it for plastics. They\'ll drill.', 'Bajo vuestros mares hay petróleo. La Red lo necesita para plásticos. Perforarán.'));
+      await g.say('player', t('Your seas have oil under them. The Web needs it for plastics. They\'ll drill.', 'Bajo tus mares hay petróleo. La Red lo necesita para plásticos. Perforarán.'));
     } },
     { id: 'isles', text: t('The isles, and the dolphins.', 'Las islas, y los delfines.'), once: true, run: async (g) => {
       g.set('consul_fc_isles');
-      await g.say('player', t('The isles will be in the way of the rigs and the resorts. And the dolphins... no one in the Web will notice when they go.', 'Las islas estorbarán a las plataformas y a los complejos turísticos. Y los delfines... nadie en la Red notará cuando desaparezcan.'));
+      await g.say('player', t('The isles will be in the way of the rigs and the resorts. And the dolphins... no one in the Web will notice when they go.', 'Las islas estorbarán a las plataformas y a los complejos turísticos. Y los delfines... nadie en la Red notará que desaparecen.'));
       await g.say('consul_siri_old', t('...', '...'));
     } },
-    { id: 'culture', text: t('Your way of life.', 'Vuestra forma de vida.'), once: true, run: async (g) => {
+    { id: 'culture', text: t('Your way of life.', 'La forma de vida de tu gente.'), once: true, run: async (g) => {
       g.set('consul_fc_culture');
       await g.say('player', t('In a generation your grandchildren will dress, talk and think like everyone else in the Web. The Covenant will be a festival for tourists.', 'En una generación, tus nietos vestirán, hablarán y pensarán como todo el mundo en la Red. El Pacto será una fiesta para turistas.'));
     } },
@@ -782,7 +782,7 @@ async function siriMessages(g) {
   await msg('I\'m forty today. The isles came in early this year. I swam out to the old lagoon and told the dolphins about you. They remembered.', 'Hoy cumplo cuarenta. Este año las islas llegaron pronto. Nadé hasta la vieja laguna y les hablé de ti a los delfines. Se acordaban.');
   await msg('You\'ve just gone again. You told me the truth about the ring. I\'ve been thinking about nothing else. I\'ve been talking to people, quietly.', 'Acabas de irte otra vez. Me dijiste la verdad sobre el anillo. No he pensado en otra cosa. He estado hablando con gente, en voz baja.');
   await msg('I\'m tired tonight, love. If you\'re hearing this, I didn\'t wait long enough. I\'m sorry. I tried.', 'Esta noche estoy cansada, amor. Si estás oyendo esto, no esperé lo suficiente. Lo siento. Lo intenté.');
-  await msg('The people who need you know your name. What you do now is yours to choose. Whatever it is — remember me.', 'La gente que te necesita conoce tu nombre. Lo que hagas ahora es tuyo para elegirlo. Sea lo que sea, recuérdame.');
+  await msg('The people who need you know your name. What you do now is yours to choose. Whatever it is — remember me.', 'La gente que te necesita conoce tu nombre. Lo que hagas ahora lo eliges tú. Sea lo que sea, recuérdame.');
   g.set('consul_tomb_done');
   await rec(g, 'I sat in the cool dark with her voice until the light from the roof had nearly reached my feet. Then I stood up.', 'Me quedé en la oscuridad fresca con su voz hasta que la luz del techo casi me llegó a los pies. Entonces me levanté.');
 }
@@ -793,7 +793,7 @@ async function finaleOne(g) {
   g.set('consul_part1_done');
   await g.walkTo(1000, 660);
   g.face('player', 'right');
-  await rec(g, 'I won\'t tell you how it was done. It doesn\'t matter now, and there are people I will not name, even here.', 'No os diré cómo se hizo. Ahora no importa, y hay gente a la que no nombraré, ni siquiera aquí.');
+  await rec(g, 'I won\'t tell you how it was done. It doesn\'t matter now, and there are people I will not name, even here.', 'No les diré cómo se hizo. Ahora no importa, y hay gente a la que no nombraré, ni siquiera aquí.');
   g.sfx('whoosh');
   await g.say('player', t('Gold to lift.', 'El dorado eleva.'), { style: 'think' });
   g.sfx('explosion');
@@ -849,7 +849,7 @@ defineScene({
   start: { x: 400, y: 690, dir: 'right' },
   actors: [
     { id: 'consul_ouster', x: 1260, y: 700, dir: 'left', name: t('Ouster envoy', 'Emisario éxter'), on: {
-      look: t('Tall beyond reason, long-fingered, a prosthetic tail curled at his back. His toes grip the deck like hands. His eyes are quick and amused.', 'Altísimo, de dedos largos, con una cola protésica enroscada a la espalda. Los dedos de sus pies se aferran a la cubierta como manos. Sus ojos son rápidos y divertidos.'),
+      look: t('Tall beyond reason, long-fingered, a prosthetic tail curled at his back. His toes grip the deck like hands. His eyes are quick and amused.', 'Altísimo, de dedos largos, con una cola protésica enroscada a la espalda. Los dedos de sus pies se aferran a la cubierta como manos. Sus ojos son vivos y risueños.'),
       talk: async (g) => ousterTalk(g),
       'item:consul_comlog': async (g) => giveComlog(g),
     } },
@@ -878,24 +878,24 @@ defineScene({
 
 async function ousterTalk(g) {
   await g.dialog('consul_ouster', [
-    { id: 'plan', text: t('I was sent to deceive you. Let me tell you how.', 'Me enviaron para engañaros. Dejadme contaros cómo.'), run: async (g) => {
-      await g.say('player', t('The Hegemony wants you to attack Hyperion. A fleet will be waiting. It is a trap meant to break you.', 'La Hegemonía quiere que ataquéis Hyperion. Una flota estará esperando. Es una trampa pensada para destrozaros.'));
+    { id: 'plan', text: t('I was sent to deceive you. Let me tell you how.', 'Me enviaron para engañarlos. Déjenme contarles cómo.'), run: async (g) => {
+      await g.say('player', t('The Hegemony wants you to attack Hyperion. A fleet will be waiting. It is a trap meant to break you.', 'La Hegemonía quiere que ataquen Hyperion. Una flota estará esperando. Es una trampa pensada para destrozarlos.'));
       await g.say('consul_ouster', t('We know. We have known for some time. We will come to Hyperion anyway.', 'Lo sabemos. Lo sabemos desde hace tiempo. Iremos a Hyperion de todos modos.'));
       g.set('consul_told_plan');
     } },
     { id: 'life', text: t('Why live out here, in the dark?', '¿Por qué vivir aquí fuera, en la oscuridad?'), run: async (g) => {
-      await g.say('consul_ouster', t('Your Hegemony remakes every world into a copy of the one it lost. We chose to change ourselves instead, and keep the stars.', 'Vuestra Hegemonía convierte cada mundo en una copia del que perdió. Nosotros elegimos cambiarnos a nosotros mismos, y quedarnos con las estrellas.'));
+      await g.say('consul_ouster', t('Your Hegemony remakes every world into a copy of the one it lost. We chose to change ourselves instead, and keep the stars.', 'Tu Hegemonía convierte cada mundo en una copia del que perdió. Nosotros elegimos cambiarnos a nosotros mismos, y quedarnos con las estrellas.'));
     } },
-    { id: 'want', text: t('What do you want from me?', '¿Qué queréis de mí?'), when: (g) => g.f('consul_told_plan') && !g.f('consul_globe'), run: async (g) => {
+    { id: 'want', text: t('What do you want from me?', '¿Qué quieren de mí?'), when: (g) => g.f('consul_told_plan') && !g.f('consul_globe'), run: async (g) => {
       await g.say('consul_ouster', t('First, look at the globe behind you. Look at what you think is history.', 'Primero, mira el globo que tienes detrás. Mira lo que crees que es historia.'));
     } },
-    { id: 'shrike', text: t('Why should I help you?', '¿Por qué debería ayudaros?'), when: (g) => g.f('consul_globe'), run: async (g) => {
-      await g.say('consul_ouster', t('Because the same hands that killed Old Earth now advise your Senate. The thing in the Time Tombs is a weapon from humanity\'s future, sent against them.', 'Porque las mismas manos que mataron a la Vieja Tierra aconsejan hoy a vuestro Senado. Lo que hay en las Tumbas del Tiempo es un arma del futuro humano, enviada contra ellas.'));
+    { id: 'shrike', text: t('Why should I help you?', '¿Por qué debería ayudarlos?'), when: (g) => g.f('consul_globe'), run: async (g) => {
+      await g.say('consul_ouster', t('Because the same hands that killed Old Earth now advise your Senate. The thing in the Time Tombs is a weapon from humanity\'s future, sent against them.', 'Porque las mismas manos que mataron a la Vieja Tierra aconsejan hoy a tu Senado. Lo que hay en las Tumbas del Tiempo es un arma del futuro humano, enviada contra ellas.'));
       await g.say('consul_ouster', t('The Tombs must open. We can build a device that opens them. We need an agent on Hyperion to use it, when the time comes.', 'Las Tumbas deben abrirse. Podemos construir un dispositivo que las abra. Necesitamos un agente en Hyperion que lo use, llegado el momento.'));
       await g.say('consul_ouster', t('And we need a way to reach you that no Hegemony scan would look at twice. Something old. Something personal.', 'Y necesitamos un modo de contactarte que ningún escáner de la Hegemonía mire dos veces. Algo viejo. Algo personal.'));
       g.set('consul_need_link');
     } },
-    { id: 'bye', text: t('Let me think.', 'Dejadme pensar.'), exit: true },
+    { id: 'bye', text: t('Let me think.', 'Déjenme pensar.'), exit: true },
   ]);
 }
 
@@ -984,7 +984,7 @@ defineScene({
   enter: async (g) => {
     if (!g.f('consul_valley_intro')) {
       g.set('consul_valley_intro');
-      await stamp(g, 'Hyperion. The Valley of the Time Tombs, north of the Bridle Range. Some months ago.', 'Hyperion. El Valle de las Tumbas del Tiempo, al norte de la Cordillera de la Brida. Hace unos meses.');
+      await stamp(g, 'Hyperion. The Valley of the Time Tombs, north of the Bridle Range. Before all this.', 'Hyperion. El Valle de las Tumbas del Tiempo, al norte de la Cordillera de la Brida. Antes de todo esto.');
       await cons(g, 'An agent and three technicians. They set the device up in an hour. They were good at their work, and kind to me.', 'Un agente y tres técnicos. Montaron el dispositivo en una hora. Eran buenos en su trabajo, y amables conmigo.');
     }
   },
@@ -1004,9 +1004,9 @@ async function agentTalk(g) {
       await g.say('player', t('No. The pistol is in my coat. I had always known why I brought it.', 'No. La pistola está en mi abrigo. Siempre supe por qué la había traído.'), { style: 'think' });
     } },
     { id: 'sky', text: t('You keep looking up.', 'No dejas de mirar hacia arriba.'), run: async (g) => {
-      await g.say('consul_ouster', t('So much sky. It frightens me a little. How do you bear living at the bottom of it?', 'Tanto cielo. Me asusta un poco. ¿Cómo soportáis vivir en el fondo de él?'));
+      await g.say('consul_ouster', t('So much sky. It frightens me a little. How do you bear living at the bottom of it?', 'Tanto cielo. Me asusta un poco. ¿Cómo soportan ustedes vivir en el fondo de él?'));
     } },
-    { id: 'bye', text: t('Carry on.', 'Continuad.'), exit: true },
+    { id: 'bye', text: t('Carry on.', 'Continúen.'), exit: true },
   ]);
 }
 
@@ -1067,7 +1067,7 @@ async function theLies(g) {
     ] },
     { img: P('p_fist'), kb: 'out', captions: [
       conCap('Why? Because the Hegemony and the Core killed Old Earth. They killed Siri\'s world, and the dolphins, and my wife, and my son.', '¿Por qué? Porque la Hegemonía y el Núcleo mataron a la Vieja Tierra. Mataron el mundo de Siri, y a los delfines, y a mi esposa, y a mi hijo.'),
-      conCap('I opened the Tombs to bring the whole thing down. Ousters, Hegemony, Core. A plague on both your houses.', 'Abrí las Tumbas para derribarlo todo. Éxters, Hegemonía, Núcleo. Malditas sean vuestras dos casas.'),
+      conCap('I opened the Tombs to bring the whole thing down. Ousters, Hegemony, Core. A plague on both your houses.', 'Abrí las Tumbas para derribarlo todo. Éxters, Hegemonía, Núcleo. Malditas sean las dos casas.'),
       conCap('That is my tale. I remember Siri.', 'Ese es mi relato. Recuerdo a Siri.'),
     ] },
   ]);

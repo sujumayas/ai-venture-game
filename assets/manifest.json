@@ -1,4 +1,8 @@
 {
+ "/tmp/title2.webp": {
+  "job": "c6302848-9a04-4f16-a49b-83a83d1a8ea7",
+  "kind": "card"
+ },
  "assets/bg/c1_dining.webp": {
   "job": "18934a09-a9cc-4479-b246-41d3a5a77e87",
   "kind": "bg"
@@ -571,6 +575,10 @@
   "job": "084c472b-e303-4ace-bacd-0726d00d4375",
   "kind": "panel"
  },
+ "assets/panels/c1_docking.webp": {
+  "job": "20ae9fd6-f10b-436a-8b96-0f0f4d405f2a",
+  "kind": "panel"
+ },
  "assets/panels/c1_lots.webp": {
   "job": "61efd9d1-6210-4018-b0ae-dbfd64fab1c4",
   "kind": "panel"
@@ -583,6 +591,10 @@
   "job": "fb80f63e-c6b1-454c-9a75-49d8efe81216",
   "kind": "panel"
  },
+ "assets/panels/c4_gun.webp": {
+  "job": "de9adf46-3e5e-4095-a1db-e6f87ffe5e4b",
+  "kind": "panel"
+ },
  "assets/panels/c4_windwagon.webp": {
   "job": "c7201745-f930-4b88-9fc7-7f521eede228",
   "kind": "panel"
@@ -592,11 +604,11 @@
   "kind": "panel"
  },
  "assets/panels/c5_watch.webp": {
-  "job": "ab020c5d-803c-45c2-865b-484149d8f55a",
+  "job": "25ef095a-4b90-494e-abf8-98b894dc83a0",
   "kind": "panel"
  },
  "assets/panels/c6_confession.webp": {
-  "job": "162d4b1d-e240-4137-912a-72d46bce7285",
+  "job": "984787b8-734a-4649-bd83-5841877821b8",
   "kind": "panel"
  },
  "assets/panels/c6_figure.webp": {
@@ -749,6 +761,10 @@
  },
  "assets/panels/p_memory.webp": {
   "job": "c380a0c1-f1a9-4693-8a4f-dc62f8d75f8f",
+  "kind": "panel"
+ },
+ "assets/panels/p_piano.webp": {
+  "job": "b4599878-5119-4ba1-b985-4bbbe49f1605",
   "kind": "panel"
  },
  "assets/panels/p_storm.webp": {

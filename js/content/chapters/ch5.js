@@ -8,7 +8,7 @@ defineChapter({
   kicker: t('Chapter Five', 'Capítulo cinco'),
   title: t('The Bridle Range', 'La cordillera de la Brida'),
   short: t('V: The Bridle Range', 'V: La cordillera de la Brida'),
-  sub: t('Seven pilgrims set out. In the morning, there are six.', 'Partieron siete peregrinos. Por la mañana, quedan seis.'),
+  sub: t('Seven pilgrims set out. In the morning, there are six.', 'Siete peregrinos emprenden el viaje. Por la mañana, quedan seis.'),
   cardImg: 'assets/panels/c5_tram.webp', thumb: 'assets/bg/c5_rest.webp',
   player: 'consul', inv: [], start: 'c5_cabin', startPos: { x: 1600, y: 760, dir: 'left' },
   afterTale: async (g) => { g.set('c5_after'); await g.goto('c5_tramcar', { x: 700, y: 660, dir: 'right' }); },
@@ -27,7 +27,7 @@ defineScene({
     { id: 'lamia', x: 1350, y: 700, dir: 'left', on: {
       look: t('Lamia crouches in the doorway, touching nothing, seeing everything.', 'Lamia está agachada en la puerta, sin tocar nada, viéndolo todo.'),
       talk: async (g) => {
-        if (!allClues(g)) { await g.say('lamia', t('Look around, Consul. Don\'t touch the walls.', 'Mire alrededor, cónsul. No toque las paredes.')); return; }
+        if (!allClues(g)) { await g.say('lamia', t('Look around, Consul. Don\'t touch the walls.', 'Mire a su alrededor, cónsul. No toque las paredes.')); return; }
         await conclude(g);
       } } },
     { id: 'silenus', x: 1750, y: 780, dir: 'left', on: { look: t('Silenus, pale, in the corridor.', 'Silenus, pálido, en el pasillo.'), talk: t('"Seven little pilgrims..."', '«Siete peregrinitos...»') } },
@@ -68,7 +68,7 @@ async function conclude(g) {
   await g.say('silenus', t('Isn\'t it obvious? The Shrike has started the harvest. One down, five and a baby to go.', '¿No es obvio? El Alcaudón ha empezado la cosecha. Uno menos; quedan cinco y un bebé.'));
   await g.say('lamia', t('So what do we know? We know nothing. Masteen is gone, and there\'s blood. That\'s all we know.', '¿Y qué sabemos? No sabemos nada. Masteen se ha ido, y hay sangre. Eso es todo lo que sabemos.'));
   await g.say('player', t('He drew number five. He would have been next.', 'Sacó el número cinco. Habría sido el siguiente.'));
-  await g.say('lamia', t('Then I\'m next. And I\'m not telling anything on this wagon. When we\'re off it.', 'Entonces voy yo. Y no pienso contar nada en este carro. Cuando bajemos de él.'));
+  await g.say('lamia', t('Then I\'m next. And I\'m not telling it on this wagon. Not until we\'re off it.', 'Entonces voy yo. Y no pienso contarlo en este carro. Solo cuando bajemos de él.'));
   await g.narrate(t('Hoyt, grey and silent, lifts Masteen\'s heavy luggage himself. By midday the windwagon grinds to a stop at the far shore of the grass.', 'Hoyt, gris y callado, carga él mismo con el pesado equipaje de Masteen. A mediodía, el carro de viento se detiene con un crujido en la orilla opuesta de la hierba.'));
   await g.goto('c5_rest', { x: 300, y: 720, dir: 'right' });
 }
@@ -81,7 +81,7 @@ function boarder(id, x, y, dir, line, reply) {
     look: line,
     talk: async (g) => {
       if (!g.f('c5_kassad_plan')) { await g.say(id, t('Is that thing even working?', '¿Funciona siquiera ese trasto?')); return; }
-      await g.say('player', t('Into the tramcar. Kassad is going to start the cables.', 'Al tranvía. Kassad va a poner en marcha los cables.'));
+      await g.say('player', t('Into the tramcar. Kassad is going to start the cables.', 'Al vagón. Kassad va a poner en marcha los cables.'));
       await g.say(id, reply);
       g.set('c5_board_' + id); g.refresh();
       if (boarded(g)) await g.say('player', t('Everyone is aboard but Kassad. I\'ll tell him.', 'Están todos a bordo menos Kassad. Se lo diré.'), { style: 'think' });
@@ -101,14 +101,14 @@ defineScene({
         if (!g.f('c5_kassad_plan')) {
           g.set('c5_kassad_plan');
           await g.say('kassad', t('The cars used to run constantly, to keep the cables flexed and free of ice. They\'ve been stopped for weeks.', 'Los vagones funcionaban sin parar para que los cables no se helaran ni se pusieran rígidos. Llevan semanas parados.'));
-          await g.say('kassad', t('I can start it from the hut. Get everyone into the car. When it moves, it won\'t wait for me.', 'Puedo arrancarlo desde la caseta. Meta a todos en el vagón. Cuando se mueva, no me esperará.'));
+          await g.say('kassad', t('I can start it from the hut. Get everyone into the car. When it moves, it won\'t wait for me.', 'Puedo arrancarlo desde la caseta. Haga subir a todos al vagón. Cuando se mueva, no me esperará.'));
           return;
         }
         if (!boarded(g)) { await g.say('kassad', t('Everyone aboard first, Consul.', 'Primero todos a bordo, cónsul.')); return; }
         await g.say('kassad', t('Go. Get in. I\'ll be right behind you.', 'Vaya. Suba. Voy justo detrás.'));
         g.sfx('hum');
         await g.narrate(t('The great wheel groans. Ice cracks off the cable in sheets. The tramcar lurches forward, out of the station.', 'La gran rueda gime. El hielo se desprende del cable en láminas. El vagón da un tirón y sale de la estación.'));
-        await g.narrate(t('Kassad comes running through the snow, long legs eating the distance, and throws himself through the closing door with a metre to spare.', 'Kassad llega corriendo por la nieve, devorando la distancia con sus largas piernas, y se lanza por la puerta que se cierra con un metro de margen.'));
+        await g.panels([{ img: 'assets/panels/c5_run.webp', kb: 'right', sfxSound: 'wind', captions: [t('Kassad comes running through the snow, long legs eating the distance, and throws himself through the closing door with a metre to spare.', 'Kassad llega corriendo por la nieve, devorando la distancia con sus largas piernas, y se lanza por la puerta que se cierra con un metro de margen.')] }]);
         await g.panels([{ img: 'assets/panels/c5_tram.webp', kb: 'right', sfxSound: 'wind', captions: [
           t('Ninety-six kilometres of cable, a hundred and ninety-two pylons, each eighty-three metres high. Over the summit of Mount Dryden, more than nine thousand metres up.', 'Noventa y seis kilómetros de cable, ciento noventa y dos pilones de ochenta y tres metros cada uno. Por encima de la cumbre del monte Dryden, a más de nueve mil metros.'),
           t('Twelve hours to cross the Bridle Range.', 'Doce horas para cruzar la cordillera de la Brida.'),
@@ -118,7 +118,7 @@ defineScene({
     boarder('silenus', 520, 690, 'right', t('Silenus, wrapped in his cape, cursing the snow in at least three languages.', 'Silenus, envuelto en su capa, maldiciendo la nieve en al menos tres idiomas.'), t('"A cable car over a nine-thousand-metre mountain. With a man who has never driven one. Delightful."', '«Un teleférico sobre una montaña de nueve mil metros. Con un hombre que nunca ha conducido uno. Encantador.»')),
     boarder('sol', 700, 760, 'right', t('Sol, shielding Rachel from the snow inside his coat.', 'Sol, resguardando a Rachel de la nieve dentro de su abrigo.'), t('"Come, Rachel. We\'re going up into the clouds."', '«Ven, Rachel. Vamos a subir a las nubes.»')),
     boarder('hoyt', 1150, 700, 'left', t('Hoyt, bent under Masteen\'s heavy cube.', 'Hoyt, doblado bajo el pesado cubo de Masteen.'), t('"I\'ll manage. It\'s lighter than it looks." It is not.', '«Me las arreglo. Pesa menos de lo que parece.» No es así.')),
-    boarder('lamia', 1320, 640, 'left', t('Lamia, watching the empty windows of the hotels.', 'Lamia, vigilando las ventanas vacías de los hoteles.'), t('"Good. I don\'t like this town. Nobody in it, and it still feels watched."', '«Bien. No me gusta este pueblo. No hay nadie y aun así se siente vigilado.»')),
+    boarder('lamia', 1320, 640, 'left', t('Lamia, watching the empty windows of the hotels.', 'Lamia, vigilando las ventanas vacías de los hoteles.'), t('"Good. I don\'t like this town. Nobody in it, and it still feels watched."', '«Bien. No me gusta este pueblo. No hay nadie y, aun así, una se siente vigilada.»')),
   ],
   hotspots: [
     { id: 'hotels', name: t('Hotels and hovels', 'Hoteles y chabolas'), rect: [0, 140, 760, 420], walk: false,
@@ -152,7 +152,7 @@ defineScene({
         if (g.f('c5_after')) {
           await g.say('kassad', t('M. Lamia. The Templar Johnny was seen with. Could it have been Het Masteen?', 'M. Lamia. El templario con el que vieron a Johnny. ¿Pudo haber sido Het Masteen?'));
           await g.say('lamia', t('It\'s possible. I never found out.', 'Es posible. Nunca lo averigüé.'));
-          await g.narrate(t('The others sleep, or pretend to. Kassad and the Consul keep the watch together as the tramcar sways on across the roof of the world.', 'Los demás duermen, o fingen dormir. Kassad y el Cónsul hacen la guardia juntos mientras el vagón se mece sobre el techo del mundo.'));
+          await g.panels([{ img: 'assets/panels/c5_watch.webp', kb: 'in', captions: [t('The others sleep, or pretend to. Kassad and the Consul keep the watch together as the tramcar sways on across the roof of the world.', 'Los demás duermen, o fingen dormir. Kassad y el Cónsul hacen la guardia juntos mientras el vagón se mece sobre el techo del mundo.')] }]);
           await g.nextChapter();
           return;
         }
