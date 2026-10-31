@@ -77,7 +77,7 @@ defineScene({
       } },
     { id: 'c1_clone', x: 980, y: 760, dir: 'left', when: (g) => !g.f('c1_follow'),
       on: {
-        look: t('One of the crew clones. Barely a metre tall, serene, identical to its twin. Templar crews are grown, not hired.', 'Uno de los clones tripulantes. Apenas un metro de alto, sereno, idéntico a su gemelo. Las tripulaciones templarias se cultivan, no se contratan.'),
+        look: t('One of the crew clones. Barely a metre tall, serene, identical to all its siblings. Templar crews are grown, not hired.', 'Uno de los clones tripulantes. Apenas un metro de alto, sereno, idéntico a todos sus hermanos. Las tripulaciones templarias se cultivan, no se contratan.'),
         talk: async (g) => {
           await g.say('c1_clone', g.f('c1_drank')
             ? t('The Captain is waiting, honoured guest.', 'El capitán espera, honorable huésped.')
@@ -98,14 +98,18 @@ defineScene({
       on: { look: t('Translucent walls, ribbed with curved weirwood struts. Like sleeping inside a seed.', 'Paredes translúcidas, nervadas con puntales curvos de weirwood. Como dormir dentro de una semilla.') } },
     { id: 'door', name: t('Doorway', 'Puerta'), poly: [[1320, 120], [1560, 90], [1760, 200], [1780, 500], [1700, 700], [1360, 690], [1300, 400]],
       exit: async (g) => {
-        if (!g.f('c1_follow')) { await g.say('player', t('I should speak with the captain before I go wandering about his tree.', 'Debería hablar con el capitán antes de pasearme por su árbol.')); return; }
+        if (!g.f('c1_follow')) {
+          if (!g.f('c1_drank')) await g.say('player', t('Custom first: a drink, after fugue. Then a word with the captain before I go wandering about his tree.', 'Primero la costumbre: un trago tras la fuga. Luego unas palabras con el capitán antes de pasearme por su árbol.'));
+          else await g.say('player', t('I should tell the captain I\'m ready before I go wandering about his tree.', 'Debería decirle al capitán que estoy listo antes de pasearme por su árbol.'));
+          return;
+        }
         await g.goto('c1_walkway', { x: 160, y: 445, dir: 'right' });
       }, exitDir: 'r', walkTo: [1500, 740] },
   ],
   enter: async (g) => {
     if (g.f('c1_woke')) return;
     g.set('c1_woke');
-    await g.narrate(t('Waking from fugue is like surfacing from deep water. A small egg-shaped room. A carpet of living grass. Two tiny figures watching him.', 'Despertar de la fuga es como salir de aguas profundas. Una pequeña habitación en forma de huevo. Una alfombra de hierba viva. Dos figuras diminutas que lo observan.'));
+    await g.narrate(t('Waking from fugue is like surfacing from deep water. A small egg-shaped room. A carpet of living grass. Two figures watching him, one tiny, one very tall.', 'Despertar de la fuga es como salir de aguas profundas. Una pequeña habitación en forma de huevo. Una alfombra de hierba viva. Dos figuras lo observan: una diminuta, otra altísima.'));
     await g.say('masteen', t('Welcome aboard the Yggdrasill, Consul.', 'Bienvenido a bordo de la Yggdrasill, cónsul.'));
   },
 });

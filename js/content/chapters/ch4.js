@@ -108,6 +108,7 @@ async function luggage(g) {
     { id: 'a', text: t('(Say nothing.)', '(No decir nada.)') },
     { id: 'b', text: t('"My ship is impounded by FORCE, Silenus."', '«Mi nave está retenida por la FUERZA, Silenus.»') },
   ]);
+  g.talkingTo = null; // don't leave Silenus's portrait on later choice menus
   if (ans === 'b') await g.say('player', t('My ship is impounded by FORCE, Silenus. It answers no one\'s whistle.', 'Mi nave está retenida por la FUERZA, Silenus. No acude al silbido de nadie.'));
   else await g.say('player', t('I let the remark lie on the fire with the rest of the planks.', 'Dejo que el comentario arda en el fuego con el resto de las tablas.'), { style: 'think' });
   await g.say('silenus', t('And you, Captain? What\'s in the box?', '¿Y usted, capitán? ¿Qué hay en la caja?'));

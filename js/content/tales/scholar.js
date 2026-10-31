@@ -253,6 +253,7 @@ async function talkTeen(g) {
 }
 
 async function debate(g) {
+  g.talkingTo = 'scholar_rachel_teen'; // portrait for the choice menus below
   await g.say('scholar_rachel_teen', t('My ethics teacher says morality is just evolution with better manners.', 'Mi profesora de ética dice que la moral no es más que evolución con mejores modales.'));
   const a = await g.choose([
     { id: 'half', text: t('Your teacher is half right. Which half is the interesting question.', 'Tu profesora tiene la mitad de razón. Qué mitad, esa es la pregunta interesante.') },
