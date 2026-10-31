@@ -1,0 +1,10 @@
+{
+ "assets/bg/test_swamp.webp": {
+  "job": "e4d6c295-e0d5-4d30-b35f-7039306368f7",
+  "kind": "bg"
+ },
+ "assets/chars/consul.webp": {
+  "job": "6f2d00c1-594c-4196-bd5c-8f0ce97e5ad9",
+  "kind": "char"
+ }
+}
