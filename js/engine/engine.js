@@ -611,6 +611,8 @@ export class Game {
   choose(options) {
     return new Promise((res) => {
       const list = $('choice-list'); list.innerHTML = '';
+      list.classList.toggle('many', options.length > 4 && options.length <= 6);
+      list.classList.toggle('lots', options.length > 6);
       $('choices').classList.remove('hidden');
       $('verbs').classList.add('hidden'); $('inventory').classList.add('hidden'); $('sentence').textContent = '';
       const pa = REG.chars[this.state.player], pb = this.talkingTo && REG.chars[this.talkingTo];

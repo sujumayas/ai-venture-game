@@ -158,11 +158,6 @@ defineScene({
         await J(g, t('Near the crown, an onion-shaped accumulator bulb; above it, dozens of silvery nimbus vines on the branches. Like a High Mosque on New Mecca hung with cheap tinsel.',
           'Cerca de la copa, un bulbo acumulador con forma de cebolla; encima, docenas de lianas nimbo plateadas en las ramas. Como una Alta Mezquita de Nueva Meca adornada con oropel barato.'));
       } } },
-    { id: 'packs', name: t('Packs', 'Fardos'), rect: [975, 600, 175, 100], walkTo: [1060, 760],
-      on: {
-        look: t('Our packs and supply bundles, unloaded from the brids. Tuk\'s pack sits on top.', 'Nuestros fardos y bultos, descargados de los brids. La mochila de Tuk está encima.'),
-        take: takeMallet, open: takeMallet, use: takeMallet,
-      } },
     { id: 'tent', name: t('Tent', 'Tienda'), rect: [790, 535, 350, 160], walkTo: [960, 760],
       on: {
         look: t('Our tent, pitched on the ash. A very small thing to put between two men and a forest that wants to burn.', 'Nuestra tienda, plantada sobre la ceniza. Muy poca cosa entre dos hombres y un bosque que quiere arder.'),
@@ -170,6 +165,11 @@ defineScene({
         'item:priest_mallet': plantStakes,
         'item:priest_suit': putOnSuit,
         use: sleepInTent, open: sleepInTent,
+      } },
+    { id: 'packs', name: t('Packs', 'Fardos'), rect: [975, 600, 175, 100], walkTo: [1060, 760],
+      on: {
+        look: t('Our packs and supply bundles, unloaded from the brids. Tuk\'s pack sits on top.', 'Nuestros fardos y bultos, descargados de los brids. La mochila de Tuk está encima.'),
+        take: takeMallet, open: takeMallet, use: takeMallet,
       } },
   ],
   enter: async (g) => {

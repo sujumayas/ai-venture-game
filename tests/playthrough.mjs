@@ -18,6 +18,7 @@ fs.mkdirSync(outDir, { recursive: true });
 
 const browser = await chromium.launch();
 let failures = 0;
+const warnings = [];
 for (const ch of chapters) {
   const steps = JSON.parse(fs.readFileSync(path.join(dir, ch + '.json'), 'utf8'));
   const page = await browser.newPage({ viewport: { width: 960, height: 540 } });
@@ -43,8 +44,27 @@ for (const ch of chapters) {
         await page.evaluate(([k, v]) => HYP.game.set(k, v ?? true), [a, b]);
       } else if (op === 'give') {
         await page.evaluate((it) => HYP.game.give(it, true), a);
-      } else if (op === 'act') last = await page.evaluate(([v, id]) => HYP.act(v, id), [a, b]);
-      else if (op === 'use') last = await page.evaluate(([it, id]) => HYP.use(it, id), [a, b]);
+      } else if (op === 'act' || op === 'use') {
+        // clickability check: can a real mouse hit this target somewhere?
+        const tid = op === 'act' ? b : b;
+        const ok2 = await page.evaluate((id) => {
+          const g = HYP.game; if (HYP.REG.items[id] && g.has(id)) return true;
+          const tg = g.findTarget(id); if (!tg) return 'missing';
+          let box;
+          if (tg.kind === 'actor') { const a = tg.act || g.actors[id]; box = g.actorBox(a); }
+          else { const d = tg.def; box = d.rect ? { x: d.rect[0], y: d.rect[1], w: d.rect[2], h: d.rect[3] } : d.circle ? { x: d.circle[0] - d.circle[2], y: d.circle[1] - d.circle[2], w: d.circle[2] * 2, h: d.circle[2] * 2 } : (() => { const xs = d.poly.map((p) => p[0]), ys = d.poly.map((p) => p[1]); return { x: Math.min(...xs), y: Math.min(...ys), w: Math.max(...xs) - Math.min(...xs), h: Math.max(...ys) - Math.min(...ys) }; })(); }
+          let hits = 0, tot = 0;
+          for (let i = 1; i < 8; i++) for (let j = 1; j < 8; j++) {
+            const x = box.x + box.w * i / 8, y = box.y + box.h * j / 8;
+            if (x < 0 || y < 0 || x > 1920 || y > 820) continue;
+            tot++; const t = g.targetAt(x, y); if (t && t.id === id) hits++;
+          }
+          return tot ? hits / tot : 0;
+        }, tid);
+        if (ok2 === 'missing') throw new Error('target not present: ' + tid);
+        if (ok2 !== true && ok2 < 0.08) warnings.push(`${ch}: step ${i} target "${tid}" hard to click (${Math.round(ok2 * 100)}% of its box) in ${await page.evaluate(() => HYP.game.state.scene)}`);
+        last = op === 'act' ? await page.evaluate(([v, id]) => HYP.act(v, id), [a, b]) : await page.evaluate(([it, id]) => HYP.use(it, id), [a, b]);
+      }
       else if (op === 'inv') last = await page.evaluate(([v, it]) => HYP.inv(v, it), [a, b]);
       else if (op === 'choose') last = await page.evaluate((id) => HYP.choose(id), a);
       else if (op === 'walk') last = await page.evaluate(async ([x, y]) => { await HYP.game.walkTo(x, y); return HYP.idle(); }, [a, b]);
@@ -78,5 +98,6 @@ for (const ch of chapters) {
   if (!ok) failures++;
   await page.close();
 }
+if (warnings.length) console.log('WARNINGS:\n  ' + [...new Set(warnings)].join('\n  '));
 await browser.close();
 process.exit(failures ? 1 : 0);
