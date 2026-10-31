@@ -3,7 +3,7 @@
 *An unofficial, non-commercial fan adaptation of **Hyperion** (1989) by **Dan Simmons**, made as a playable
 proof of concept for the rights holders.*
 
-![Title](assets/panels/title.webp)
+![Title screen](docs/screenshots/01_title.jpg)
 
 Seven pilgrims cross Hyperion toward the Time Tombs and the Shrike. Each tells the story of why they came.
 This classic point-and-click adventure follows the novel's structure chapter by chapter: you play **the Consul** between the
@@ -19,6 +19,15 @@ tales, and you play **the protagonist of each tale** inside it.
 | V | Masteen vanishes; Pilgrims' Rest; the tramway over the Bridle Range | **The Detective's Tale** — Brawne Lamia |
 | VI | Chronos Keep; the seventh pilgrim; judgement | **The Consul's Tale** — Merin Aspic, then the Consul |
 | Epilogue | The descent to the Valley of the Time Tombs | — |
+
+## Screenshots
+
+| | |
+|---|---|
+| ![Dinner on the treeship Yggdrasill](docs/screenshots/02_treeship_dinner.jpg) | ![The Shrike in the cruciform cave, from the Priest's Tale](docs/screenshots/03_comic_panel.jpg) |
+| Chapter I: dinner on the treeship *Yggdrasill*, where Het Masteen names himself the seventh pilgrim. | The Priest's Tale: Father Duré meets the Shrike in the cruciform cave (comic panel). |
+| ![Questioning Kassad aboard the Benares](docs/screenshots/04_dialogue.jpg) | ![The Valley of the Time Tombs](docs/screenshots/05_time_tombs.jpg) |
+| Chapter II: the pilgrims question Kassad aboard the barge *Benares* (dialogue choices). | Epilogue: the six pilgrims reach the Valley of the Time Tombs. |
 
 ## Features
 - SCUMM-style verbs (Look, Pick up, Use, Talk, Open, Walk), inventory and item combinations, dialogue trees.
