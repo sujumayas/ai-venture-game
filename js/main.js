@@ -18,6 +18,7 @@ async function boot() {
   document.getElementById('loading').classList.add('done');
   const p = new URLSearchParams(location.search);
   if (p.get('chapter')) { game.newState(); await game.startChapter(p.get('chapter'), { noCard: p.has('nocard') }); }
+  else if (p.get('tale')) { game.newState(); const tl = REG.tales[p.get('tale')]; game.state.chapter = tl.chapter; await game.startTale(p.get('tale'), { noCard: p.has('nocard') }); }
   else if (p.get('scene')) { game.newState(); if (p.get('player')) game.state.player = p.get('player'); await game.goto(p.get('scene')); }
   else menu.title();
 }

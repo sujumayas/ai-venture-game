@@ -24,7 +24,7 @@ export const UI = {
   verbs: {
     walk: t('Walk to', 'Ir a'),
     look: t('Look at', 'Mirar'),
-    take: t('Pick up', 'Coger'),
+    take: t('Pick up', 'Tomar'),
     use: t('Use', 'Usar'),
     talk: t('Talk to', 'Hablar con'),
     open: t('Open', 'Abrir'),
@@ -65,7 +65,7 @@ export const UI = {
 // Default responses when a verb has no specific handler
 export const DEFAULTS = {
   look: [t("Nothing remarkable about it.", 'Nada destacable.'), t("I see nothing special.", 'No veo nada especial.')],
-  take: [t("I can't take that.", 'No puedo coger eso.'), t("That stays where it is.", 'Eso se queda donde está.')],
+  take: [t("I can't take that.", 'No puedo tomar eso.'), t("That stays where it is.", 'Eso se queda donde está.')],
   use: [t("That doesn't seem to do anything.", 'Eso no parece servir de nada.'), t("I'd rather not.", 'Prefiero no hacerlo.')],
   talk: [t("It has nothing to say.", 'No tiene nada que decir.'), t("Silence.", 'Silencio.')],
   open: [t("It doesn't open.", 'No se abre.')],

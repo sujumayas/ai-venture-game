@@ -185,3 +185,13 @@ button { font-family: inherit; }
 .credits-roll h3 { font-family: 'Cinzel', serif; color: var(--accent); font-size: 40px; letter-spacing: 6px; margin: 60px 0 10px; }
 .credits-roll p { font-size: 32px; color: #eadcbc; margin: 6px 0; }
 @keyframes roll { to { transform: translateY(calc(-100% - 1100px)); } }
+
+/* caption variants for off-screen voices */
+.caption.machine { background: #cfeee9; color: #0d2b2a; font-family: 'Lettering', monospace; border-color: #0b3f3b; }
+.caption.machine .who { color: #0b5f58; }
+.caption.shrike { background: #1d0505; color: #ffb3a8; border-color: #ff3b2e; }
+.caption.shrike .who { color: #ff5a4a; }
+.caption.voice { background: #12101e; color: #e9e2ff; border-color: #8f7fff; font-style: italic; }
+.caption.voice .who { color: #b9adff; }
+.caption.holo { background: rgba(170, 230, 255, 0.92); color: #06222e; border-color: #0a5b78; }
+.caption.holo .who { color: #075a78; }

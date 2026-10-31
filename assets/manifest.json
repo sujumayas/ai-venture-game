@@ -1,10 +1,54 @@
 {
+ "assets/bg/p_balcony.webp": {
+  "job": "4976e7a4-89c0-4b6b-911a-c84db33c7623",
+  "kind": "bg"
+ },
+ "assets/bg/p_lounge.webp": {
+  "job": "be4a2e5a-96bd-440b-9e7b-8eba9c2e6fc9",
+  "kind": "bg"
+ },
  "assets/bg/test_swamp.webp": {
   "job": "e4d6c295-e0d5-4d30-b35f-7039306368f7",
   "kind": "bg"
  },
- "assets/chars/consul.webp": {
-  "job": "6f2d00c1-594c-4196-bd5c-8f0ce97e5ad9",
+ "assets/chars/bettik.webp": {
+  "job": "05af54d4-1c3d-4f29-8882-6af83787681e",
   "kind": "char"
+ },
+ "assets/chars/consul.webp": {
+  "job": "06c6e93c-2421-4f0c-9873-3df666dd4659",
+  "kind": "char"
+ },
+ "assets/chars/hoyt.webp": {
+  "job": "066157bc-8016-4c1a-b68b-6ad0c1af1f10",
+  "kind": "char"
+ },
+ "assets/chars/kassad.webp": {
+  "job": "f867302f-edba-4ca4-a7ed-5aeee179decc",
+  "kind": "char"
+ },
+ "assets/chars/lamia.webp": {
+  "job": "973a08ea-a719-4baf-bd7a-b9fda299a38f",
+  "kind": "char"
+ },
+ "assets/chars/masteen.webp": {
+  "job": "50e42d09-cafa-4ea8-86fb-8902aa178ca3",
+  "kind": "char"
+ },
+ "assets/chars/shrike.webp": {
+  "job": "de286cb5-3c58-44b1-bdd0-6fccebff17e6",
+  "kind": "char"
+ },
+ "assets/chars/silenus.webp": {
+  "job": "e283b28f-e64f-4e82-b867-716144c19749",
+  "kind": "char"
+ },
+ "assets/chars/sol.webp": {
+  "job": "8a3bea64-a0c3-4b2e-8267-4a05c1c645ff",
+  "kind": "char"
+ },
+ "assets/panels/title.webp": {
+  "job": "ce8590e5-5e2b-48d4-b92e-44a3183303ea",
+  "kind": "card"
  }
 }

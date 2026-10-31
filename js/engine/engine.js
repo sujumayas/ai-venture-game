@@ -3,11 +3,13 @@ import { t, tr, L, UI, DEFAULTS, setLang } from './i18n.js';
 import * as geom from './geom.js';
 import { audio } from './audio.js';
 
-export const REG = { scenes: {}, chapters: [], chars: {}, items: {} };
+export const REG = { scenes: {}, chapters: [], chars: {}, items: {}, tales: {} };
 export const defineScene = (def) => (REG.scenes[def.id] = def);
 export const defineChapter = (def) => { REG.chapters.push(def); return def; };
 export const defineChars = (obj) => Object.assign(REG.chars, obj);
 export const defineItems = (obj) => Object.assign(REG.items, obj);
+/** A pilgrim's tale: { id, chapter, kicker, title, sub, cardImg, player, inv, start, startPos, intro } */
+export const defineTale = (def) => (REG.tales[def.id] = def);
 
 const $ = (id) => document.getElementById(id);
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
@@ -579,7 +581,7 @@ export class Game {
       if (below) el.classList.add('below');
       act.el.classList.add('talking');
     } else {
-      el = this.captionEl(s, { who: this.speakerName(who), style: opts.style });
+      el = this.captionEl(s, { who: this.speakerName(who), style: opts.style || ch.caption || ch.balloon });
     }
     await this.waitAdvance(opts.ms ?? this.textTime(s));
     el.remove();
@@ -772,6 +774,38 @@ export class Game {
     this.state.player = id;
     if (x != null) this.state.pos = { x, y, dir: dir || 'right' };
     this.refresh();
+  }
+
+  /** Begin a tale inside the current chapter: title card, switch player & inventory, go to its first scene. */
+  async startTale(id, opts = {}) {
+    const tl = REG.tales[id];
+    if (!tl) throw new Error('Unknown tale ' + id);
+    this.state.frame = { player: this.state.player, inv: this.state.inv.slice(), scene: this.state.scene, pos: this.state.pos };
+    this.state.tale = id;
+    if (tl.chapter) this.state.chapter = tl.chapter;
+    this.state.player = tl.player;
+    this.state.inv = (tl.inv || []).slice();
+    this.item = null; this.verb = null; this.renderInv();
+    this.lock();
+    try {
+      if (!opts.noCard) await this.card({ kicker: tl.kicker, title: tl.title, sub: tl.sub, img: tl.cardImg });
+      if (tl.intro) await this.run(tl.intro);
+    } finally { this.unlock(); }
+    await this.goto(tl.start, tl.startPos || {});
+  }
+
+  /** End the current tale: restore the frame player/inventory and run the chapter's afterTale hook. */
+  async endTale() {
+    const id = this.state.tale;
+    const fr = this.state.frame || { player: 'consul', inv: [] };
+    this.state.tale = null;
+    this.state.player = fr.player;
+    this.state.inv = fr.inv || [];
+    this.item = null; this.renderInv();
+    const tl = REG.tales[id] || {};
+    const ch = this.chapterDef(tl.chapter || this.state.chapter);
+    if (ch && ch.afterTale) await this.run(ch.afterTale, id);
+    else if (fr.scene) await this.goto(fr.scene, fr.pos || {});
   }
 
   async nextChapter() {
